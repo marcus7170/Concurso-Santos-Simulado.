@@ -868,7 +868,7 @@
     /* Responsividade e Otimizações Mobile */
     @media (max-width: 768px) {
       body {
-        padding-bottom: max(70px, env(safe-area-inset-bottom));
+        padding-bottom: max(100px, calc(86px + env(safe-area-inset-bottom)));
         -webkit-tap-highlight-color: transparent;
       }
 
@@ -1073,6 +1073,201 @@
 
       .stat-val {
         font-size: 1.15rem;
+      }
+    }
+
+    /* ==========================================================================
+       FOOTER SEMPRE FIXO / CRÉDITOS DO CRIADOR
+       ========================================================================== */
+    .app-fixed-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 99;
+      background: rgba(11, 17, 32, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border-color);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.35);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    [data-theme="light"] .app-fixed-footer {
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 9px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer-creator {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .creator-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px var(--accent-blue-glow);
+      flex-shrink: 0;
+    }
+
+    .creator-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    .creator-label {
+      color: var(--text-dim);
+      font-size: 0.78rem;
+    }
+
+    .creator-name {
+      color: var(--text-main);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .creator-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text-main);
+      background: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .footer-link-pill:hover {
+      transform: translateY(-1.5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .footer-link-pill.contact-pill:hover {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.5);
+      color: #10b981;
+    }
+
+    .footer-link-pill.portfolio-pill:hover {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: rgba(59, 130, 246, 0.5);
+      color: #3b82f6;
+    }
+
+    .footer-link-pill.github-pill:hover {
+      background: rgba(139, 92, 246, 0.15);
+      border-color: rgba(139, 92, 246, 0.5);
+      color: #a78bfa;
+    }
+
+    .footer-icon {
+      flex-shrink: 0;
+    }
+
+    .external-icon {
+      opacity: 0.55;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-link-pill:hover .external-icon {
+      opacity: 1;
+      transform: translate(1px, -1px);
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        padding: 7px 14px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .creator-info {
+        font-size: 0.78rem;
+      }
+
+      .footer-links {
+        justify-content: center;
+        width: 100%;
+        gap: 6px;
+      }
+
+      .footer-link-pill {
+        padding: 4px 9px;
+        font-size: 0.73rem;
+        gap: 5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding-bottom: max(116px, calc(100px + env(safe-area-inset-bottom)));
+      }
+
+      .creator-label {
+        display: none;
+      }
+      
+      .creator-badge {
+        font-size: 0.64rem;
+        padding: 1px 5px;
+      }
+
+      .footer-links {
+        gap: 5px;
+      }
+
+      .footer-link-pill {
+        padding: 4px 8px;
+        font-size: 0.7rem;
       }
     }
   </style>
@@ -1695,6 +1890,54 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
     </section>
 
   </main>
+
+  <!-- FOOTER SEMPRE FIXO / CRÉDITOS -->
+  <footer class="app-fixed-footer">
+    <div class="footer-container">
+      <div class="footer-creator">
+        <div class="creator-avatar">MS</div>
+        <div class="creator-info">
+          <span class="creator-label">Desenvolvido por</span>
+          <strong class="creator-name">Marcus Soares</strong>
+          <span class="creator-badge">Dev Freelancer</span>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <a href="https://wa.me/5513991906461" target="_blank" rel="noopener noreferrer" class="footer-link-pill contact-pill" title="WhatsApp / Contato: (13) 99190-6461">
+          <svg class="footer-icon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.983zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>(13) 99190-6461</span>
+        </a>
+
+        <a href="https://marcus7170.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="footer-link-pill portfolio-pill" title="Visitar Portfólio">
+          <svg class="footer-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+          <span>Portfólio</span>
+          <svg class="external-icon" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
+
+        <a href="https://github.com/marcus7170/" target="_blank" rel="noopener noreferrer" class="footer-link-pill github-pill" title="Ver perfil no GitHub">
+          <svg class="footer-icon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
 
   <!-- MODAL DE FINALIZAÇÃO -->
   <div id="finishModal" class="modal-overlay">
