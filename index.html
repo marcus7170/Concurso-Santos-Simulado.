@@ -1,0 +1,2865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Simulado Oficial de Administração - Santos/SP (IBAM)</title>
+  <meta name="description" content="Simulador de Provas Interativo para Oficial de Administração da Prefeitura Municipal de Santos (Banca IBAM - Edital 71/2026).">
+  <meta name="theme-color" content="#0b1120">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-primary: #0b1120;
+      --bg-surface: #131d31;
+      --bg-surface-alt: #1a2744;
+      --bg-card: rgba(19, 29, 49, 0.75);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-focus: #3b82f6;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --accent-blue: #3b82f6;
+      --accent-blue-glow: rgba(59, 130, 246, 0.35);
+      --accent-cyan: #06b6d4;
+      --accent-purple: #8b5cf6;
+      --accent-gold: #f59e0b;
+      
+      --color-success: #10b981;
+      --color-success-bg: rgba(16, 185, 129, 0.12);
+      --color-success-border: rgba(16, 185, 129, 0.4);
+      --color-error: #ef4444;
+      --color-error-bg: rgba(239, 68, 68, 0.12);
+      --color-error-border: rgba(239, 68, 68, 0.4);
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.25);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f1f5f9;
+      --bg-surface: #ffffff;
+      --bg-surface-alt: #e2e8f0;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-focus: #2563eb;
+      
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #94a3b8;
+      
+      --color-success: #059669;
+      --color-success-bg: rgba(5, 150, 105, 0.1);
+      --color-success-border: rgba(5, 150, 105, 0.3);
+      --color-error: #dc2626;
+      --color-error-bg: rgba(220, 38, 38, 0.1);
+      --color-error-border: rgba(220, 38, 38, 0.3);
+      
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding-bottom: 80px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background-image: 
+        radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(139, 92, 246, 0.12) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 12px var(--accent-blue-glow);
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .brand-text span {
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-icon {
+      background: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-icon:hover {
+      border-color: var(--border-focus);
+      transform: translateY(-1px);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 28px auto 0;
+      padding: 0 20px;
+    }
+
+    /* Scoreboard & Progress */
+    .dashboard-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 14px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--border-focus);
+    }
+
+    .stat-card.correct::before { background: var(--color-success); }
+    .stat-card.incorrect::before { background: var(--color-error); }
+    .stat-card.points::before { background: var(--accent-gold); }
+
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .stat-val {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-main);
+    }
+
+    .stat-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background: var(--bg-surface-alt);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+      width: 0%;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Navigation & Tabs */
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .tab-group {
+      display: flex;
+      gap: 8px;
+      background: var(--bg-surface);
+      padding: 4px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tab-btn.active {
+      background: var(--accent-blue);
+      color: #ffffff;
+      box-shadow: 0 2px 8px var(--accent-blue-glow);
+    }
+
+    .btn-action {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px var(--accent-blue-glow);
+      transition: all 0.2s ease;
+    }
+
+    .btn-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px var(--accent-blue-glow);
+    }
+
+    .btn-action.secondary {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      box-shadow: none;
+    }
+
+    .btn-action.secondary:hover {
+      background: var(--bg-surface-alt);
+      border-color: var(--border-focus);
+    }
+
+    /* Question Cards */
+    .questions-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .question-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease;
+      position: relative;
+    }
+
+    .question-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .q-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .q-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-qnum {
+      background: var(--bg-surface-alt);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .badge-module {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .badge-module.especificos {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .badge-weight {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .q-topic {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .q-statement {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      white-space: pre-line;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      background: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      text-align: left;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      line-height: 1.5;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+
+    .option-btn:hover:not(.disabled) {
+      border-color: var(--border-focus);
+      background: rgba(59, 130, 246, 0.08);
+      transform: translateX(3px);
+    }
+
+    .opt-letter {
+      min-width: 28px;
+      height: 28px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      color: var(--text-muted);
+    }
+
+    .option-btn.selected-correct {
+      background: var(--color-success-bg) !important;
+      border-color: var(--color-success) !important;
+      color: var(--color-success) !important;
+      font-weight: 600;
+    }
+
+    .option-btn.selected-correct .opt-letter {
+      background: var(--color-success);
+      color: #ffffff;
+      border-color: var(--color-success);
+    }
+
+    .option-btn.selected-incorrect {
+      background: var(--color-error-bg) !important;
+      border-color: var(--color-error) !important;
+      color: var(--color-error) !important;
+      font-weight: 600;
+    }
+
+    .option-btn.selected-incorrect .opt-letter {
+      background: var(--color-error);
+      color: #ffffff;
+      border-color: var(--color-error);
+    }
+
+    .option-btn.reveal-correct {
+      background: var(--color-success-bg) !important;
+      border-color: var(--color-success-border) !important;
+    }
+
+    .option-btn.reveal-correct .opt-letter {
+      background: var(--color-success);
+      color: #ffffff;
+    }
+
+    .option-btn.disabled {
+      cursor: default;
+      opacity: 0.85;
+    }
+
+    /* Explanation & Resolution Box */
+    .resolution-box {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface-alt);
+      border-left: 4px solid var(--border-focus);
+      display: none;
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .resolution-box.show {
+      display: block;
+    }
+
+    .resolution-box.correct {
+      border-left-color: var(--color-success);
+      background: var(--color-success-bg);
+    }
+
+    .resolution-box.incorrect {
+      border-left-color: var(--color-error);
+      background: var(--color-error-bg);
+    }
+
+    .res-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .res-text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .res-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .video-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #dc2626;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .video-link-btn:hover {
+      background: #b91c1c;
+      transform: translateY(-1px);
+    }
+
+    /* Redaction Guide Section */
+    .guide-container {
+      display: none;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .guide-container.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .guide-header {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .guide-header h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .rule-callout {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 4px solid var(--accent-gold);
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+
+    .models-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .model-card {
+      background: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .model-card h3 {
+      font-size: 1.1rem;
+      color: var(--accent-cyan);
+      margin-bottom: 8px;
+    }
+
+    .model-badge {
+      font-size: 0.75rem;
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--accent-cyan);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .model-body {
+      background: var(--bg-surface);
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--text-main);
+      border: 1px dashed var(--border-color);
+      margin-top: 10px;
+      white-space: pre-line;
+    }
+
+    /* Modal de Conclusão */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .modal-content {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      max-width: 600px;
+      width: 100%;
+      padding: 30px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+
+    .modal-trophy {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .modal-score-box {
+      background: var(--bg-surface-alt);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin: 18px 0;
+      display: flex;
+      justify-content: space-around;
+      border: 1px solid var(--border-color);
+    }
+
+    .modal-score-item h4 {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .modal-score-item p {
+      font-size: 1.6rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .modal-msg {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
+
+    /* Central de Estudos */
+    .study-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .filter-pill {
+      background: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-pill:hover {
+      border-color: var(--border-focus);
+      color: var(--text-main);
+    }
+
+    .filter-pill.active {
+      background: var(--accent-blue);
+      color: #ffffff;
+      border-color: var(--accent-blue);
+      box-shadow: 0 2px 8px var(--accent-blue-glow);
+    }
+
+    .study-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .study-card {
+      background: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: all 0.2s ease;
+    }
+
+    .study-card:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .study-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .study-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .study-content {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--text-main);
+      margin-bottom: 18px;
+    }
+
+    .study-content p {
+      margin-bottom: 10px;
+    }
+
+    .study-content ul, .study-content ol {
+      margin: 8px 0 14px 22px;
+    }
+
+    .study-content li {
+      margin-bottom: 6px;
+    }
+
+    .macete-box {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 4px solid var(--accent-gold);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      margin: 14px 0;
+      font-size: 0.88rem;
+    }
+
+    .macete-box strong {
+      color: var(--accent-gold);
+    }
+
+    .study-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.85rem;
+    }
+
+    .study-table th, .study-table td {
+      border: 1px solid var(--border-color);
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    .study-table th {
+      background: var(--bg-surface);
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .study-table tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .study-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsividade e Otimizações Mobile */
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: max(70px, env(safe-area-inset-bottom));
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .container {
+        margin-top: 16px;
+        padding: 0 14px;
+      }
+
+      .header-container {
+        padding: 10px 14px;
+      }
+
+      .brand {
+        gap: 10px;
+      }
+
+      .brand-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+      }
+
+      .brand-text h1 {
+        font-size: 1rem;
+      }
+
+      .brand-text span {
+        font-size: 0.72rem;
+      }
+
+      /* Painel de Estatísticas 2x2 no Celular */
+      .dashboard-panel {
+        padding: 16px;
+        margin-bottom: 18px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .stat-card {
+        padding: 10px;
+      }
+
+      .stat-val {
+        font-size: 1.3rem;
+      }
+
+      /* Abas em Grid 2x2 para fácil toque com o polegar */
+      .controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .tab-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        width: 100%;
+        padding: 4px;
+      }
+
+      .tab-btn {
+        justify-content: center;
+        padding: 10px 6px;
+        font-size: 0.8rem;
+        min-height: 44px;
+        text-align: center;
+      }
+
+      .btn-action {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+        font-size: 0.95rem;
+      }
+
+      /* Cards de Questões Otimizados */
+      .question-card {
+        padding: 16px;
+        border-radius: var(--radius-md);
+      }
+
+      .q-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .q-statement {
+        font-size: 0.98rem;
+        line-height: 1.55;
+        margin-bottom: 16px;
+      }
+
+      .option-btn {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        min-height: 48px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .opt-letter {
+        min-width: 26px;
+        height: 26px;
+        font-size: 0.8rem;
+      }
+
+      .resolution-box {
+        padding: 14px;
+        margin-top: 14px;
+      }
+
+      .res-text {
+        font-size: 0.85rem;
+        line-height: 1.55;
+      }
+
+      /* Central de Estudos e Filtros com Scroll Horizontal no Mobile */
+      .guide-container {
+        padding: 18px 14px;
+      }
+
+      .study-filters {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 6px;
+      }
+
+      .study-filters::-webkit-scrollbar {
+        display: none;
+      }
+
+      .filter-pill {
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 0.78rem;
+      }
+
+      .study-card {
+        padding: 16px;
+      }
+
+      .study-title {
+        font-size: 1.05rem;
+      }
+
+      /* Tabelas de estudo roláveis para não quebrar largura de tela */
+      .study-table {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        border-radius: var(--radius-sm);
+        white-space: normal;
+      }
+
+      .study-table th, .study-table td {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+      }
+
+      .video-link-btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 42px;
+      }
+
+      /* Modal adaptado para telas pequenas */
+      .modal-content {
+        padding: 22px 16px;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      .modal-score-box {
+        padding: 12px 8px;
+      }
+
+      .modal-score-item p {
+        font-size: 1.35rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .tab-btn {
+        font-size: 0.75rem;
+        padding: 8px 4px;
+      }
+
+      .brand-text h1 {
+        font-size: 0.92rem;
+      }
+
+      .stat-val {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">🏛️</div>
+        <div class="brand-text">
+          <h1>Oficial de Administração</h1>
+          <span>Santos/SP • Edital 71/2026 • Banca IBAM</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggleBtn" class="btn-icon" title="Alternar Modo Claro/Escuro">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- DASHBOARD DE DESEMPENHO -->
+    <section class="dashboard-panel">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Modo Atual</div>
+          <div class="stat-val" id="modeDisplay" style="font-size: 1.1rem; padding-top: 4px;">Simulado (10Q)</div>
+          <div class="stat-sub">Equilibrado por Módulo</div>
+        </div>
+        <div class="stat-card correct">
+          <div class="stat-label">Acertos</div>
+          <div class="stat-val" id="correctCount" style="color: var(--color-success);">0</div>
+          <div class="stat-sub" id="correctPct">0% de acerto</div>
+        </div>
+        <div class="stat-card incorrect">
+          <div class="stat-label">Erros</div>
+          <div class="stat-val" id="incorrectCount" style="color: var(--color-error);">0</div>
+          <div class="stat-sub">Atenção aos detalhes</div>
+        </div>
+        <div class="stat-card points">
+          <div class="stat-label">Pontos Ponderados</div>
+          <div class="stat-val" id="pointsCount" style="color: var(--accent-gold);">0.0</div>
+          <div class="stat-sub" id="maxPointsDisplay">de 24.0 pts na prova</div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">
+        <span>Progresso: <span id="answeredCount">0</span> de <span id="totalQuestionsDisplay">10</span> respondidas</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+    </section>
+
+    <!-- BARRA DE CONTROLE -->
+    <div class="controls-bar">
+      <div class="tab-group">
+        <button id="tabSimulado" class="tab-btn active">🎲 Simulado 10Q</button>
+        <button id="tabBanco" class="tab-btn">📚 Banco Todo (40Q)</button>
+        <button id="tabEstudo" class="tab-btn">📖 Central de Estudos</button>
+        <button id="tabRedacao" class="tab-btn">✍️ Redação & Modelos</button>
+      </div>
+
+      <div style="display: flex; gap: 8px;">
+        <button id="btnShuffle" class="btn-action" title="Sortear novas 10 questões equilibradas">
+          🔄 Sortear Novo Simulado
+        </button>
+      </div>
+    </div>
+
+    <!-- SEÇÃO DAS QUESTÕES -->
+    <section id="questionsSection" class="questions-wrapper">
+      <!-- Inserido dinamicamente via JS -->
+    </section>
+
+    <!-- SEÇÃO DO GUIA DE REDAÇÃO -->
+    <section id="redacaoSection" class="guide-container">
+      <div class="guide-header">
+        <h2>✍️ Guia da Prova Dissertativa & Redação Técnica (IBAM)</h2>
+        <p style="color: var(--text-muted); margin-top: 4px; font-size: 0.95rem;">
+          Conforme Capítulo 9 do Edital nº 71/2026 da Prefeitura Municipal de Santos.
+        </p>
+      </div>
+
+      <div class="rule-callout">
+        <strong>⚠️ Regras Críticas de Eliminação:</strong>
+        <ul style="margin: 8px 0 0 20px; line-height: 1.6;">
+          <li><strong>Escala de Pontuação:</strong> 0 a 40 pontos. Nota mínima para aprovação: <strong>20 pontos</strong>.</li>
+          <li><strong>Extensão Obrigatória:</strong> Mínimo de <strong>20 linhas</strong> e máximo de <strong>30 linhas</strong>. Textos com menos de 20 linhas recebem <strong>NOTA ZERO</strong> imediata!</li>
+          <li><strong>Proibição de Identificação:</strong> NUNCA assine nem invente nomes no texto para não ser desclassificado.</li>
+          <li><strong>Sem Título:</strong> A IBAM não exige título. Comece direto no 1º parágrafo para não queimar linhas válidas.</li>
+          <li><strong>Estrutura em 4 Parágrafos:</strong> 1. Introdução (Norma e Demanda) &bull; 2. Análise dos Fatos &bull; 3. Providências Práticas &bull; 4. Conclusão/Encaminhamento.</li>
+        </ul>
+      </div>
+
+      <div class="models-grid">
+        
+        <!-- Modelo 1 -->
+        <div class="model-card">
+          <span class="model-badge">MODELO 1 &bull; ATENDIMENTO PRIORITÁRIO & 5S</span>
+          <h3>Relatório Técnico: Atendimento Prioritário e Gestão de Fluxo</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Situação-Problema: Reclamações de munícipes idosos e gestantes sobre demora no atendimento e guichês desorganizados (Leis 10.048/00 e 13.460/17).
+          </p>
+          <div class="model-body">Ao analisar o fluxo de atendimento da unidade, verificou-se a ocorrência de desconformidades em relação ao cumprimento das garantias de prioridade legal estabelecidas pela Lei Federal nº 10.048/2000 e pela Lei nº 13.460/2017 (Carta de Serviços ao Usuário). Constatou-se que a ausência de triagem prévia e a sinalização inadequada dos guichês geraram morosidade e conflitos operacionais no balcão de recepção.
+
+Diante do cenário apresentado, fundamenta-se a necessidade de readequação imediata dos procedimentos organizacionais. O atendimento com urbanidade, eficiência e respeito às prioridades de idosos, pessoas com deficiência e gestantes constitui dever indeclinável do servidor público municipal, conforme preceitua o Estatuto dos Funcionários Públicos de Santos (Lei nº 4.623/1984).
+
+Para sanar os gargalos identificados, determinam-se as seguintes providências administrativas: a) implantação de sistema de senhas diferenciadas por categoria de atendimento; b) reorganização do espaço físico com sinalização clara dos guichês prioritários; e c) capacitação contínua da equipe de recepção para orientação preventiva aos munícipes.
+
+Submete-se o presente relatório à apreciação da chefia imediata, sugerindo a emissão de ordem de serviço para implementação das melhorias propostas no prazo de dez dias úteis, zelando pela qualidade e celeridade do serviço público prestado.</div>
+        </div>
+
+        <!-- Modelo 2 -->
+        <div class="model-card">
+          <span class="model-badge">MODELO 2 &bull; LGPD vs. LAI</span>
+          <h3>Despacho Administrativo: Acesso à Informação e Proteção de Dados</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Situação-Problema: Solicitação de cópia de processo contendo dados pessoais sensíveis por cidadão não participante da lide.
+          </p>
+          <div class="model-body">Trata-se de requerimento formulado por munícipe solicitando acesso integral e fotocópia do Processo Administrativo nº 12.345/2026. Cumpre destacar que os autos contêm documentos pessoais, laudos médicos e informações financeiras protegidas por sigilo legal.
+
+A despeito do princípio da publicidade que rege a Administração Pública, preconizado na Lei de Acesso à Informação (Lei nº 12.527/2011), o direito de acesso deve ser harmonizado com a proteção dos direitos fundamentais à intimidade e à privacidade, nos termos da Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 - LGPD). O tratamento de dados pessoais por órgãos públicos exige estrita observância à finalidade pública e à necessidade do ato.
+
+Considerando que o requerente não figura como parte interessada ou representante legalmente constituído no referido processo, mostra-se inviável o fornecimento irrestrito das peças que contenham dados pessoais identificáveis de terceiros, sob pena de responsabilização administrativa do órgão.
+
+Deferem-se, contudo, a certidão explicativa do andamento processual e a vista parcial dos autos, mediante a tarja/ocultação prévia de dados pessoais sensíveis, assegurando a transparência passiva sem violar a privacidade dos titulares. Encaminhe-se à Seção de Protocolo para providências.</div>
+        </div>
+
+        <!-- Modelo 3 -->
+        <div class="model-card">
+          <span class="model-badge">MODELO 3 &bull; METODOLOGIA 5S & ARQUIVOS</span>
+          <h3>Comunicado Interno: Organização de Arquivos Setoriais e 5S</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Situação-Problema: Acúmulo desordenado de papéis e falta de padronização no arquivo corrente comprometendo prazos processuais.
+          </p>
+          <div class="model-body">Comunico à equipe técnica da unidade a deflagração do plano de reorganização do arquivo corrente e do ambiente de trabalho, pautado na metodologia 5S (Utilização, Ordenação, Limpeza, Asseio e Autodisciplina), visando otimizar a rotina administrativa e garantir a preservação de documentos públicos.
+
+A acumulação desordenada de processos e materiais inservíveis compromete o controle de prazos e a celeridade na localização de dados necessários ao atendimento das demandas internas e externas. A aplicação do Senso de Utilização permitirá a triagem dos documentos que devem permanecer no arquivo corrente e a destinação adequada daqueles em fase intermediária ou passíveis de eliminação, nos termos da tabela de temporalidade vigente.
+
+Ademais, a implementação do Senso de Ordenação padronizará as caixas box, pastas suspensas e a indexação digital dos processos, assegurando que qualquer documento seja localizado com rapidez e segurança pelos oficiais de administração.
+
+Conto com a colaboração e o empenho de todos os servidores na execução do cronograma de organização, reforçando que o zelo pelo patrimônio e pela documentação pública constitui obrigação funcional de todo agente público.</div>
+        </div>
+
+        <!-- Modelo 4 -->
+        <div class="model-card">
+          <span class="model-badge">MODELO 4 &bull; TRANSPARÊNCIA ATIVA / PASSIVA</span>
+          <h3>Informação Técnica: Resposta a Pedido de Informação (LAI)</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Situação-Problema: Requerimento de cidadão solicitando planilha consolidada dos contratos de prestação de serviços do exercício anterior.
+          </p>
+          <div class="model-body">Em atenção ao Requerimento de Acesso à Informação registrado sob o nº 876/2026, pelo qual o cidadão solicita relação consolidada dos contratos de prestação de serviços executados no exercício anterior, prestam-se as seguintes informações.
+
+A prestação de informações e a transparência pública constituem regra na Administração Pública Municipal, conforme preconizado na Lei Federal nº 12.527/2011 (LAI) e na Lei Orgânica do Município de Santos. A disponibilização de dados contratuais fortalece o controle social e demonstra o compromisso da gestão com a integridade e a lisura dos atos administrativos.
+
+Informa-se que a totalidade dos contratos vigentes, seus aditivos, notas de empenho e relatórios de medição encontra-se publicada e atualizada no Portal da Transparência da Prefeitura Municipal de Santos, acessível de forma direta e irrestrita pelo público externo. Anexa-se ao presente expediente a planilha resumida com os quantitativos e valores globais solicitados.
+
+Remeta-se ao Serviço de Informação ao Cidadão (SIC) para tempestiva resposta ao interessado no prazo regimental.</div>
+        </div>
+
+        <!-- Modelo 5 -->
+        <div class="model-card">
+          <span class="model-badge">MODELO 5 &bull; PATRIMÔNIO & ART. 222</span>
+          <h3>Memorando Interno: Controle de Estoque e Zelo Patrimonial</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Situação-Problema: Disparidade de consumo de insumos de expediente e desperdício de materiais na repartição.
+          </p>
+          <div class="model-body">Dirijo-me aos responsáveis pelas seções administrativas para solicitar a rigorosa observância aos procedimentos de requisição, recebimento e guarda de materiais de expediente no âmbito do almoxarifado setorial.
+
+Constatou-se disparidade entre o consumo registrado e a demanda real de insumos nas últimas semanas, indicando a necessidade de aperfeiçoar o controle de estoque e coibir o uso indevido de bens públicos. O artigo 222 do Estatuto dos Funcionários Públicos Civis de Santos (Lei nº 4.623/1984) estabelece expressamente o dever do servidor de zelar pela economia e pela conservação do material confiado à sua guarda.
+
+Para mitigar os riscos de desperdício, estabelece-se que as requisições de material deverão ser formalizadas via sistema informatizado, com assinatura do chefe do setor, vedando-se a entrega de insumos sem o devido registro do quantitativo e do destinatário.
+
+Reitera-se que o uso racional dos recursos públicos assegura a eficiência administrativa e a sustentabilidade no serviço público municipal. Solicito a ampla divulgação das presentes instruções a todos os colaboradores da unidade.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO DA CENTRAL DE ESTUDOS -->
+    <section id="estudoSection" class="guide-container">
+      <div class="guide-header">
+        <h2>📖 Central de Estudos Direcionada & Videoaulas (IBAM)</h2>
+        <p style="color: var(--text-muted); margin-top: 4px; font-size: 0.95rem;">
+          Conteúdos estratégicos, resumos de alta retenção, macetes de prova e videoaulas selecionadas para o cargo de Oficial de Administração.
+        </p>
+      </div>
+
+      <!-- Filtros por Matéria -->
+      <div class="study-filters">
+        <button class="filter-pill active" data-filter="all">🌟 Todos os Tópicos</button>
+        <button class="filter-pill" data-filter="esp">🎯 Específicos & Atendimento</button>
+        <button class="filter-pill" data-filter="por">🇧🇷 Língua Portuguesa</button>
+        <button class="filter-pill" data-filter="leg">⚖️ Legislação de Santos</button>
+        <button class="filter-pill" data-filter="mat">📐 Matemática & RLM</button>
+        <button class="filter-pill" data-filter="inf">💻 Informática</button>
+      </div>
+
+      <div class="study-grid">
+
+        <!-- ==================== CONHECIMENTOS ESPECÍFICOS ==================== -->
+        <article class="study-card" data-category="esp">
+          <div class="study-header">
+            <span class="study-title">🎯 Metodologia 5S na Administração Pública</span>
+            <span class="badge badge-module especificos">Peso 4.0 &bull; Específicos</span>
+          </div>
+          <div class="study-content">
+            <p>O Programa 5S originou-se no Japão e visa otimizar ambientes de trabalho, reduzir desperdícios e organizar o fluxo de materiais e informações:</p>
+            <table class="study-table">
+              <thead>
+                <tr>
+                  <th>Senso (Japonês)</th>
+                  <th>Tradução</th>
+                  <th>Conceito Prático na Repartição</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Seiri</strong></td>
+                  <td>Utilização / Descarte</td>
+                  <td>Triar e separar o útil do inútil; descarte de papéis velhos e materiais inservíveis.</td>
+                </tr>
+                <tr>
+                  <td><strong>Seiton</strong></td>
+                  <td>Ordenação / Arrumação</td>
+                  <td>Um lugar para cada coisa e cada coisa em seu lugar; pastas identificadas e caixas box numeradas.</td>
+                </tr>
+                <tr>
+                  <td><strong>Seiso</strong></td>
+                  <td>Limpeza</td>
+                  <td>Eliminar a sujeira do setor; responsabilidade compartilhada por todos (não sujar).</td>
+                </tr>
+                <tr>
+                  <td><strong>Seiketsu</strong></td>
+                  <td>Asseio / Padronização</td>
+                  <td>Gestão visual, cores padronizadas, normas de higiene e bem-estar contínuo.</td>
+                </tr>
+                <tr>
+                  <td><strong>Shitsuke</strong></td>
+                  <td>Autodisciplina</td>
+                  <td>Transformar as normas e procedimentos em hábito diário; melhoria contínua (*Kaizen*).</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="macete-box">
+              <strong>💡 Macete IBAM:</strong> O <em>Seiri</em> elimina o que não serve; o <em>Seiton</em> organiza o que ficou para localização em menos de 30 segundos!
+            </div>
+          </div>
+          <div class="study-footer">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Tópico essencial para Objetiva e Redação</span>
+            <a href="http://www.youtube.com/watch?v=50JpDjbs4tY" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+              ▶️ Assistir Videoaula: Questões de 5S e Rotinas IBAM
+            </a>
+          </div>
+        </article>
+
+        <article class="study-card" data-category="esp">
+          <div class="study-header">
+            <span class="study-title">📂 Arquivologia: Teoria das Três Idades & Protocolo</span>
+            <span class="badge badge-module especificos">Peso 4.0 &bull; Específicos</span>
+          </div>
+          <div class="study-content">
+            <p>Os documentos públicos passam por um ciclo vital bem definido de acordo com sua frequência de uso e valor jurídico:</p>
+            <ul>
+              <li><strong>1ª Idade (Arquivo Corrente):</strong> Documentos em tramitação, de uso frequente e valor primário (administrativo, fiscal ou legal). Fica no próprio setor de trabalho.</li>
+              <li><strong>2ª Idade (Arquivo Intermediário / "Purgatório"):</strong> Documentos com uso reduzido que aguardam prazos prescricionais ou precaucionais definidos na <em>Tabela de Temporalidade</em>.</li>
+              <li><strong>3ª Idade (Arquivo Permanente / Histórico):</strong> Documentos de valor secundário (cultural, histórico ou comprobatório). <strong>Nunca podem ser eliminados</strong> (são imprescritíveis e inalienáveis).</li>
+            </ul>
+            <div class="macete-box">
+              <strong>💡 Macete Protocolo (*CLAUDIRCER*):</strong> As atividades do protocolo são: <strong>CLAs</strong>sificação, <strong>AU</strong>tuação, <strong>DI</strong>stribuição, <strong>R</strong>egistro, <strong>C</strong>ontrole de tramitação, <strong>E</strong>xpedição e <strong>R</strong>ecebimento.
+            </div>
+          </div>
+          <div class="study-footer">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Gestão de documentos públicos</span>
+            <a href="http://www.youtube.com/watch?v=50JpDjbs4tY" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+              ▶️ Assistir Videoaula: Gestão de Documentos e Arquivos
+            </a>
+          </div>
+        </article>
+
+        <article class="study-card" data-category="esp">
+          <div class="study-header">
+            <span class="study-title">👥 Qualidade no Atendimento & Leis Federais</span>
+            <span class="badge badge-module especificos">Peso 4.0 &bull; Específicos</span>
+          </div>
+          <div class="study-content">
+            <p>O atendimento ao munícipe é pautado por legislações federais de observância obrigatória na Prefeitura de Santos:</p>
+            <ul>
+              <li><strong>Lei Federal nº 10.048/2000 (Atendimento Prioritário):</strong> Garante atendimento prioritário imediato e diferenciado a: pessoas com deficiência, idosos (60+ anos), gestantes, lactantes, pessoas com crianças de colo e obesos.</li>
+              <li><strong>Lei Federal nº 13.460/2017 (Direitos do Usuário):</strong> Cria a obrigatoriedade da <em>Carta de Serviços ao Usuário</em> e estabelece o papel da Ouvidoria no acolhimento de sugestões, denúncias e reclamações com prazos definidos.</li>
+              <li><strong>Decreto Federal nº 9.758/2019 (Simplificação e Pronomes):</strong> O único pronome de tratamento correto no serviço público é <strong>"Senhor" / "Senhora"</strong>. Fica abolido o uso de termos arcaicos como "Doutor", "Ilustríssimo" e "Digníssimo".</li>
+            </ul>
+            <div class="macete-box">
+              <strong>💡 Fechos Oficiais:</strong> Apenas dois fechos são admitidos: <em>Respeitosamente</em> (para autoridades de hierarquia superior) e <em>Atenciosamente</em> (para mesma hierarquia ou inferior).
+            </div>
+          </div>
+          <div class="study-footer">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Atendimento com urbanidade e eficiência</span>
+            <a href="http://www.youtube.com/watch?v=os6Ps23T91g" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+              ▶️ Assistir Videoaula: Leis de Atendimento e Relações Humanas
+            </a>
+          </div>
+        </article>
+
+        <!-- ==================== LÍNGUA PORTUGUESA ==================== -->
+        <article class="study-card" data-category="por">
+          <div class="study-header">
+            <span class="study-title">🇧🇷 Acentuação Gráfica & Novo Acordo</span>
+            <span class="badge badge-module">Peso 2.0 &bull; Português</span>
+          </div>
+          <div class="study-content">
+            <p>A banca IBAM prioriza a identificação da regra gramatical que justifica o acento gráfico:</p>
+            <ul>
+              <li><strong>Proparoxítonas:</strong> TODAS são acentuadas sem exceção (ex: <em>pú-bli-co, trân-si-to, é-ti-ca, vír-gu-la</em>).</li>
+              <li><strong>Oxítonas:</strong> Acentuam-se as terminadas em <strong>A(S), E(S), O(S), EM/ENS</strong> (ex: <em>ca-já, vo-cê, ci-pó, ar-ma-zém, pa-ra-béns</em>).</li>
+              <li><strong>Paroxítonas:</strong> Acentuam-se as que NÃO terminam nas terminações das oxítonas. Destaque especial para terminadas em <strong>ditongo oral</strong> (ex: <em>re-la-tó-rio, his-tó-ria, ór-gão</em>).</li>
+              <li><strong>Regra do Hiato:</strong> Acentuam-se as vogais <strong>I</strong> e <strong>U</strong> tônicas, sozinhas na sílaba ou seguidas de 'S', sem ditongo antes e sem 'NH' depois (ex: <em>sa-ú-de, sa-í-da, ju-í-zes</em>).</li>
+            </ul>
+            <div class="macete-box">
+              <strong>💡 Atenção ao Novo Acordo:</strong> Não se acentuam mais os ditongos abertos <em>ei, oi</em> nas paroxítonas (ex: <em>ideia, assembleia, jiboia</em>). Mas nas oxítonas continuam acentuados (ex: <em>herói, papéis</em>).
+            </div>
+          </div>
+          <div class="study-footer">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Regras fundamentais de escrita</span>
+            <a href="http://www.youtube.com/watch?v=TcOgQRAWoP8" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+              ▶️ Assistir Videoaula: Acentuação Gráfica IBAM
+            </a>
+          </div>
+        </article>
+
+        <article class="study-card" data-category="por">
+          <div class="study-header">
+            <span class="study-title">🇧🇷 Conectivos & Coesão Textual</span>
+            <span class="badge badge-module">Peso 2.0 &bull; Português</span>
+          </div>
+          <div class="study-content">
+            <p>Dominar o valor semântico das conjunções garante pontos tanto na prova objetiva quanto nota máxima de coesão na prova dissertativa:</p>
+            <table class="study-table">
+              <thead>
+                <tr>
+                  <th>Classificação</th>
+                  <th>Principais Conectivos</th>
+                  <th>Sentido Expressado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Adversativas</strong></td>
+                  <td>mas, porém, contudo, todavia, entretanto, no entanto</td>
+                  <td>Oposição, contraste ou quebra de expectativa.</td>
+                </tr>
+                <tr>
+                  <td><strong>Conclusivas</strong></td>
+                  <td>portanto, logo, por isso, destarte, por conseguinte</td>
+                  <td>Conclusão lógica de um raciocínio anterior.</td>
+                </tr>
+                <tr>
+                  <td><strong>Explicativas / Causais</strong></td>
+                  <td>pois, porque, porquanto, visto que, já que</td>
+                  <td>Motivo, causa ou justificativa formal.</td>
+                </tr>
+                <tr>
+                  <td><strong>Concessivas</strong></td>
+                  <td>embora, ainda que, mesmo que, conquanto</td>
+                  <td>Fato contrário que não impede a ação principal.</td>
+                </tr>
+                <tr>
+                  <td><strong>Conformativas</strong></td>
+                  <td>conforme, segundo, consoante, de acordo com</td>
+                  <td>Conformidade com norma ou regulamento legal.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="macete-box">
+              <strong>💡 Dica de Redação IBAM:</strong> Empregue ao menos 3 conjunções variadas no seu texto dissertativo (ex: <em>Diante disso, Contudo, Ademais</em>) para pontuação máxima em articulação!
+            </div>
+          </div>
+          <div class="study-footer">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Articulação e semântica textual</span>
+            <a href="http://www.youtube.com/watch?v=sjxWgnnOawo" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+              ▶️ Assistir Videoaula: Conjunções e Conectivos IBAM
+            </a>
+          </div>
+        </article>
+
+        <!-- ==================== LEGISLAÇÃO MUNICIPAL ==================== -->
+        <article class="study-card" data-category="leg">
+          <div class="study-header">
+            <span class="study-title">⚖️ Estatuto dos Servidores de Santos (Lei nº 4.623/1984)</span>
+            <span class="badge badge-module">Peso 2.0 &bull; Legislação</span>
+          </div>
+          <div class="study-content">
+            <p>O Estatuto Municipal rege os direitos, deveres e a vida funcional do Oficial de Administração:</p>
+            <table class="study-table">
+              <thead>
+                <tr>
+                  <th>Instituto</th>
+                  <th>Prazo Oficial</th>
+                  <th>Regra / Consequência</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Posse</strong></td>
+                  <td>30 dias (prorrogável +30)</td>
+                  <td>Contados da publicação do provimento; torna o cidadão servidor formalmente.</td>
+                </tr>
+                <tr>
+                  <td><strong>Exercício</strong></td>
+                  <td>30 dias da posse</td>
+                  <td>Início das atividades práticas; não entrar em exercício gera exoneração de ofício.</td>
+                </tr>
+                <tr>
+                  <td><strong>Estágio Probatório</strong></td>
+                  <td>3 anos de efetivo exercício</td>
+                  <td>Avaliação de eficiência, assiduidade, pontualidade, disciplina e boa conduta.</td>
+                </tr>
+                <tr>
+                  <td><strong>Licença Gestante</strong></td>
+                  <td>180 dias consecutivos</td>
+                  <td>Remunerada; licença-paternidade de 15 dias.</td>
+                </tr>
+                <tr>
+                  <td><strong>Licença-Prêmio</strong></td>
+                  <td>3 meses a cada 5 anos</td>
+                  <td>Exige efetivo e ininterrupto exercício no serviço público municipal.</td>
+                </tr>
+                <tr>
+                  <td><strong>Interesse Particular</strong></td>
+                  <td>Até 2 anos sem vencimentos</td>
+                  <td>Exige já ter adquirido a estabilidade no cargo público.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="macete-box">
+              <strong>💡 Formas de Provimento:</strong> 
+              • <em>Reintegração:</em> retorno do demitido injustamente com ressarcimento total.
+              • <em>Reversão:</em> retorno do aposentado por invalidez quando recuperado.
+              • <em>Aproveitamento:</em> retorno do servidor que estava em disponibilidade.
+              • <em>Readaptação:</em> ocupação de novo cargo compatível com limitação física/mental.
+            </div>
+          </div>
+          <div class="study-footer">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Prazos e direitos fundamentais do servidor</span>
+            <a href="http://www.youtube.com/watch?v=os6Ps23T91g" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+              ▶️ Assistir Videoaula: Estatuto dos Servidores de Santos (Parte 1)
+            </a>
+          </div>
+        </article>
+
+        <article class="study-card" data-category="leg">
+          <div class="study-header">
+            <span class="study-title">⚖️ Regime Disciplinar, Prescrição & Art. 222</span>
+            <span class="badge badge-module">Peso 2.0 &bull; Legislação</span>
+          </div>
+          <div class="study-content">
+            <p>O Estatuto de Santos estabelece as penalidades aplicáveis às infrações funcionais e seus respectivos prazos de extinção de punibilidade:</p>
+            <ul>
+              <li><strong>Penalidades Disciplinares:</strong> Repreensão (escrita), Suspensão (até 90 dias, com perda da remuneração), Multa (conversão de suspensão), Demissão, Demissão a bem do serviço público e Cassação de aposentadoria.</li>
+              <li><strong>Prescrição de 2 Anos:</strong> Aplica-se às faltas disciplinares mais brandas puníveis com repreensão, suspensão ou multa.</li>
+              <li><strong>Prescrição de 5 Anos:</strong> Aplica-se às faltas graves que ensejam demissão, cassação de disponibilidade ou aposentadoria.</li>
+              <li><strong>Artigo 222 (Zelo Patrimonial):</strong> Dever expresso do funcionário de zelar pela economia e conservação de materiais, máquinas e bens públicos sob sua guarda.</li>
+            </ul>
+            <div class="macete-box">
+              <strong>💡 Lei Orgânica de Santos (Art. 75 - Mandato de Vereador):</strong> Se o servidor for eleito Vereador e houver compatibilidade de horários, acumula legitimamente o cargo e o subsídio. Se for eleito Prefeito, afasta-se obrigatoriamente e opta pela remuneração!
+            </div>
+          </div>
+          <div class="study-footer">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Deveres e penalidades disciplinares</span>
+            <a href="http://www.youtube.com/watch?v=Xi8XAoRxAf4" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+              ▶️ Assistir Videoaula: Regime Disciplinar e Punições Santos
+            </a>
+          </div>
+        </article>
+
+        <!-- ==================== MATEMÁTICA & RLM ==================== -->
+        <article class="study-card" data-category="mat">
+          <div class="study-header">
+            <span class="study-title">📐 Regra de Três, Porcentagem & Variações</span>
+            <span class="badge badge-module">Peso 2.0 &bull; Matemática</span>
+          </div>
+          <div class="study-content">
+            <p>Macetes rápidos para resolver questões numéricas recorrentes da banca IBAM:</p>
+            <ul>
+              <li><strong>Regra de Três Inversa:</strong> Pergunte: "Se eu aumento a quantidade de trabalhadores, o tempo aumenta ou diminui?". Se diminui, as grandezas são INVERSAS (multiplica-se em linha reta: $A_1 \times T_1 = A_2 \times T_2$).</li>
+              <li><strong>Aumentos Sucessivos:</strong> Dois aumentos sucessivos de 10% NÃO somam 20%. Multiplica-se o fator multiplicativo: $1,10 \times 1,10 = 1,21$ (aumento real de 21%).</li>
+              <li><strong>Desconto Comercial:</strong> $Valor\,Final = Valor\,Original \times (1 - Taxa)$. Ex: desconto de 15% em R$ 200: $200 \times 0,85 = R\$ 170$.</li>
+            </ul>
+            <div class="macete-box">
+              <strong>💡 Conversão de Volume e Capacidade:</strong>
+              • $1\,m^3 = 1.000\,\text{litros}$ &bull; $1\,dm^3 = 1\,\text{litro}$ &bull; $1\,cm^3 = 1\,mL$.
+              • Conversão de Área: $1\,m^2 = 10.000\,cm^2$ (ao mudar de unidade de área, anda-se de 2 em 2 casas decimais!).
+            </div>
+          </div>
+          <div class="study-footer">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Cálculos rápidos para o dia da prova</span>
+            <a href="http://www.youtube.com/watch?v=B5_X17jhHBs" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+              ▶️ Assistir Videoaula: Regra de Três e Frações IBAM
+            </a>
+          </div>
+        </article>
+
+        <article class="study-card" data-category="mat">
+          <div class="study-header">
+            <span class="study-title">📐 Geometria Plana: Áreas & Perímetros</span>
+            <span class="badge badge-module">Peso 2.0 &bull; Matemática</span>
+          </div>
+          <div class="study-content">
+            <p>Fórmulas essenciais de figuras planas aplicadas a salas e reformas de repartições:</p>
+            <ul>
+              <li><strong>Retângulo:</strong> $Área = Base \times Altura$ | $Perímetro = 2 \times (Base + Altura)$.</li>
+              <li><strong>Quadrado:</strong> $Área = L^2$ | $Perímetro = 4 \times L$.</li>
+              <li><strong>Triângulo:</strong> $Área = \frac{Base \times Altura}{2}$.</li>
+              <li><strong>Círculo:</strong> $Área = \pi \times r^2$ | $Comprimento = 2 \times \pi \times r$ (a IBAM costuma pedir $\pi = 3$ ou $\pi = 3,14$).</li>
+              <li><strong>Problemas de Ladrilhos/Pisos:</strong> $Nº\,de\,Placas = \frac{Área\,Total\,do\,Chão}{Área\,de\,Cada\,Placa}$.</li>
+            </ul>
+            <div class="macete-box">
+              <strong>💡 Recuos de Terreno:</strong> Atenção aos enunciados que pedem recuo frontal, de fundo e laterais. Subtraia os recuos ANTES de calcular a área construível!
+            </div>
+          </div>
+          <div class="study-footer">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Geometria aplicada a rotinas públicas</span>
+            <a href="http://www.youtube.com/watch?v=LpRvDfkVPU4" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+              ▶️ Assistir Videoaula: Geometria e Áreas IBAM
+            </a>
+          </div>
+        </article>
+
+        <!-- ==================== INFORMÁTICA ==================== -->
+        <article class="study-card" data-category="inf">
+          <div class="study-header">
+            <span class="study-title">💻 Windows 10 & Atalhos Críticos de Produtividade</span>
+            <span class="badge badge-module">Peso 2.0 &bull; Informática</span>
+          </div>
+          <div class="study-content">
+            <p>Atalhos mais cobrados em concursos municipais organizados pela IBAM:</p>
+            <table class="study-table">
+              <thead>
+                <tr>
+                  <th>Atalho</th>
+                  <th>Ação no Sistema Operacional</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>Win + E</code></td>
+                  <td>Abre o Explorador de Arquivos (*File Explorer*).</td>
+                </tr>
+                <tr>
+                  <td><code>Win + D</code></td>
+                  <td>Mostra / oculta a Área de Trabalho (*Desktop*).</td>
+                </tr>
+                <tr>
+                  <td><code>Win + L</code></td>
+                  <td>Bloqueia o computador instantaneamente (*Lock*).</td>
+                </tr>
+                <tr>
+                  <td><code>Ctrl + Shift + Esc</code></td>
+                  <td>Abre diretamente o Gerenciador de Tarefas do Windows.</td>
+                </tr>
+                <tr>
+                  <td><code>Shift + Delete</code></td>
+                  <td>Exclui o arquivo permanentemente sem enviar para a Lixeira.</td>
+                </tr>
+                <tr>
+                  <td><code>Alt + Tab</code></td>
+                  <td>Alterna rapidamente entre janelas e programas abertos.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="macete-box">
+              <strong>💡 Lixeira:</strong> Arquivos excluídos de pen drives ou unidades de rede NÃO vão para a Lixeira local; são excluídos em definitivo!
+            </div>
+          </div>
+          <div class="study-footer">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Sistema operacional e operação diária</span>
+            <a href="http://www.youtube.com/watch?v=50JpDjbs4tY" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+              ▶️ Assistir Videoaula: Questões de Informática IBAM (Windows)
+            </a>
+          </div>
+        </article>
+
+        <article class="study-card" data-category="inf">
+          <div class="study-header">
+            <span class="study-title">💻 Microsoft Excel & Fórmulas Administrativas</span>
+            <span class="badge badge-module">Peso 2.0 &bull; Informática</span>
+          </div>
+          <div class="study-content">
+            <p>As funções mais cobradas em planilhas eletrônicas no cargo de Oficial de Administração:</p>
+            <ul>
+              <li><strong>Dois pontos (:) vs Ponto e vírgula (;):</strong>
+                • <code>=SOMA(A1:A5)</code>: Soma do intervalo contínuo de A1 ATÉ A5 (A1, A2, A3, A4 e A5).
+                • <code>=SOMA(A1;A5)</code>: Soma apenas as duas células isoladas A1 E A5.
+              </li>
+              <li><strong>Funções de Estatística Básica:</strong>
+                • <code>=MÉDIA(B2:B10)</code>: Média aritmética simples dos valores.
+                • <code>=MÁXIMO(B2:B10)</code> e <code>=MÍNIMO(B2:B10)</code>: Maior e menor valor.
+              </li>
+              <li><strong>Formatação Condicional:</strong> Altera a cor de fundo ou da fonte da célula automaticamente quando atende a uma condição (ex: pintar de verde se $\ge 70$).</li>
+              <li><strong>Referência Absoluta ($):</strong> O símbolo de cifrão <code>$A$1</code> fixa a coluna e a linha para que não variem ao arrastar pela alça de preenchimento.</li>
+            </ul>
+            <div class="macete-box">
+              <strong>💡 Phishing:</strong> Golpe de engenharia social que utiliza e-mails falsificados de instituições oficiais para capturar senhas e credenciais bancárias.
+            </div>
+          </div>
+          <div class="study-footer">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Planilhas e segurança da informação</span>
+            <a href="http://www.youtube.com/watch?v=50JpDjbs4tY" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+              ▶️ Assistir Videoaula: Excel e Fórmulas em Concursos
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL DE FINALIZAÇÃO -->
+  <div id="finishModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-trophy" id="modalTrophy">🏆</div>
+      <h3 class="modal-title" id="modalTitle">Simulado Concluído!</h3>
+      <div class="modal-score-box">
+        <div class="modal-score-item">
+          <h4>Acertos</h4>
+          <p id="modalScoreText" style="color: var(--color-success);">8/10</p>
+        </div>
+        <div class="modal-score-item">
+          <h4>Pontuação Ponderada</h4>
+          <p id="modalPointsText" style="color: var(--accent-gold);">20.0 pts</p>
+        </div>
+        <div class="modal-score-item">
+          <h4>Aproveitamento</h4>
+          <p id="modalPctText">80%</p>
+        </div>
+      </div>
+      <p class="modal-msg" id="modalFeedback">Excelente rendimento! Você atingiu o critério de habilitação (mais de 50% dos pontos). Continue treinando com novas combinações!</p>
+      <div style="display: flex; justify-content: center; gap: 12px;">
+        <button id="modalNewSimBtn" class="btn-action">🎲 Novo Simulado (10Q)</button>
+        <button id="modalCloseBtn" class="btn-action secondary">Revisar Respostas</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       BANCO DE DADOS COMPLETO: 40 QUESTÕES (PERFIL IBAM / SANTOS)
+       ========================================================================== */
+    const QUESTION_BANK = [
+      // ----------------------------------------------------
+      // MÓDULO 1: CONHECIMENTOS ESPECÍFICOS & ATENDIMENTO (10 QUESTÕES - PESO 4)
+      // ----------------------------------------------------
+      {
+        id: "ESP_01",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Metodologia 5S",
+        enunciado: "No âmbito da administração pública e da organização de ambientes de trabalho, o programa 5S compreende cinco sensos essenciais de origem japonesa. O senso responsável por priorizar os materiais indispensáveis, descartando ou eliminando aquilo que não é mais utilizado no setor, denomina-se:",
+        opcoes: [
+          "Seiton (Senso de Ordenação).",
+          "Seiri (Senso de Utilização).",
+          "Seiso (Senso de Limpeza).",
+          "Shitsuke (Senso de Autodisciplina)."
+        ],
+        correta: 1,
+        explicacao: "O primeiro S é o Seiri (Senso de Utilização ou Descarte). Seu objetivo principal é separar o que é útil do que é inútil, eliminando excessos para desocupar espaço físico e otimizar as atividades do setor. O Seiton refere-se à ordenação e localização ágil.",
+        videoUrl: "http://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Questões de Rotinas e Administração IBAM"
+      },
+      {
+        id: "ESP_02",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Arquivologia - Teoria das 3 Idades",
+        enunciado: "De acordo com a teoria das três idades (ciclo vital dos documentos), os documentos em tramitação ou frequentemente consultados pelo órgão que os produziu pertencem ao:",
+        opcoes: [
+          "Arquivo Intermediário (segunda idade).",
+          "Arquivo Corrente (primeira idade).",
+          "Arquivo Permanente ou Histórico (terceira idade).",
+          "Arquivo Morto ou Descartável."
+        ],
+        correta: 1,
+        explicacao: "O Arquivo Corrente (1ª idade) guarda documentos em curso, de uso frequente e valor primário (administrativo, legal ou fiscal). O intermediário acolhe documentos com frequência reduzida de consulta que aguardam destinação final.",
+        videoUrl: "http://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Gestão Documental e Arquivologia"
+      },
+      {
+        id: "ESP_03",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Protocolo Administrativo",
+        enunciado: "O setor de protocolo desempenha atividades vitais para o fluxo de processos na repartição pública. Constituem atividades típicas do serviço de protocolo:",
+        opcoes: [
+          "Eliminação arbitrária de processos judiciais e microfilmagem imediata.",
+          "Recebimento, registro, autuação, classificação, distribuição e controle de tramitação.",
+          "Homologação de licitações públicas e emissão de notas de empenho.",
+          "Criação de normas estatutárias municipais e sanções disciplinares a servidores."
+        ],
+        correta: 1,
+        explicacao: "As atribuições essenciais do protocolo corrente são sintetizadas pelo processo de recebimento, classificação, autuação, registro, distribuição, tramitação e expedição de expedientes.",
+        videoUrl: "http://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Rotinas de Protocolo na Administração Pública"
+      },
+      {
+        id: "ESP_04",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Atendimento Prioritário (Lei 10.048/2000)",
+        enunciado: "Em conformidade com a Lei Federal nº 10.048/2000, têm direito a atendimento prioritário nas repartições públicas municipais:",
+        opcoes: [
+          "Apenas servidores públicos e advogados legalmente constituídos.",
+          "Pessoas com deficiência, pessoas idosas, gestantes, lactantes, pessoas com crianças de colo e os obesos.",
+          "Apenas contribuintes que comprovem pontualidade no pagamento de tributos municipais.",
+          "Cidadãos que tenham realizado agendamento prévio com no mínimo 48 horas de antecedência."
+        ],
+        correta: 1,
+        explicacao: "O Art. 1º da Lei 10.048/2000 estabelece que as pessoas com deficiência, os idosos com idade igual ou superior a 60 anos, as gestantes, as lactantes, as pessoas com crianças de colo e os obesos terão atendimento prioritário imediato nas repartições públicas.",
+        videoUrl: "http://www.youtube.com/watch?v=os6Ps23T91g",
+        videoTitulo: "Videoaula: Legislação e Atendimento ao Público"
+      },
+      {
+        id: "ESP_05",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Redação Oficial (Decreto Federal nº 9.758/2019)",
+        enunciado: "No que diz respeito às formas de tratamento e simplificação da comunicação administrativa no serviço público contemporâneo, assinale a opção correta:",
+        opcoes: [
+          "É obrigatório o emprego de 'Digníssimo' e 'Ilustríssimo' para chefes de seção.",
+          "O único pronome de tratamento geral adequado utilizado na comunicação com agentes públicos é 'Senhor', sendo vedadas fórmulas arcaicas como 'Doutor' ou 'Digno'.",
+          "O pronome 'Vossa Excelência' deve ser utilizado indistintamente para qualquer servidor público.",
+          "As comunicações administrativas devem sempre expressar opiniões e impressões subjetivas do emissor."
+        ],
+        correta: 1,
+        explicacao: "O Decreto nº 9.758/2019 padronizou que o pronome de tratamento padrão é 'Senhor' (e 'Senhora'), vedando expressamente o uso de adjetivações cerimoniais como Digníssimo (DD.), Ilustríssimo (Ilmo.), Respeitável e Doutor (quando não for título acadêmico estrito).",
+        videoUrl: "http://www.youtube.com/watch?v=sjxWgnnOawo",
+        videoTitulo: "Videoaula: Redação Oficial e Pronomes de Tratamento"
+      },
+      {
+        id: "ESP_06",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Arquivologia - Tabela de Temporalidade",
+        enunciado: "O instrumento arquivístico resultante da avaliação de documentos, que define os prazos de guarda nas fases corrente e intermediária, bem como a sua destinação final (eliminação ou guarda permanente), é denominado:",
+        opcoes: [
+          "Quadro de Demonstração Orçamentária.",
+          "Tabela de Temporalidade Documental.",
+          "Plano de Classificação de Cargos e Salários.",
+          "Inventário de Almoxarifado Setorial."
+        ],
+        correta: 1,
+        explicacao: "A Tabela de Temporalidade Documental (TTD) é a peça fundamental da gestão de arquivos que estabelece formalmente por quanto tempo os papéis permanecem no arquivo corrente e intermediário, e se serão destruídos com termo formal ou recolhidos ao arquivo permanente.",
+        videoUrl: "http://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Gestão de Documentos e Temporalidade"
+      },
+      {
+        id: "ESP_07",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Relacionamento Interpessoal e Atendimento",
+        enunciado: "No contexto da qualidade do atendimento ao munícipe, a postura de compreender a perspectiva e a situação do cidadão, colocando-se no lugar do outro para buscar uma solução justa dentro dos limites da lei, traduz o conceito de:",
+        opcoes: [
+          "Apatia burocrática.",
+          "Condescendência permissiva.",
+          "Empatia.",
+          "Automatismo de respostas."
+        ],
+        correta: 2,
+        explicacao: "Empatia é a capacidade cognitiva e emocional de se colocar no lugar do outro, compreendendo suas necessidades e facilitando o atendimento humanizado, eficiente e cordial sem desrespeitar os princípios da legalidade.",
+        videoUrl: "http://www.youtube.com/watch?v=os6Ps23T91g",
+        videoTitulo: "Videoaula: Relações Humanas e Atendimento ao Público"
+      },
+      {
+        id: "ESP_08",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Compras Públicas e Lei 14.133/2021",
+        enunciado: "Nas rotinas administrativas do Oficial de Administração de Santos relativas a compras e recebimento de materiais de expediente (Lei nº 14.133/2021), o ato pelo qual o servidor confere a conformidade do material entregue com as especificações da nota de empenho e da proposta aprovada chama-se:",
+        opcoes: [
+          "Recebimento provisório e definitivo com liquidação.",
+          "Anulação discricionária de empenho prévio.",
+          "Alienamento cautelar de bens de consumo.",
+          "Inscrição automática em restos a pagar."
+        ],
+        correta: 0,
+        explicacao: "O recebimento de materiais e serviços na Administração é feito provisoriamente para efeito de posterior verificação da conformidade com as especificações, e definitivamente após a conferência e atesto da nota fiscal para liquidação da despesa.",
+        videoUrl: "http://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Rotinas de Almoxarifado e Contratos"
+      },
+      {
+        id: "ESP_09",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Atribuições do Cargo e Zelo Patrimonial",
+        enunciado: "O Oficial de Administração constata que um servidor está utilizando papéis timbrados e envelopes oficiais da repartição para correspondência pessoal particular. À luz dos deveres funcionais e do zelo patrimonial, essa conduta:",
+        opcoes: [
+          "É permitida, desde que não ultrapasse um limite razoável estipulado pelo próprio servidor.",
+          "Constitui descumprimento do dever de zelo e economia dos bens públicos, sendo vedado o uso de recursos da administração para fins particulares.",
+          "É regular, pois os materiais de expediente pertencem aos servidores da unidade.",
+          "Deve ser ignorada, pois materiais de escritório são de baixo valor econômico."
+        ],
+        correta: 1,
+        explicacao: "O Art. 222 do Estatuto dos Servidores de Santos (Lei 4.623/1984) e os princípios administrativos impõem o dever estrito de zelo, conservação e economia de todo o patrimônio e materiais públicos sob sua guarda.",
+        videoUrl: "http://www.youtube.com/watch?v=os6Ps23T91g",
+        videoTitulo: "Videoaula: Estatuto dos Funcionários de Santos - Deveres"
+      },
+      {
+        id: "ESP_10",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Fechos da Redação Oficial",
+        enunciado: "Segundo o Manual de Redação da Presidência da República, os únicos fechos oficiais admitidos para fechar comunicações administrativas (como ofícios e memorandos) são:",
+        opcoes: [
+          "'Cordialmente' e 'Saudações Fraternais'.",
+          "'Respeitosamente' (para autoridades superiores) e 'Atenciosamente' (para autoridades de mesma hierarquia ou inferior).",
+          "'De V. Sa. com apreço' e 'Com os mais elevados protestos'.",
+          "'Sem mais para o momento' e 'Grato pela atenção dispensada'."
+        ],
+        correta: 1,
+        explicacao: "A redação oficial simplificou os fechos em apenas dois: 'Respeitosamente' para autoridades superiores (inclusive o Presidente, Governador ou Prefeito) e 'Atenciosamente' para autoridades de mesma hierarquia ou de nível inferior.",
+        videoUrl: "http://www.youtube.com/watch?v=sjxWgnnOawo",
+        videoTitulo: "Videoaula: Manual de Redação Oficial"
+      },
+
+      // ----------------------------------------------------
+      // MÓDULO 2: LÍNGUA PORTUGUESA (8 QUESTÕES - PESO 2)
+      // ----------------------------------------------------
+      {
+        id: "POR_01",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Acentuação Gráfica",
+        enunciado: "Assinale a alternativa em que todas as palavras são acentuadas graficamente pela mesma regra gramatical:",
+        opcoes: [
+          "público – trânsito – relatórios",
+          "saúde – saída – juízes",
+          "você – cajá – história",
+          "órgão – hífen – amapá"
+        ],
+        correta: 1,
+        explicacao: "As palavras 'saúde', 'saída' e 'juízes' são acentuadas pela regra do hiato (vogais 'i' ou 'u' tônicas, sozinhas na sílaba ou com 's', não seguidas de 'nh' e sem ditongo anterior). Na letra A misturam-se proparoxítonas com paroxítona terminada em ditongo.",
+        videoUrl: "http://www.youtube.com/watch?v=TcOgQRAWoP8",
+        videoTitulo: "Videoaula: Acentuação Gráfica IBAM"
+      },
+      {
+        id: "POR_02",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Ortografia Oficial (X vs. CH)",
+        enunciado: "De acordo com a norma-padrão da Língua Portuguesa, emprega-se a letra 'X' após ditongos crescentes ou decrescentes. Assinale a alternativa que obedece rigorosamente a essa regra ortográfica:",
+        opcoes: [
+          "feichadura, trochar, caishe",
+          "ameixa, frouxo, caixa",
+          "encharcar, recauxutar, mecher",
+          "peiche, faxada, deshexar"
+        ],
+        correta: 1,
+        explicacao: "Regra clássica: após ditongo usa-se X (ex: a-mei-xa, frou-xo, cai-xa). 'Encharcar' vem de charco (com CH); 'mexer' é com X mas não por causa de ditongo e sim após a sílaba inicial 'me'.",
+        videoUrl: "http://www.youtube.com/watch?v=sjxWgnnOawo",
+        videoTitulo: "Videoaula: Ortografia Oficial IBAM"
+      },
+      {
+        id: "POR_03",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Emprego do Sinal Indicativo de Crase",
+        enunciado: "O uso do acento grave indicativo de crase está inteiramente CORRETO na seguinte frase:",
+        opcoes: [
+          "O oficial de administração entregou os documentos à uma autoridade do município.",
+          "O cidadão começou à reclamar da demora no atendimento.",
+          "O servidor prestou atendimento prioritário à cidadã que aguardava na recepção.",
+          "O processo foi enviado à ele com todas as informações requeridas."
+        ],
+        correta: 2,
+        explicacao: "Na alternativa C: quem presta atendimento prioritário, presta atendimento 'a' alguém (rege preposição) + o artigo feminino 'a' de 'a cidadã' = crase legítima. É proibida a crase antes de artigo indefinido ('à uma'), antes de verbo ('à reclamar') e antes de pronome masculino ('à ele').",
+        videoUrl: "http://www.youtube.com/watch?v=sjxWgnnOawo",
+        videoTitulo: "Videoaula: Emprego da Crase em Concursos"
+      },
+      {
+        id: "POR_04",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Concordância Verbal",
+        enunciado: "Assinale a alternativa que preenche corretamente a frase respeitando as regras de concordância verbal da norma-padrão:\n\n'____________ de novos formulários e ____________ muitos cidadãos na sala de espera.'",
+        opcoes: [
+          "Precisa-se / havia",
+          "Precisam-se / haviam",
+          "Precisa-se / faziam",
+          "Precisam-se / existia"
+        ],
+        correta: 0,
+        explicacao: "1) 'Precisa-se de novos formulários': com verbo transitivo indireto acompanhado da partícula 'se' (índice de indeterminação do sujeito), o verbo fica no singular. 2) O verbo 'haver' no sentido de existir é impessoal e não flexiona no plural: 'havia muitos cidadãos'.",
+        videoUrl: "http://www.youtube.com/watch?v=TcOgQRAWoP8",
+        videoTitulo: "Videoaula: Concordância Verbal e Nominal IBAM"
+      },
+      {
+        id: "POR_05",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Conectivos e Coesão Textual",
+        enunciado: "Considere a oração: 'O prazo para entrega da planilha encerrava-se às 17 horas; ___________, o servidor permaneceu na unidade até concluir a instrução do processo.'\n\nO conectivo que estabelece relação de ADVERSIDADE/OPOSIÇÃO coerente é:",
+        opcoes: [
+          "portanto",
+          "contudo",
+          "porquanto",
+          "conforme"
+        ],
+        correta: 1,
+        explicacao: "'Contudo', 'no entanto', 'porém' e 'todavia' são conjunções coordenativas adversativas, expressando oposição entre a proximidade do encerramento do prazo e a permanência para finalizar a tarefa. 'Portanto' é conclusiva; 'porquanto' é explicativa.",
+        videoUrl: "http://www.youtube.com/watch?v=sjxWgnnOawo",
+        videoTitulo: "Videoaula: Conjunções e Conectivos IBAM"
+      },
+      {
+        id: "POR_06",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Pontuação e Uso da Vírgula",
+        enunciado: "Assinale a alternativa em que a vírgula foi empregada de acordo com as normas de regência e sintaxe:",
+        opcoes: [
+          "O oficial de administração, entregou os relatórios à chefia.",
+          "Os servidores públicos, que foram aprovados no concurso de Santos, tomarão posse.",
+          "Ontem pela manhã, o protocolo recebeu mais de cem requerimentos.",
+          "Todos os munícipes disseram, que o atendimento melhorou bastante."
+        ],
+        correta: 2,
+        explicacao: "Em 'Ontem pela manhã, o protocolo...', a vírgula separa adequadamente um adjunto adverbial de tempo deslocado para o início da oração. Não se separa sujeito do predicado (como na A) nem verbo de seu objeto/oração subordinada substantiva (como na D).",
+        videoUrl: "http://www.youtube.com/watch?v=TcOgQRAWoP8",
+        videoTitulo: "Videoaula: Pontuação para Concursos"
+      },
+      {
+        id: "POR_07",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Regência Verbal",
+        enunciado: "Em relação à regência verbal, assinale a oração formulada em total consonância com a norma-padrão:",
+        opcoes: [
+          "O cidadão aspirava o cargo público de Oficial de Administração.",
+          "O candidato obedeceu ao regulamento estipulado no edital do certame.",
+          "O chefe preferia mais despachar processos do que atender telefonemas.",
+          "O funcionário assistiu o filme sobre a história de Santos."
+        ],
+        correta: 1,
+        explicacao: "O verbo 'obedecer' é transitivo indireto e exige a preposição 'a' ('obedeceu ao regulamento'). 'Aspirar' com sentido de desejar exige preposição 'a' ('aspirava ao cargo'); 'preferir' não aceita 'mais... do que' ('preferia despachar a atender').",
+        videoUrl: "http://www.youtube.com/watch?v=sjxWgnnOawo",
+        videoTitulo: "Videoaula: Regência Verbal Descomplicada"
+      },
+      {
+        id: "POR_08",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Gêneros Textuais Administrativos",
+        enunciado: "O expediente de correspondência interna pelo qual chefias e subordinados de um mesmo órgão público trocam informações sumárias de rotina e instruções de serviço denomina-se:",
+        opcoes: [
+          "Abaixo-assinado.",
+          "Memorando ou Comunicado Interno.",
+          "Alvará judicial.",
+          "Carta Rogatória."
+        ],
+        correta: 1,
+        explicacao: "O memorando (ou comunicado interno) é o gênero administrativo por excelência para a comunicação interna e célere entre setores de uma mesma instituição municipal.",
+        videoUrl: "http://www.youtube.com/watch?v=sjxWgnnOawo",
+        videoTitulo: "Videoaula: Gêneros Textuais na Administração"
+      },
+
+      // ----------------------------------------------------
+      // MÓDULO 3: LEGISLAÇÃO MUNICIPAL & SERVIÇO PÚBLICO (8 QUESTÕES - PESO 2)
+      // ----------------------------------------------------
+      {
+        id: "LEG_01",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Estatuto dos Servidores (Lei nº 4.623/1984) - Posse e Exercício",
+        enunciado: "Nos termos do Estatuto dos Funcionários Públicos Civis de Santos (Lei Municipal nº 4.623/1984), a posse em cargo público deverá verificar-se no prazo de:",
+        opcoes: [
+          "15 dias contados da nomeação, improrrogáveis.",
+          "30 dias contados da publicação do ato de provimento, prorrogável por mais 30 dias a pedido do interessado.",
+          "60 dias contados da data de homologação do concurso.",
+          "10 dias úteis a contar da convocação por e-mail."
+        ],
+        correta: 1,
+        explicacao: "Art. 23 da Lei nº 4.623/1984: A posse verificar-se-á no prazo de 30 (trinta) dias contados da publicação do ato de provimento, podendo ser prorrogada por mais 30 (trinta) dias mediante requerimento motivado do interessado.",
+        videoUrl: "http://www.youtube.com/watch?v=os6Ps23T91g",
+        videoTitulo: "Videoaula: Estatuto de Santos - Posse e Exercício"
+      },
+      {
+        id: "LEG_02",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Estatuto dos Servidores - Estágio Probatório",
+        enunciado: "Ao entrar em efetivo exercício, o Oficial de Administração cumprirá estágio probatório de 3 (três) anos, no qual serão avaliados os seguintes requisitos, EXCETO:",
+        opcoes: [
+          "Assiduidade e pontualidade.",
+          "Disciplina e eficiência.",
+          "Vínculo político-partidário com a administração.",
+          "Dedicação e boa conduta."
+        ],
+        correta: 2,
+        explicacao: "O estágio probatório analisa critérios objetivos e técnicos de desempenho: assiduidade, pontualidade, disciplina, eficiência, capacidade e boa conduta. Vínculo político-partidário não é critério de avaliação e viola o princípio da impessoalidade.",
+        videoUrl: "http://www.youtube.com/watch?v=Xi8XAoRxAf4",
+        videoTitulo: "Videoaula: Estatuto dos Servidores de Santos - Parte 2"
+      },
+      {
+        id: "LEG_03",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Estatuto dos Servidores - Formas de Provimento",
+        enunciado: "O retorno do funcionário aposentado por invalidez ao serviço ativo, após verificação por junta médica oficial de que cessaram os motivos determinantes da sua incapacidade, denomina-se:",
+        opcoes: [
+          "Reintegração.",
+          "Reversão.",
+          "Readmissão.",
+          "Aproveitamento."
+        ],
+        correta: 1,
+        explicacao: "Reversão é o retorno à atividade do servidor aposentado (por invalidez ou no interesse da administração). Reintegração é o retorno do servidor injustamente demitido com ressarcimento total dos vencimentos.",
+        videoUrl: "http://www.youtube.com/watch?v=os6Ps23T91g",
+        videoTitulo: "Videoaula: Formas de Provimento e Vacância"
+      },
+      {
+        id: "LEG_04",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Estatuto dos Servidores - Licenças e Direitos",
+        enunciado: "De acordo com o regime estatutário do Município de Santos, a servidora pública gestante tem direito à licença-maternidade remunerada pelo período de:",
+        opcoes: [
+          "120 dias consecutivos.",
+          "180 dias consecutivos.",
+          "90 dias prorrogáveis por mais 30.",
+          "150 dias facultativos."
+        ],
+        correta: 1,
+        explicacao: "No Município de Santos, a licença à funcionária gestante ou adotante é de 180 (cento e oitenta) dias consecutivos com remuneração integral, garantindo a proteção e amamentação integral do bebê.",
+        videoUrl: "http://www.youtube.com/watch?v=Xi8XAoRxAf4",
+        videoTitulo: "Videoaula: Licenças no Serviço Público de Santos"
+      },
+      {
+        id: "LEG_05",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Lei Orgânica do Município de Santos (LOM) - Mandato Eletivo",
+        enunciado: "Segundo o Art. 75 da Lei Orgânica do Município de Santos (em harmonia com o art. 38 da CF), o servidor público municipal em exercício que for investido no mandato de VEREADOR:",
+        opcoes: [
+          "Ficará obrigatoriamente afastado do seu cargo efetivo, sem direito a remuneração.",
+          "Havendo compatibilidade de horários, perceberá as vantagens de seu cargo efetivo sem prejuízo da remuneração do cargo eletivo.",
+          "Perderá definitivamente o vínculo com a Prefeitura Municipal de Santos.",
+          "Deverá renunciar ao subsídio da Câmara Municipal para continuar trabalhando."
+        ],
+        correta: 1,
+        explicacao: "Para o cargo de Vereador, havendo compatibilidade de horários, o servidor municipal acumula as funções e percebe legitimamente os vencimentos do cargo efetivo juntamente com o subsídio parlamentar.",
+        videoUrl: "http://www.youtube.com/watch?v=kIHr7ZxGLls",
+        videoTitulo: "Videoaula: Lei Orgânica do Município de Santos (LOM)"
+      },
+      {
+        id: "LEG_06",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Lei de Acesso à Informação (Lei 12.527/2011)",
+        enunciado: "Na Lei Federal nº 12.527/2011 (LAI), a publicidade das informações detidas pelos órgãos públicos municipais é preceituada como:",
+        opcoes: [
+          "Uma exceção que exige prévia justificativa de interesse pessoal do solicitante.",
+          "A regra geral na atuação pública, devendo o sigilo ser tratado como exceção formal.",
+          "Aplicável apenas a entidades privadas sem fins lucrativos.",
+          "Um direito exclusivo de veículos de imprensa credenciados."
+        ],
+        correta: 1,
+        explicacao: "A LAI estabelece o princípio da máxima transparência: a publicidade é a regra geral e o sigilo é a exceção expressa e fundamentada em lei (para segurança da sociedade e do Estado).",
+        videoUrl: "http://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Lei de Acesso à Informação na Prática"
+      },
+      {
+        id: "LEG_07",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Lei Geral de Proteção de Dados (Lei 13.709/2018)",
+        enunciado: "Conforme a LGPD (Lei nº 13.709/2018), são considerados 'dados pessoais sensíveis' os dados relativos a:",
+        opcoes: [
+          "Número de telefone corporativo e endereço da repartição pública.",
+          "Origem racial ou étnica, convicção religiosa, opinião política e dados referentes à saúde ou à vida sexual.",
+          "Cargo ocupado e vencimento básico publicado no Portal da Transparência.",
+          "Nome do setor de trabalho e horário de expediente do servidor."
+        ],
+        correta: 1,
+        explicacao: "A LGPD define como dado sensível aquele que envolve intimidade pessoal passível de discriminação: origem racial/étnica, convicção religiosa, dados biométricos, genéticos e de saúde física ou mental.",
+        videoUrl: "http://www.youtube.com/watch?v=os6Ps23T91g",
+        videoTitulo: "Videoaula: LGPD e Sigilo na Administração Pública"
+      },
+      {
+        id: "LEG_08",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Regime Disciplinar e Prazos Prescricionais",
+        enunciado: "Nos termos da Lei Municipal nº 4.623/1984, prescrevem em dois anos as faltas disciplinares sujeitas às seguintes penas:",
+        opcoes: [
+          "Demissão a bem do serviço público e cassação de aposentadoria.",
+          "Repreensão, suspensão e multa.",
+          "Processo de improbidade administrativa dolosa.",
+          "Perda dos direitos políticos."
+        ],
+        correta: 1,
+        explicacao: "No regime disciplinar de Santos, as penalidades mais brandas (repreensão, suspensão até 90 dias e multa) prescrevem no prazo de 2 (dois) anos, ao passo que as faltas graves puníveis com demissão prescrevem em 5 (cinco) anos.",
+        videoUrl: "http://www.youtube.com/watch?v=Xi8XAoRxAf4",
+        videoTitulo: "Videoaula: Regime Disciplinar e Punições Estatuto de Santos"
+      },
+
+      // ----------------------------------------------------
+      // MÓDULO 4: MATEMÁTICA & RLM (8 QUESTÕES - PESO 2)
+      // ----------------------------------------------------
+      {
+        id: "MAT_01",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Porcentagem e Descontos",
+        enunciado: "Uma secretaria da Prefeitura de Santos efetuou a compra de insumos de informática orçados inicialmente em R$ 4.500,00. Pela modalidade de pagamento à vista, obteve um desconto comercial de 12%. Qual foi o valor final efetivamente pago pelos insumos?",
+        opcoes: [
+          "R$ 3.840,00",
+          "R$ 3.960,00",
+          "R$ 4.020,00",
+          "R$ 4.150,00"
+        ],
+        correta: 1,
+        explicacao: "Desconto = 12% de R$ 4.500,00 = 0,12 * 4.500 = R$ 540,00. Valor final pago = R$ 4.500,00 - R$ 540,00 = R$ 3.960,00.",
+        videoUrl: "http://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: Questões de Matemática Resolvidas IBAM"
+      },
+      {
+        id: "MAT_02",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Regra de Três Simples Inversa",
+        enunciado: "Três oficiais de administração, trabalhando no mesmo ritmo de produtividade, levam 8 horas para digitalizar e indexar um lote de processos arquivados. Se forem destacados 6 oficiais com a mesma produtividade para essa tarefa, em quantas horas o trabalho será concluído?",
+        opcoes: [
+          "16 horas.",
+          "12 horas.",
+          "4 horas.",
+          "2 horas."
+        ],
+        correta: 2,
+        explicacao: "Grandezas inversamente proporcionais: quanto mais funcionários, menos tempo. 3 servidores * 8 horas = 24 horas-homem. Com 6 servidores: 24 / 6 = 4 horas.",
+        videoUrl: "http://www.youtube.com/watch?v=B5_X17jhHBs",
+        videoTitulo: "Videoaula: Regra de Três Simples e Composta IBAM"
+      },
+      {
+        id: "MAT_03",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Conversão de Unidades de Medida",
+        enunciado: "Um reservatório cúbico de água utilizado para a limpeza de uma repartição municipal possui capacidade volumétrica de exatamente 3,5 metros cúbicos (m³). Quantos litros de água comportam esse reservatório quando totalmente cheio?",
+        opcoes: [
+          "350 litros.",
+          "3.500 litros.",
+          "35.000 litros.",
+          "35 litros."
+        ],
+        correta: 1,
+        explicacao: "Relação fundamental de conversão do sistema métrico: 1 m³ = 1.000 litros. Portanto, 3,5 m³ = 3,5 * 1.000 = 3.500 litros.",
+        videoUrl: "http://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: Conversão de Medidas e Volumes IBAM"
+      },
+      {
+        id: "MAT_04",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Geometria Plana - Área Retangular",
+        enunciado: "A sala onde funciona o arquivo setorial da secretaria tem formato retangular de 8 metros de comprimento por 6 metros de largura. Deseja-se revestir todo o piso com placas quadradas de porcelanato que possuem 0,5 m de lado (área de 0,25 m² por placa). Quantas placas serão necessárias para cobrir o piso?",
+        opcoes: [
+          "96 placas.",
+          "144 placas.",
+          "192 placas.",
+          "240 placas."
+        ],
+        correta: 2,
+        explicacao: "Área da sala = 8 m * 6 m = 48 m². Área de cada placa = 0,5 m * 0,5 m = 0,25 m². Quantidade de placas = 48 / 0,25 = 48 * 4 = 192 placas.",
+        videoUrl: "http://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: Áreas e Perímetros em Provas de Concurso"
+      },
+      {
+        id: "MAT_05",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Frações e Operações Fundamentais",
+        enunciado: "De um total de 120 processos a serem despachados no dia, um funcionário analisou 2/5 pela manhã e 1/3 do total à tarde. Quantos processos ainda restam para serem analisados no dia seguinte?",
+        opcoes: [
+          "24 processos.",
+          "32 processos.",
+          "44 processos.",
+          "48 processos."
+        ],
+        correta: 1,
+        explicacao: "Pela manhã: 2/5 de 120 = 48 processos. À tarde: 1/3 de 120 = 40 processos. Total analisado = 48 + 40 = 88 processos. Restam: 120 - 88 = 32 processos.",
+        videoUrl: "http://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: Resolução de Problemas com Frações"
+      },
+      {
+        id: "MAT_06",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Média Aritmética Simples",
+        enunciado: "O número de atendimentos presenciais efetuados em um guichê durante cinco dias úteis da semana foi de: 42, 38, 55, 45 e 50 cidadãos. A média diária de atendimentos dessa semana foi de:",
+        opcoes: [
+          "44 atendimentos.",
+          "45 atendimentos.",
+          "46 atendimentos.",
+          "48 atendimentos."
+        ],
+        correta: 2,
+        explicacao: "Soma dos atendimentos = 42 + 38 + 55 + 45 + 50 = 230 atendimentos. Média = 230 / 5 = 46 atendimentos por dia.",
+        videoUrl: "http://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: Média Aritmética e Estatística Básica"
+      },
+      {
+        id: "MAT_07",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Aumentos Sucessivos",
+        enunciado: "O valor venal de uma taxa municipal de expediente de R$ 100,00 sofreu um reajuste inflacionário de 10% em janeiro e, sobre o novo valor, um acréscimo extraordinário de 10% em julho. Ao final dos dois reajustes sucessivos, o valor da taxa passou a ser de:",
+        opcoes: [
+          "R$ 120,00",
+          "R$ 121,00",
+          "R$ 122,50",
+          "R$ 125,00"
+        ],
+        correta: 1,
+        explicacao: "Em aumentos sucessivos: R$ 100,00 * 1,10 = R$ 110,00. No segundo aumento: R$ 110,00 * 1,10 = R$ 121,00. O aumento acumulado total é de 21% (e não 20%).",
+        videoUrl: "http://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: Aumentos e Descontos Sucessivos IBAM"
+      },
+      {
+        id: "MAT_08",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Raciocínio Lógico e Sequências",
+        enunciado: "Observe a sequência lógica de números de protocolos arquivados: 4, 9, 16, 25, 36, X. O número que substitui corretamente o valor de X de acordo com o padrão lógico é:",
+        opcoes: [
+          "45",
+          "48",
+          "49",
+          "64"
+        ],
+        correta: 2,
+        explicacao: "A sequência é formada pelos quadrados perfeitos dos números inteiros consecutivos: 2²=4, 3²=9, 4²=16, 5²=25, 6²=36, logo o próximo termo é 7² = 49.",
+        videoUrl: "http://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: RLM e Sequências Lógicas"
+      },
+
+      // ----------------------------------------------------
+      // MÓDULO 5: NOÇÕES DE INFORMÁTICA (6 QUESTÕES - PESO 2)
+      // ----------------------------------------------------
+      {
+        id: "INF_01",
+        moduloId: "informatica",
+        moduloNome: "Noções de Informática",
+        peso: 2.0,
+        topico: "Windows 10 - Atalhos de Teclado",
+        enunciado: "No ambiente do sistema operacional Microsoft Windows 10, o atalho de teclado padrão utilizado pelo usuário para abrir instantaneamente o 'Explorador de Arquivos' (File Explorer) é:",
+        opcoes: [
+          "Win + D",
+          "Win + E",
+          "Ctrl + Alt + Del",
+          "Alt + Tab"
+        ],
+        correta: 1,
+        explicacao: "O atalho 'Tecla Windows + E' abre o Explorador de Arquivos (Explorer). 'Win + D' exibe/oculta a Área de Trabalho e 'Alt + Tab' alterna entre janelas abertas.",
+        videoUrl: "http://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Questões de Informática IBAM (Windows e Atalhos)"
+      },
+      {
+        id: "INF_02",
+        moduloId: "informatica",
+        moduloNome: "Noções de Informática",
+        peso: 2.0,
+        topico: "Windows 10 - Exclusão de Arquivos",
+        enunciado: "Quando um arquivo armazenado no disco rígido local do Windows 10 é selecionado e o usuário pressiona o conjunto de teclas SHIFT + DELETE:",
+        opcoes: [
+          "O arquivo é movido para a Lixeira e pode ser restaurado a qualquer momento.",
+          "O arquivo é excluído permanentemente do computador sem passar pela Lixeira.",
+          "O arquivo é automaticamente compactado em extensão .ZIP.",
+          "O arquivo é enviado como anexo de e-mail ao administrador do sistema."
+        ],
+        correta: 1,
+        explicacao: "A exclusão com 'Shift + Delete' contorna a Lixeira e solicita confirmação para exclusão permanente do arquivo, não ocupando espaço na Lixeira.",
+        videoUrl: "http://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Gerenciamento de Arquivos no Windows"
+      },
+      {
+        id: "INF_03",
+        moduloId: "informatica",
+        moduloNome: "Noções de Informática",
+        peso: 2.0,
+        topico: "Microsoft Excel - Fórmulas Básicas",
+        enunciado: "No Microsoft Office Excel (versões em português), para calcular a soma de todos os valores contidos no intervalo contínuo da célula B2 até a célula B15, a fórmula sintaticamente correta é:",
+        opcoes: [
+          "=TOTAL(B2-B15)",
+          "=SOMA(B2:B15)",
+          "=SOMATÓRIA(B2..B15)",
+          "=ADICIONAR(B2;B15)"
+        ],
+        correta: 1,
+        explicacao: "No Excel, os dois pontos (:) indicam intervalo contínuo ('de até'). A função oficial em português é '=SOMA(B2:B15)'. Ponto e vírgula (;) representaria apenas as duas células isoladas.",
+        videoUrl: "http://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Fórmulas e Funções do Excel para Concursos"
+      },
+      {
+        id: "INF_04",
+        moduloId: "informatica",
+        moduloNome: "Noções de Informática",
+        peso: 2.0,
+        topico: "Microsoft Excel - Formatação Condicional",
+        enunciado: "Um funcionário deseja que, em uma tabela com notas de avaliação funcional, as células com pontuação igual ou superior a 70 fiquem preenchidas em cor verde automaticamente. O recurso do Excel apropriado para essa finalidade é:",
+        opcoes: [
+          "Validação de Dados.",
+          "Formatação Condicional.",
+          "Classificar de A a Z.",
+          "Subtotal Automático."
+        ],
+        correta: 1,
+        explicacao: "A 'Formatação Condicional' (localizada na guia Página Inicial) permite alterar a aparência das células (cor de fundo, cor da fonte, bordas) automaticamente com base em regras e critérios pré-estabelecidos.",
+        videoUrl: "http://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Formatação Condicional no Excel"
+      },
+      {
+        id: "INF_05",
+        moduloId: "informatica",
+        moduloNome: "Noções de Informática",
+        peso: 2.0,
+        topico: "Segurança da Informação - Phishing",
+        enunciado: "A técnica maliciosa em que cibercriminosos enviam mensagens fraudulentas por e-mail ou mensagens instantâneas fingindo ser uma instituição oficial (como a Prefeitura ou um banco) para induzir o usuário a clicar em links falsos e roubar senhas e dados pessoais é conhecida como:",
+        opcoes: [
+          "Firewalling.",
+          "Phishing.",
+          "Backup incremental.",
+          "Desfragmentação de disco."
+        ],
+        correta: 1,
+        explicacao: "Phishing é uma forma de engenharia social focada em 'pescar' informações confidenciais de usuários mediante mensagens e sites enganosos que imitam entidades confiáveis.",
+        videoUrl: "http://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Segurança da Informação e Golpes Digitais"
+      },
+      {
+        id: "INF_06",
+        moduloId: "informatica",
+        moduloNome: "Noções de Informática",
+        peso: 2.0,
+        topico: "Windows 10 - Gerenciador de Tarefas",
+        enunciado: "Quando um aplicativo de escritório trava no Windows 10 e para de responder, o atalho direto para acionar o 'Gerenciador de Tarefas' e forçar o encerramento do processo é:",
+        opcoes: [
+          "Ctrl + Shift + Esc",
+          "Ctrl + P",
+          "Win + L",
+          "F1"
+        ],
+        correta: 0,
+        explicacao: "O atalho 'Ctrl + Shift + Esc' abre diretamente o Gerenciador de Tarefas do Windows. O atalho 'Win + L' bloqueia a tela do computador e 'Ctrl + P' abre a tela de impressão.",
+        videoUrl: "http://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Gerenciador de Tarefas e Atalhos Úteis"
+      }
+    ];
+
+    /* ==========================================================================
+       ESTADO DA APLICAÇÃO E LÓGICA DO SIMULADOR
+       ========================================================================== */
+    let currentQuestions = [];
+    let userAnswers = {}; // { questionId: selectedIndex }
+    let currentMode = "simulado"; // 'simulado' (10Q) ou 'banco' (40Q)
+
+    // Elementos da UI
+    const questionsSection = document.getElementById("questionsSection");
+    const redacaoSection = document.getElementById("redacaoSection");
+    const estudoSection = document.getElementById("estudoSection");
+    const tabSimulado = document.getElementById("tabSimulado");
+    const tabBanco = document.getElementById("tabBanco");
+    const tabEstudo = document.getElementById("tabEstudo");
+    const tabRedacao = document.getElementById("tabRedacao");
+    const btnShuffle = document.getElementById("btnShuffle");
+    const themeToggleBtn = document.getElementById("themeToggleBtn");
+
+    const correctCountEl = document.getElementById("correctCount");
+    const incorrectCountEl = document.getElementById("incorrectCount");
+    const pointsCountEl = document.getElementById("pointsCount");
+    const answeredCountEl = document.getElementById("answeredCount");
+    const totalQuestionsDisplay = document.getElementById("totalQuestionsDisplay");
+    const correctPctEl = document.getElementById("correctPct");
+    const progressBar = document.getElementById("progressBar");
+    const progressPercent = document.getElementById("progressPercent");
+    const modeDisplay = document.getElementById("modeDisplay");
+    const maxPointsDisplay = document.getElementById("maxPointsDisplay");
+
+    // Modal
+    const finishModal = document.getElementById("finishModal");
+    const modalScoreText = document.getElementById("modalScoreText");
+    const modalPointsText = document.getElementById("modalPointsText");
+    const modalPctText = document.getElementById("modalPctText");
+    const modalFeedback = document.getElementById("modalFeedback");
+    const modalNewSimBtn = document.getElementById("modalNewSimBtn");
+    const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+    // Inicialização
+    function init() {
+      setupEventListeners();
+      generateSimulado10();
+    }
+
+    // Geração balanceada de 10 questões (exatamente 2 de cada módulo)
+    function generateSimulado10() {
+      currentMode = "simulado";
+      userAnswers = {};
+      
+      const modules = ["especificos", "portugues", "legislacao_municipal", "matematica", "informatica"];
+      let selected = [];
+
+      modules.forEach(modId => {
+        const pool = QUESTION_BANK.filter(q => q.moduloId === modId);
+        // Embaralha o pool do módulo
+        const shuffled = [...pool].sort(() => 0.5 - Math.random());
+        // Pega 2 questões de cada módulo
+        selected.push(...shuffled.slice(0, 2));
+      });
+
+      // Embaralha as 10 questões para ficarem misturadas como em prova real
+      currentQuestions = selected.sort(() => 0.5 - Math.random());
+      
+      modeDisplay.innerText = "Simulado (10Q)";
+      btnShuffle.style.display = "inline-flex";
+      renderQuestions();
+      updateDashboard();
+    }
+
+    // Exibição do banco completo com 40 questões
+    function showFullBank() {
+      currentMode = "banco";
+      userAnswers = {};
+      currentQuestions = [...QUESTION_BANK];
+      modeDisplay.innerText = "Banco Completo (40Q)";
+      btnShuffle.style.display = "none";
+      renderQuestions();
+      updateDashboard();
+    }
+
+    // Renderização dos cards de questões
+    function renderQuestions() {
+      questionsSection.innerHTML = "";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      currentQuestions.forEach((q, index) => {
+        const card = document.createElement("article");
+        card.className = "question-card";
+        card.id = `qcard_${q.id}`;
+
+        const isAnswered = userAnswers.hasOwnProperty(q.id);
+        const selectedIdx = userAnswers[q.id];
+
+        let optionsHtml = "";
+        const letters = ["A", "B", "C", "D"];
+
+        q.opcoes.forEach((opt, optIdx) => {
+          let btnClasses = "option-btn";
+          if (isAnswered) {
+            btnClasses += " disabled";
+            if (optIdx === q.correta) {
+              btnClasses += (selectedIdx === q.correta) ? " selected-correct" : " reveal-correct";
+            } else if (optIdx === selectedIdx) {
+              btnClasses += " selected-incorrect";
+            }
+          }
+
+          optionsHtml += `
+            <button class="${btnClasses}" data-qid="${q.id}" data-idx="${optIdx}" ${isAnswered ? "disabled" : ""}>
+              <span class="opt-letter">${letters[optIdx]}</span>
+              <span>${opt}</span>
+            </button>
+          `;
+        });
+
+        // Box de justificativa e resolução
+        let resBoxClass = "resolution-box";
+        let resHeaderIcon = "";
+        let resHeaderText = "";
+
+        if (isAnswered) {
+          resBoxClass += " show";
+          if (selectedIdx === q.correta) {
+            resBoxClass += " correct";
+            resHeaderIcon = "🎉";
+            resHeaderText = "Parabéns! Você acertou esta questão.";
+          } else {
+            resBoxClass += " incorrect";
+            resHeaderIcon = "❌";
+            resHeaderText = `Você errou. O gabarito oficial é a alternativa (${letters[q.correta]}).`;
+          }
+        }
+
+        const explanationHtml = `
+          <div class="${resBoxClass}" id="resbox_${q.id}">
+            <div class="res-header">
+              <span>${resHeaderIcon} ${resHeaderText}</span>
+            </div>
+            <div class="res-text">${q.explicacao}</div>
+            <div class="res-links">
+              <a href="${q.videoUrl}" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+                ▶️ ${q.videoTitulo}
+              </a>
+            </div>
+          </div>
+        `;
+
+        card.innerHTML = `
+          <div class="q-header">
+            <div class="q-meta">
+              <span class="badge badge-qnum">Questão ${index + 1} de ${currentQuestions.length}</span>
+              <span class="badge badge-module ${q.moduloId}">${q.moduloNome}</span>
+              <span class="badge badge-weight">Peso ${q.peso.toFixed(1)}</span>
+            </div>
+            <span class="q-topic">📌 ${q.topico}</span>
+          </div>
+
+          <div class="q-statement">${q.enunciado}</div>
+
+          <div class="options-grid">
+            ${optionsHtml}
+          </div>
+
+          ${explanationHtml}
+        `;
+
+        questionsSection.appendChild(card);
+      });
+
+      // Adiciona eventos aos botões das opções
+      document.querySelectorAll(".option-btn:not(.disabled)").forEach(btn => {
+        btn.addEventListener("click", handleOptionClick);
+      });
+    }
+
+    // Clique em uma alternativa (Feedback imediato)
+    function handleOptionClick(e) {
+      const btn = e.currentTarget;
+      const qid = btn.getAttribute("data-qid");
+      const chosenIdx = parseInt(btn.getAttribute("data-idx"));
+
+      if (userAnswers.hasOwnProperty(qid)) return;
+
+      userAnswers[qid] = chosenIdx;
+      const q = currentQuestions.find(item => item.id === qid);
+      const isCorrect = (chosenIdx === q.correta);
+
+      // Re-renderiza somente o card específico para manter animação suave
+      updateSingleCard(qid, q, chosenIdx, isCorrect);
+      updateDashboard();
+
+      // Checa se todas as questões foram respondidas no modo simulado
+      if (Object.keys(userAnswers).length === currentQuestions.length && currentMode === "simulado") {
+        setTimeout(showFinishModal, 600);
+      }
+    }
+
+    // Atualização pontual do card respondido
+    function updateSingleCard(qid, q, chosenIdx, isCorrect) {
+      const card = document.getElementById(`qcard_${qid}`);
+      if (!card) return;
+
+      const letters = ["A", "B", "C", "D"];
+      const buttons = card.querySelectorAll(".option-btn");
+
+      buttons.forEach((b, idx) => {
+        b.classList.add("disabled");
+        b.setAttribute("disabled", "true");
+
+        if (idx === q.correta) {
+          b.classList.add(isCorrect ? "selected-correct" : "reveal-correct");
+        } else if (idx === chosenIdx) {
+          b.classList.add("selected-incorrect");
+        }
+      });
+
+      const resBox = document.getElementById(`resbox_${qid}`);
+      if (resBox) {
+        resBox.className = `resolution-box show ${isCorrect ? "correct" : "incorrect"}`;
+        const headerEl = resBox.querySelector(".res-header span");
+        if (headerEl) {
+          headerEl.innerHTML = isCorrect 
+            ? "🎉 Parabéns! Você acertou esta questão." 
+            : `❌ Você errou. O gabarito oficial é a alternativa (${letters[q.correta]}).`;
+        }
+      }
+    }
+
+    // Atualiza placar e progresso
+    function updateDashboard() {
+      let correct = 0;
+      let incorrect = 0;
+      let pointsEarned = 0.0;
+      let maxPossiblePoints = 0.0;
+
+      currentQuestions.forEach(q => {
+        maxPossiblePoints += q.peso;
+        if (userAnswers.hasOwnProperty(q.id)) {
+          if (userAnswers[q.id] === q.correta) {
+            correct++;
+            pointsEarned += q.peso;
+          } else {
+            incorrect++;
+          }
+        }
+      });
+
+      const answered = Object.keys(userAnswers).length;
+      const total = currentQuestions.length;
+      const pct = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+      const progPct = Math.round((answered / total) * 100);
+
+      correctCountEl.innerText = correct;
+      incorrectCountEl.innerText = incorrect;
+      pointsCountEl.innerText = pointsEarned.toFixed(1);
+      answeredCountEl.innerText = answered;
+      totalQuestionsDisplay.innerText = total;
+      correctPctEl.innerText = `${pct}% de acerto`;
+      maxPointsDisplay.innerText = `de ${maxPossiblePoints.toFixed(1)} pts no teste`;
+      
+      progressBar.style.width = `${progPct}%`;
+      progressPercent.innerText = `${progPct}%`;
+    }
+
+    // Modal de Conclusão do Simulado
+    function showFinishModal() {
+      let correct = 0;
+      let pointsEarned = 0.0;
+      let maxPoints = 0.0;
+
+      currentQuestions.forEach(q => {
+        maxPoints += q.peso;
+        if (userAnswers[q.id] === q.correta) {
+          correct++;
+          pointsEarned += q.peso;
+        }
+      });
+
+      const pct = Math.round((pointsEarned / maxPoints) * 100);
+      modalScoreText.innerText = `${correct}/${currentQuestions.length}`;
+      modalPointsText.innerText = `${pointsEarned.toFixed(1)} pts`;
+      modalPctText.innerText = `${pct}%`;
+
+      const trophyEl = document.getElementById("modalTrophy");
+      const titleEl = document.getElementById("modalTitle");
+
+      if (pct >= 70) {
+        trophyEl.innerText = "🏆";
+        titleEl.innerText = "Desempenho Excelente!";
+        modalFeedback.innerText = "Você superou amplamente a nota de corte (50%) com ótimo rendimento ponderado nas disciplinas de maior peso!";
+      } else if (pct >= 50) {
+        trophyEl.innerText = "🎯";
+        titleEl.innerText = "Aprovado no Simulado!";
+        modalFeedback.innerText = "Você atingiu a margem mínima para habilitação da prova objetiva. Vale a pena revisar os pontos que errou para garantir a redação corrigida.";
+      } else {
+        trophyEl.innerText = "📚";
+        titleEl.innerText = "Continue Praticando!";
+        modalFeedback.innerText = "Sua pontuação ficou abaixo dos 50%. Aproveite as justificativas e videoaulas de cada questão para reforçar a matéria!";
+      }
+
+      finishModal.classList.add("active");
+    }
+
+    // Listeners gerais
+    function setupEventListeners() {
+      // Toggle de Tema Claro/Escuro
+      themeToggleBtn.addEventListener("click", () => {
+        const body = document.body;
+        const nextTheme = body.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        body.setAttribute("data-theme", nextTheme);
+      });
+
+      // Botão Sortear Novo Simulado
+      btnShuffle.addEventListener("click", () => {
+        generateSimulado10();
+      });
+
+      // Navegação por Abas
+      function hideAllTabs() {
+        tabSimulado.classList.remove("active");
+        tabBanco.classList.remove("active");
+        tabEstudo.classList.remove("active");
+        tabRedacao.classList.remove("active");
+
+        questionsSection.style.display = "none";
+        document.querySelector(".dashboard-panel").style.display = "none";
+        redacaoSection.classList.remove("active");
+        estudoSection.classList.remove("active");
+      }
+
+      tabSimulado.addEventListener("click", () => {
+        hideAllTabs();
+        tabSimulado.classList.add("active");
+        questionsSection.style.display = "flex";
+        document.querySelector(".dashboard-panel").style.display = "block";
+        generateSimulado10();
+      });
+
+      tabBanco.addEventListener("click", () => {
+        hideAllTabs();
+        tabBanco.classList.add("active");
+        questionsSection.style.display = "flex";
+        document.querySelector(".dashboard-panel").style.display = "block";
+        showFullBank();
+      });
+
+      tabEstudo.addEventListener("click", () => {
+        hideAllTabs();
+        tabEstudo.classList.add("active");
+        estudoSection.classList.add("active");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      tabRedacao.addEventListener("click", () => {
+        hideAllTabs();
+        tabRedacao.classList.add("active");
+        redacaoSection.classList.add("active");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Filtros da Central de Estudos
+      document.querySelectorAll(".filter-pill").forEach(pill => {
+        pill.addEventListener("click", (e) => {
+          document.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
+          e.currentTarget.classList.add("active");
+          const filter = e.currentTarget.getAttribute("data-filter");
+
+          document.querySelectorAll(".study-card").forEach(card => {
+            const cat = card.getAttribute("data-category");
+            if (filter === "all" || cat === filter) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Modal buttons
+      modalNewSimBtn.addEventListener("click", () => {
+        finishModal.classList.remove("active");
+        generateSimulado10();
+      });
+
+      modalCloseBtn.addEventListener("click", () => {
+        finishModal.classList.remove("active");
+      });
+    }
+
+    // Inicia a aplicação
+    init();
+  </script>
+</body>
+</html>
