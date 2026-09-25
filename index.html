@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Simulado Oficial de Administração - Santos/SP (IBAM)</title>
-  <meta name="description" content="Simulador de Provas Interativo para Oficial de Administração da Prefeitura Municipal de Santos (Banca IBAM - Edital 71/2026).">
+  <meta name="description"
+    content="Simulador de Provas Interativo para Oficial de Administração da Prefeitura Municipal de Santos (Banca IBAM - Edital 71/2026).">
   <meta name="theme-color" content="#0b1120">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet">
+
   <style>
     :root {
       --bg-primary: #0b1120;
@@ -20,24 +24,24 @@
       --bg-card: rgba(19, 29, 49, 0.75);
       --border-color: rgba(255, 255, 255, 0.08);
       --border-focus: #3b82f6;
-      
+
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
-      
+
       --accent-blue: #3b82f6;
       --accent-blue-glow: rgba(59, 130, 246, 0.35);
       --accent-cyan: #06b6d4;
       --accent-purple: #8b5cf6;
       --accent-gold: #f59e0b;
-      
+
       --color-success: #10b981;
       --color-success-bg: rgba(16, 185, 129, 0.12);
       --color-success-border: rgba(16, 185, 129, 0.4);
       --color-error: #ef4444;
       --color-error-bg: rgba(239, 68, 68, 0.12);
       --color-error-border: rgba(239, 68, 68, 0.4);
-      
+
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
@@ -53,18 +57,18 @@
       --bg-card: rgba(255, 255, 255, 0.85);
       --border-color: rgba(0, 0, 0, 0.08);
       --border-focus: #2563eb;
-      
+
       --text-main: #0f172a;
       --text-muted: #475569;
       --text-dim: #94a3b8;
-      
+
       --color-success: #059669;
       --color-success-bg: rgba(5, 150, 105, 0.1);
       --color-success-border: rgba(5, 150, 105, 0.3);
       --color-error: #dc2626;
       --color-error-bg: rgba(220, 38, 38, 0.1);
       --color-error-border: rgba(220, 38, 38, 0.3);
-      
+
       --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
       --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
       --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.15);
@@ -85,7 +89,7 @@
       line-height: 1.6;
       padding-bottom: 80px;
       transition: background-color 0.3s ease, color 0.3s ease;
-      background-image: 
+      background-image:
         radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
         radial-gradient(at 0% 100%, rgba(139, 92, 246, 0.12) 0px, transparent 50%);
       background-attachment: fixed;
@@ -214,9 +218,17 @@
       background: var(--border-focus);
     }
 
-    .stat-card.correct::before { background: var(--color-success); }
-    .stat-card.incorrect::before { background: var(--color-error); }
-    .stat-card.points::before { background: var(--accent-gold); }
+    .stat-card.correct::before {
+      background: var(--color-success);
+    }
+
+    .stat-card.incorrect::before {
+      background: var(--color-error);
+    }
+
+    .stat-card.points::before {
+      background: var(--accent-gold);
+    }
 
     .stat-label {
       font-size: 0.75rem;
@@ -806,7 +818,8 @@
       margin-bottom: 10px;
     }
 
-    .study-content ul, .study-content ol {
+    .study-content ul,
+    .study-content ol {
       margin: 8px 0 14px 22px;
     }
 
@@ -834,7 +847,8 @@
       font-size: 0.85rem;
     }
 
-    .study-table th, .study-table td {
+    .study-table th,
+    .study-table td {
       border: 1px solid var(--border-color);
       padding: 8px 12px;
       text-align: left;
@@ -861,8 +875,15 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Responsividade e Otimizações Mobile */
@@ -1034,7 +1055,8 @@
         white-space: normal;
       }
 
-      .study-table th, .study-table td {
+      .study-table th,
+      .study-table td {
         padding: 8px 10px;
         font-size: 0.8rem;
       }
@@ -1255,7 +1277,7 @@
       .creator-label {
         display: none;
       }
-      
+
       .creator-badge {
         font-size: 0.64rem;
         padding: 1px 5px;
@@ -1272,6 +1294,7 @@
     }
   </style>
 </head>
+
 <body data-theme="dark">
 
   <!-- HEADER -->
@@ -1291,7 +1314,7 @@
   </header>
 
   <main class="container">
-    
+
     <!-- DASHBOARD DE DESEMPENHO -->
     <section class="dashboard-panel">
       <div class="stats-grid">
@@ -1317,8 +1340,10 @@
         </div>
       </div>
 
-      <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">
-        <span>Progresso: <span id="answeredCount">0</span> de <span id="totalQuestionsDisplay">10</span> respondidas</span>
+      <div
+        style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">
+        <span>Progresso: <span id="answeredCount">0</span> de <span id="totalQuestionsDisplay">10</span>
+          respondidas</span>
         <span id="progressPercent">0%</span>
       </div>
       <div class="progress-bar-container">
@@ -1330,7 +1355,8 @@
     <div class="controls-bar">
       <div class="tab-group">
         <button id="tabSimulado" class="tab-btn active">🎲 Simulado 10Q</button>
-        <button id="tabBanco" class="tab-btn">📚 Banco Todo (40Q)</button>
+        <button id="tabBanco" class="tab-btn">📚 Banco Parte 1 (40Q)</button>
+        <button id="tabBanco2" class="tab-btn">📝 Simulado Parte 2 (40Q)</button>
         <button id="tabEstudo" class="tab-btn">📖 Central de Estudos</button>
         <button id="tabRedacao" class="tab-btn">✍️ Redação & Modelos</button>
       </div>
@@ -1359,30 +1385,48 @@
       <div class="rule-callout">
         <strong>⚠️ Regras Críticas de Eliminação:</strong>
         <ul style="margin: 8px 0 0 20px; line-height: 1.6;">
-          <li><strong>Escala de Pontuação:</strong> 0 a 40 pontos. Nota mínima para aprovação: <strong>20 pontos</strong>.</li>
-          <li><strong>Extensão Obrigatória:</strong> Mínimo de <strong>20 linhas</strong> e máximo de <strong>30 linhas</strong>. Textos com menos de 20 linhas recebem <strong>NOTA ZERO</strong> imediata!</li>
-          <li><strong>Proibição de Identificação:</strong> NUNCA assine nem invente nomes no texto para não ser desclassificado.</li>
-          <li><strong>Sem Título:</strong> A IBAM não exige título. Comece direto no 1º parágrafo para não queimar linhas válidas.</li>
-          <li><strong>Estrutura em 4 Parágrafos:</strong> 1. Introdução (Norma e Demanda) &bull; 2. Análise dos Fatos &bull; 3. Providências Práticas &bull; 4. Conclusão/Encaminhamento.</li>
+          <li><strong>Escala de Pontuação:</strong> 0 a 40 pontos. Nota mínima para aprovação: <strong>20
+              pontos</strong>.</li>
+          <li><strong>Extensão Obrigatória:</strong> Mínimo de <strong>20 linhas</strong> e máximo de <strong>30
+              linhas</strong>. Textos com menos de 20 linhas recebem <strong>NOTA ZERO</strong> imediata!</li>
+          <li><strong>Proibição de Identificação:</strong> NUNCA assine nem invente nomes no texto para não ser
+            desclassificado.</li>
+          <li><strong>Sem Título:</strong> A IBAM não exige título. Comece direto no 1º parágrafo para não queimar
+            linhas válidas.</li>
+          <li><strong>Estrutura em 4 Parágrafos:</strong> 1. Introdução (Norma e Demanda) &bull; 2. Análise dos Fatos
+            &bull; 3. Providências Práticas &bull; 4. Conclusão/Encaminhamento.</li>
         </ul>
       </div>
 
       <div class="models-grid">
-        
+
         <!-- Modelo 1 -->
         <div class="model-card">
           <span class="model-badge">MODELO 1 &bull; ATENDIMENTO PRIORITÁRIO & 5S</span>
           <h3>Relatório Técnico: Atendimento Prioritário e Gestão de Fluxo</h3>
           <p style="font-size: 0.88rem; color: var(--text-muted);">
-            Situação-Problema: Reclamações de munícipes idosos e gestantes sobre demora no atendimento e guichês desorganizados (Leis 10.048/00 e 13.460/17).
+            Situação-Problema: Reclamações de munícipes idosos e gestantes sobre demora no atendimento e guichês
+            desorganizados (Leis 10.048/00 e 13.460/17).
           </p>
-          <div class="model-body">Ao analisar o fluxo de atendimento da unidade, verificou-se a ocorrência de desconformidades em relação ao cumprimento das garantias de prioridade legal estabelecidas pela Lei Federal nº 10.048/2000 e pela Lei nº 13.460/2017 (Carta de Serviços ao Usuário). Constatou-se que a ausência de triagem prévia e a sinalização inadequada dos guichês geraram morosidade e conflitos operacionais no balcão de recepção.
+          <div class="model-body">Ao analisar o fluxo de atendimento da unidade, verificou-se a ocorrência de
+            desconformidades em relação ao cumprimento das garantias de prioridade legal estabelecidas pela Lei Federal
+            nº 10.048/2000 e pela Lei nº 13.460/2017 (Carta de Serviços ao Usuário). Constatou-se que a ausência de
+            triagem prévia e a sinalização inadequada dos guichês geraram morosidade e conflitos operacionais no balcão
+            de recepção.
 
-Diante do cenário apresentado, fundamenta-se a necessidade de readequação imediata dos procedimentos organizacionais. O atendimento com urbanidade, eficiência e respeito às prioridades de idosos, pessoas com deficiência e gestantes constitui dever indeclinável do servidor público municipal, conforme preceitua o Estatuto dos Funcionários Públicos de Santos (Lei nº 4.623/1984).
+            Diante do cenário apresentado, fundamenta-se a necessidade de readequação imediata dos procedimentos
+            organizacionais. O atendimento com urbanidade, eficiência e respeito às prioridades de idosos, pessoas com
+            deficiência e gestantes constitui dever indeclinável do servidor público municipal, conforme preceitua o
+            Estatuto dos Funcionários Públicos de Santos (Lei nº 4.623/1984).
 
-Para sanar os gargalos identificados, determinam-se as seguintes providências administrativas: a) implantação de sistema de senhas diferenciadas por categoria de atendimento; b) reorganização do espaço físico com sinalização clara dos guichês prioritários; e c) capacitação contínua da equipe de recepção para orientação preventiva aos munícipes.
+            Para sanar os gargalos identificados, determinam-se as seguintes providências administrativas: a)
+            implantação de sistema de senhas diferenciadas por categoria de atendimento; b) reorganização do espaço
+            físico com sinalização clara dos guichês prioritários; e c) capacitação contínua da equipe de recepção para
+            orientação preventiva aos munícipes.
 
-Submete-se o presente relatório à apreciação da chefia imediata, sugerindo a emissão de ordem de serviço para implementação das melhorias propostas no prazo de dez dias úteis, zelando pela qualidade e celeridade do serviço público prestado.</div>
+            Submete-se o presente relatório à apreciação da chefia imediata, sugerindo a emissão de ordem de serviço
+            para implementação das melhorias propostas no prazo de dez dias úteis, zelando pela qualidade e celeridade
+            do serviço público prestado.</div>
         </div>
 
         <!-- Modelo 2 -->
@@ -1390,15 +1434,26 @@ Submete-se o presente relatório à apreciação da chefia imediata, sugerindo a
           <span class="model-badge">MODELO 2 &bull; LGPD vs. LAI</span>
           <h3>Despacho Administrativo: Acesso à Informação e Proteção de Dados</h3>
           <p style="font-size: 0.88rem; color: var(--text-muted);">
-            Situação-Problema: Solicitação de cópia de processo contendo dados pessoais sensíveis por cidadão não participante da lide.
+            Situação-Problema: Solicitação de cópia de processo contendo dados pessoais sensíveis por cidadão não
+            participante da lide.
           </p>
-          <div class="model-body">Trata-se de requerimento formulado por munícipe solicitando acesso integral e fotocópia do Processo Administrativo nº 12.345/2026. Cumpre destacar que os autos contêm documentos pessoais, laudos médicos e informações financeiras protegidas por sigilo legal.
+          <div class="model-body">Trata-se de requerimento formulado por munícipe solicitando acesso integral e
+            fotocópia do Processo Administrativo nº 12.345/2026. Cumpre destacar que os autos contêm documentos
+            pessoais, laudos médicos e informações financeiras protegidas por sigilo legal.
 
-A despeito do princípio da publicidade que rege a Administração Pública, preconizado na Lei de Acesso à Informação (Lei nº 12.527/2011), o direito de acesso deve ser harmonizado com a proteção dos direitos fundamentais à intimidade e à privacidade, nos termos da Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 - LGPD). O tratamento de dados pessoais por órgãos públicos exige estrita observância à finalidade pública e à necessidade do ato.
+            A despeito do princípio da publicidade que rege a Administração Pública, preconizado na Lei de Acesso à
+            Informação (Lei nº 12.527/2011), o direito de acesso deve ser harmonizado com a proteção dos direitos
+            fundamentais à intimidade e à privacidade, nos termos da Lei Geral de Proteção de Dados Pessoais (Lei nº
+            13.709/2018 - LGPD). O tratamento de dados pessoais por órgãos públicos exige estrita observância à
+            finalidade pública e à necessidade do ato.
 
-Considerando que o requerente não figura como parte interessada ou representante legalmente constituído no referido processo, mostra-se inviável o fornecimento irrestrito das peças que contenham dados pessoais identificáveis de terceiros, sob pena de responsabilização administrativa do órgão.
+            Considerando que o requerente não figura como parte interessada ou representante legalmente constituído no
+            referido processo, mostra-se inviável o fornecimento irrestrito das peças que contenham dados pessoais
+            identificáveis de terceiros, sob pena de responsabilização administrativa do órgão.
 
-Deferem-se, contudo, a certidão explicativa do andamento processual e a vista parcial dos autos, mediante a tarja/ocultação prévia de dados pessoais sensíveis, assegurando a transparência passiva sem violar a privacidade dos titulares. Encaminhe-se à Seção de Protocolo para providências.</div>
+            Deferem-se, contudo, a certidão explicativa do andamento processual e a vista parcial dos autos, mediante a
+            tarja/ocultação prévia de dados pessoais sensíveis, assegurando a transparência passiva sem violar a
+            privacidade dos titulares. Encaminhe-se à Seção de Protocolo para providências.</div>
         </div>
 
         <!-- Modelo 3 -->
@@ -1406,15 +1461,27 @@ Deferem-se, contudo, a certidão explicativa do andamento processual e a vista p
           <span class="model-badge">MODELO 3 &bull; METODOLOGIA 5S & ARQUIVOS</span>
           <h3>Comunicado Interno: Organização de Arquivos Setoriais e 5S</h3>
           <p style="font-size: 0.88rem; color: var(--text-muted);">
-            Situação-Problema: Acúmulo desordenado de papéis e falta de padronização no arquivo corrente comprometendo prazos processuais.
+            Situação-Problema: Acúmulo desordenado de papéis e falta de padronização no arquivo corrente comprometendo
+            prazos processuais.
           </p>
-          <div class="model-body">Comunico à equipe técnica da unidade a deflagração do plano de reorganização do arquivo corrente e do ambiente de trabalho, pautado na metodologia 5S (Utilização, Ordenação, Limpeza, Asseio e Autodisciplina), visando otimizar a rotina administrativa e garantir a preservação de documentos públicos.
+          <div class="model-body">Comunico à equipe técnica da unidade a deflagração do plano de reorganização do
+            arquivo corrente e do ambiente de trabalho, pautado na metodologia 5S (Utilização, Ordenação, Limpeza,
+            Asseio e Autodisciplina), visando otimizar a rotina administrativa e garantir a preservação de documentos
+            públicos.
 
-A acumulação desordenada de processos e materiais inservíveis compromete o controle de prazos e a celeridade na localização de dados necessários ao atendimento das demandas internas e externas. A aplicação do Senso de Utilização permitirá a triagem dos documentos que devem permanecer no arquivo corrente e a destinação adequada daqueles em fase intermediária ou passíveis de eliminação, nos termos da tabela de temporalidade vigente.
+            A acumulação desordenada de processos e materiais inservíveis compromete o controle de prazos e a celeridade
+            na localização de dados necessários ao atendimento das demandas internas e externas. A aplicação do Senso de
+            Utilização permitirá a triagem dos documentos que devem permanecer no arquivo corrente e a destinação
+            adequada daqueles em fase intermediária ou passíveis de eliminação, nos termos da tabela de temporalidade
+            vigente.
 
-Ademais, a implementação do Senso de Ordenação padronizará as caixas box, pastas suspensas e a indexação digital dos processos, assegurando que qualquer documento seja localizado com rapidez e segurança pelos oficiais de administração.
+            Ademais, a implementação do Senso de Ordenação padronizará as caixas box, pastas suspensas e a indexação
+            digital dos processos, assegurando que qualquer documento seja localizado com rapidez e segurança pelos
+            oficiais de administração.
 
-Conto com a colaboração e o empenho de todos os servidores na execução do cronograma de organização, reforçando que o zelo pelo patrimônio e pela documentação pública constitui obrigação funcional de todo agente público.</div>
+            Conto com a colaboração e o empenho de todos os servidores na execução do cronograma de organização,
+            reforçando que o zelo pelo patrimônio e pela documentação pública constitui obrigação funcional de todo
+            agente público.</div>
         </div>
 
         <!-- Modelo 4 -->
@@ -1422,15 +1489,25 @@ Conto com a colaboração e o empenho de todos os servidores na execução do cr
           <span class="model-badge">MODELO 4 &bull; TRANSPARÊNCIA ATIVA / PASSIVA</span>
           <h3>Informação Técnica: Resposta a Pedido de Informação (LAI)</h3>
           <p style="font-size: 0.88rem; color: var(--text-muted);">
-            Situação-Problema: Requerimento de cidadão solicitando planilha consolidada dos contratos de prestação de serviços do exercício anterior.
+            Situação-Problema: Requerimento de cidadão solicitando planilha consolidada dos contratos de prestação de
+            serviços do exercício anterior.
           </p>
-          <div class="model-body">Em atenção ao Requerimento de Acesso à Informação registrado sob o nº 876/2026, pelo qual o cidadão solicita relação consolidada dos contratos de prestação de serviços executados no exercício anterior, prestam-se as seguintes informações.
+          <div class="model-body">Em atenção ao Requerimento de Acesso à Informação registrado sob o nº 876/2026, pelo
+            qual o cidadão solicita relação consolidada dos contratos de prestação de serviços executados no exercício
+            anterior, prestam-se as seguintes informações.
 
-A prestação de informações e a transparência pública constituem regra na Administração Pública Municipal, conforme preconizado na Lei Federal nº 12.527/2011 (LAI) e na Lei Orgânica do Município de Santos. A disponibilização de dados contratuais fortalece o controle social e demonstra o compromisso da gestão com a integridade e a lisura dos atos administrativos.
+            A prestação de informações e a transparência pública constituem regra na Administração Pública Municipal,
+            conforme preconizado na Lei Federal nº 12.527/2011 (LAI) e na Lei Orgânica do Município de Santos. A
+            disponibilização de dados contratuais fortalece o controle social e demonstra o compromisso da gestão com a
+            integridade e a lisura dos atos administrativos.
 
-Informa-se que a totalidade dos contratos vigentes, seus aditivos, notas de empenho e relatórios de medição encontra-se publicada e atualizada no Portal da Transparência da Prefeitura Municipal de Santos, acessível de forma direta e irrestrita pelo público externo. Anexa-se ao presente expediente a planilha resumida com os quantitativos e valores globais solicitados.
+            Informa-se que a totalidade dos contratos vigentes, seus aditivos, notas de empenho e relatórios de medição
+            encontra-se publicada e atualizada no Portal da Transparência da Prefeitura Municipal de Santos, acessível
+            de forma direta e irrestrita pelo público externo. Anexa-se ao presente expediente a planilha resumida com
+            os quantitativos e valores globais solicitados.
 
-Remeta-se ao Serviço de Informação ao Cidadão (SIC) para tempestiva resposta ao interessado no prazo regimental.</div>
+            Remeta-se ao Serviço de Informação ao Cidadão (SIC) para tempestiva resposta ao interessado no prazo
+            regimental.</div>
         </div>
 
         <!-- Modelo 5 -->
@@ -1440,13 +1517,23 @@ Remeta-se ao Serviço de Informação ao Cidadão (SIC) para tempestiva resposta
           <p style="font-size: 0.88rem; color: var(--text-muted);">
             Situação-Problema: Disparidade de consumo de insumos de expediente e desperdício de materiais na repartição.
           </p>
-          <div class="model-body">Dirijo-me aos responsáveis pelas seções administrativas para solicitar a rigorosa observância aos procedimentos de requisição, recebimento e guarda de materiais de expediente no âmbito do almoxarifado setorial.
+          <div class="model-body">Dirijo-me aos responsáveis pelas seções administrativas para solicitar a rigorosa
+            observância aos procedimentos de requisição, recebimento e guarda de materiais de expediente no âmbito do
+            almoxarifado setorial.
 
-Constatou-se disparidade entre o consumo registrado e a demanda real de insumos nas últimas semanas, indicando a necessidade de aperfeiçoar o controle de estoque e coibir o uso indevido de bens públicos. O artigo 222 do Estatuto dos Funcionários Públicos Civis de Santos (Lei nº 4.623/1984) estabelece expressamente o dever do servidor de zelar pela economia e pela conservação do material confiado à sua guarda.
+            Constatou-se disparidade entre o consumo registrado e a demanda real de insumos nas últimas semanas,
+            indicando a necessidade de aperfeiçoar o controle de estoque e coibir o uso indevido de bens públicos. O
+            artigo 222 do Estatuto dos Funcionários Públicos Civis de Santos (Lei nº 4.623/1984) estabelece
+            expressamente o dever do servidor de zelar pela economia e pela conservação do material confiado à sua
+            guarda.
 
-Para mitigar os riscos de desperdício, estabelece-se que as requisições de material deverão ser formalizadas via sistema informatizado, com assinatura do chefe do setor, vedando-se a entrega de insumos sem o devido registro do quantitativo e do destinatário.
+            Para mitigar os riscos de desperdício, estabelece-se que as requisições de material deverão ser formalizadas
+            via sistema informatizado, com assinatura do chefe do setor, vedando-se a entrega de insumos sem o devido
+            registro do quantitativo e do destinatário.
 
-Reitera-se que o uso racional dos recursos públicos assegura a eficiência administrativa e a sustentabilidade no serviço público municipal. Solicito a ampla divulgação das presentes instruções a todos os colaboradores da unidade.</div>
+            Reitera-se que o uso racional dos recursos públicos assegura a eficiência administrativa e a
+            sustentabilidade no serviço público municipal. Solicito a ampla divulgação das presentes instruções a todos
+            os colaboradores da unidade.</div>
         </div>
 
       </div>
@@ -1457,7 +1544,8 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
       <div class="guide-header">
         <h2>📖 Central de Estudos Direcionada & Videoaulas (IBAM)</h2>
         <p style="color: var(--text-muted); margin-top: 4px; font-size: 0.95rem;">
-          Conteúdos estratégicos, resumos de alta retenção, macetes de prova e videoaulas selecionadas para o cargo de Oficial de Administração.
+          Conteúdos estratégicos, resumos de alta retenção, macetes de prova e videoaulas selecionadas para o cargo de
+          Oficial de Administração.
         </p>
       </div>
 
@@ -1480,7 +1568,8 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
             <span class="badge badge-module especificos">Peso 4.0 &bull; Específicos</span>
           </div>
           <div class="study-content">
-            <p>O Programa 5S originou-se no Japão e visa otimizar ambientes de trabalho, reduzir desperdícios e organizar o fluxo de materiais e informações:</p>
+            <p>O Programa 5S originou-se no Japão e visa otimizar ambientes de trabalho, reduzir desperdícios e
+              organizar o fluxo de materiais e informações:</p>
             <table class="study-table">
               <thead>
                 <tr>
@@ -1498,7 +1587,8 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
                 <tr>
                   <td><strong>Seiton</strong></td>
                   <td>Ordenação / Arrumação</td>
-                  <td>Um lugar para cada coisa e cada coisa em seu lugar; pastas identificadas e caixas box numeradas.</td>
+                  <td>Um lugar para cada coisa e cada coisa em seu lugar; pastas identificadas e caixas box numeradas.
+                  </td>
                 </tr>
                 <tr>
                   <td><strong>Seiso</strong></td>
@@ -1518,12 +1608,14 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
               </tbody>
             </table>
             <div class="macete-box">
-              <strong>💡 Macete IBAM:</strong> O <em>Seiri</em> elimina o que não serve; o <em>Seiton</em> organiza o que ficou para localização em menos de 30 segundos!
+              <strong>💡 Macete IBAM:</strong> O <em>Seiri</em> elimina o que não serve; o <em>Seiton</em> organiza o
+              que ficou para localização em menos de 30 segundos!
             </div>
           </div>
           <div class="study-footer">
             <span style="font-size: 0.8rem; color: var(--text-dim);">Tópico essencial para Objetiva e Redação</span>
-            <a href="http://www.youtube.com/watch?v=50JpDjbs4tY" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+            <a href="http://www.youtube.com/watch?v=50JpDjbs4tY" target="_blank" rel="noopener noreferrer"
+              class="video-link-btn">
               ▶️ Assistir Videoaula: Questões de 5S e Rotinas IBAM
             </a>
           </div>
@@ -1535,19 +1627,28 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
             <span class="badge badge-module especificos">Peso 4.0 &bull; Específicos</span>
           </div>
           <div class="study-content">
-            <p>Os documentos públicos passam por um ciclo vital bem definido de acordo com sua frequência de uso e valor jurídico:</p>
+            <p>Os documentos públicos passam por um ciclo vital bem definido de acordo com sua frequência de uso e valor
+              jurídico:</p>
             <ul>
-              <li><strong>1ª Idade (Arquivo Corrente):</strong> Documentos em tramitação, de uso frequente e valor primário (administrativo, fiscal ou legal). Fica no próprio setor de trabalho.</li>
-              <li><strong>2ª Idade (Arquivo Intermediário / "Purgatório"):</strong> Documentos com uso reduzido que aguardam prazos prescricionais ou precaucionais definidos na <em>Tabela de Temporalidade</em>.</li>
-              <li><strong>3ª Idade (Arquivo Permanente / Histórico):</strong> Documentos de valor secundário (cultural, histórico ou comprobatório). <strong>Nunca podem ser eliminados</strong> (são imprescritíveis e inalienáveis).</li>
+              <li><strong>1ª Idade (Arquivo Corrente):</strong> Documentos em tramitação, de uso frequente e valor
+                primário (administrativo, fiscal ou legal). Fica no próprio setor de trabalho.</li>
+              <li><strong>2ª Idade (Arquivo Intermediário / "Purgatório"):</strong> Documentos com uso reduzido que
+                aguardam prazos prescricionais ou precaucionais definidos na <em>Tabela de Temporalidade</em>.</li>
+              <li><strong>3ª Idade (Arquivo Permanente / Histórico):</strong> Documentos de valor secundário (cultural,
+                histórico ou comprobatório). <strong>Nunca podem ser eliminados</strong> (são imprescritíveis e
+                inalienáveis).</li>
             </ul>
             <div class="macete-box">
-              <strong>💡 Macete Protocolo (*CLAUDIRCER*):</strong> As atividades do protocolo são: <strong>CLAs</strong>sificação, <strong>AU</strong>tuação, <strong>DI</strong>stribuição, <strong>R</strong>egistro, <strong>C</strong>ontrole de tramitação, <strong>E</strong>xpedição e <strong>R</strong>ecebimento.
+              <strong>💡 Macete Protocolo (*CLAUDIRCER*):</strong> As atividades do protocolo são:
+              <strong>CLAs</strong>sificação, <strong>AU</strong>tuação, <strong>DI</strong>stribuição,
+              <strong>R</strong>egistro, <strong>C</strong>ontrole de tramitação, <strong>E</strong>xpedição e
+              <strong>R</strong>ecebimento.
             </div>
           </div>
           <div class="study-footer">
             <span style="font-size: 0.8rem; color: var(--text-dim);">Gestão de documentos públicos</span>
-            <a href="http://www.youtube.com/watch?v=50JpDjbs4tY" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+            <a href="http://www.youtube.com/watch?v=50JpDjbs4tY" target="_blank" rel="noopener noreferrer"
+              class="video-link-btn">
               ▶️ Assistir Videoaula: Gestão de Documentos e Arquivos
             </a>
           </div>
@@ -1559,19 +1660,28 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
             <span class="badge badge-module especificos">Peso 4.0 &bull; Específicos</span>
           </div>
           <div class="study-content">
-            <p>O atendimento ao munícipe é pautado por legislações federais de observância obrigatória na Prefeitura de Santos:</p>
+            <p>O atendimento ao munícipe é pautado por legislações federais de observância obrigatória na Prefeitura de
+              Santos:</p>
             <ul>
-              <li><strong>Lei Federal nº 10.048/2000 (Atendimento Prioritário):</strong> Garante atendimento prioritário imediato e diferenciado a: pessoas com deficiência, idosos (60+ anos), gestantes, lactantes, pessoas com crianças de colo e obesos.</li>
-              <li><strong>Lei Federal nº 13.460/2017 (Direitos do Usuário):</strong> Cria a obrigatoriedade da <em>Carta de Serviços ao Usuário</em> e estabelece o papel da Ouvidoria no acolhimento de sugestões, denúncias e reclamações com prazos definidos.</li>
-              <li><strong>Decreto Federal nº 9.758/2019 (Simplificação e Pronomes):</strong> O único pronome de tratamento correto no serviço público é <strong>"Senhor" / "Senhora"</strong>. Fica abolido o uso de termos arcaicos como "Doutor", "Ilustríssimo" e "Digníssimo".</li>
+              <li><strong>Lei Federal nº 10.048/2000 (Atendimento Prioritário):</strong> Garante atendimento prioritário
+                imediato e diferenciado a: pessoas com deficiência, idosos (60+ anos), gestantes, lactantes, pessoas com
+                crianças de colo e obesos.</li>
+              <li><strong>Lei Federal nº 13.460/2017 (Direitos do Usuário):</strong> Cria a obrigatoriedade da <em>Carta
+                  de Serviços ao Usuário</em> e estabelece o papel da Ouvidoria no acolhimento de sugestões, denúncias e
+                reclamações com prazos definidos.</li>
+              <li><strong>Decreto Federal nº 9.758/2019 (Simplificação e Pronomes):</strong> O único pronome de
+                tratamento correto no serviço público é <strong>"Senhor" / "Senhora"</strong>. Fica abolido o uso de
+                termos arcaicos como "Doutor", "Ilustríssimo" e "Digníssimo".</li>
             </ul>
             <div class="macete-box">
-              <strong>💡 Fechos Oficiais:</strong> Apenas dois fechos são admitidos: <em>Respeitosamente</em> (para autoridades de hierarquia superior) e <em>Atenciosamente</em> (para mesma hierarquia ou inferior).
+              <strong>💡 Fechos Oficiais:</strong> Apenas dois fechos são admitidos: <em>Respeitosamente</em> (para
+              autoridades de hierarquia superior) e <em>Atenciosamente</em> (para mesma hierarquia ou inferior).
             </div>
           </div>
           <div class="study-footer">
             <span style="font-size: 0.8rem; color: var(--text-dim);">Atendimento com urbanidade e eficiência</span>
-            <a href="http://www.youtube.com/watch?v=os6Ps23T91g" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+            <a href="http://www.youtube.com/watch?v=os6Ps23T91g" target="_blank" rel="noopener noreferrer"
+              class="video-link-btn">
               ▶️ Assistir Videoaula: Leis de Atendimento e Relações Humanas
             </a>
           </div>
@@ -1586,18 +1696,28 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
           <div class="study-content">
             <p>A banca IBAM prioriza a identificação da regra gramatical que justifica o acento gráfico:</p>
             <ul>
-              <li><strong>Proparoxítonas:</strong> TODAS são acentuadas sem exceção (ex: <em>pú-bli-co, trân-si-to, é-ti-ca, vír-gu-la</em>).</li>
-              <li><strong>Oxítonas:</strong> Acentuam-se as terminadas em <strong>A(S), E(S), O(S), EM/ENS</strong> (ex: <em>ca-já, vo-cê, ci-pó, ar-ma-zém, pa-ra-béns</em>).</li>
-              <li><strong>Paroxítonas:</strong> Acentuam-se as que NÃO terminam nas terminações das oxítonas. Destaque especial para terminadas em <strong>ditongo oral</strong> (ex: <em>re-la-tó-rio, his-tó-ria, ór-gão</em>).</li>
-              <li><strong>Regra do Hiato:</strong> Acentuam-se as vogais <strong>I</strong> e <strong>U</strong> tônicas, sozinhas na sílaba ou seguidas de 'S', sem ditongo antes e sem 'NH' depois (ex: <em>sa-ú-de, sa-í-da, ju-í-zes</em>).</li>
+              <li><strong>Proparoxítonas:</strong> TODAS são acentuadas sem exceção (ex: <em>pú-bli-co, trân-si-to,
+                  é-ti-ca, vír-gu-la</em>).</li>
+              <li><strong>Oxítonas:</strong> Acentuam-se as terminadas em <strong>A(S), E(S), O(S), EM/ENS</strong> (ex:
+                <em>ca-já, vo-cê, ci-pó, ar-ma-zém, pa-ra-béns</em>).
+              </li>
+              <li><strong>Paroxítonas:</strong> Acentuam-se as que NÃO terminam nas terminações das oxítonas. Destaque
+                especial para terminadas em <strong>ditongo oral</strong> (ex: <em>re-la-tó-rio, his-tó-ria,
+                  ór-gão</em>).</li>
+              <li><strong>Regra do Hiato:</strong> Acentuam-se as vogais <strong>I</strong> e <strong>U</strong>
+                tônicas, sozinhas na sílaba ou seguidas de 'S', sem ditongo antes e sem 'NH' depois (ex: <em>sa-ú-de,
+                  sa-í-da, ju-í-zes</em>).</li>
             </ul>
             <div class="macete-box">
-              <strong>💡 Atenção ao Novo Acordo:</strong> Não se acentuam mais os ditongos abertos <em>ei, oi</em> nas paroxítonas (ex: <em>ideia, assembleia, jiboia</em>). Mas nas oxítonas continuam acentuados (ex: <em>herói, papéis</em>).
+              <strong>💡 Atenção ao Novo Acordo:</strong> Não se acentuam mais os ditongos abertos <em>ei, oi</em> nas
+              paroxítonas (ex: <em>ideia, assembleia, jiboia</em>). Mas nas oxítonas continuam acentuados (ex:
+              <em>herói, papéis</em>).
             </div>
           </div>
           <div class="study-footer">
             <span style="font-size: 0.8rem; color: var(--text-dim);">Regras fundamentais de escrita</span>
-            <a href="http://www.youtube.com/watch?v=TcOgQRAWoP8" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+            <a href="http://www.youtube.com/watch?v=TcOgQRAWoP8" target="_blank" rel="noopener noreferrer"
+              class="video-link-btn">
               ▶️ Assistir Videoaula: Acentuação Gráfica IBAM
             </a>
           </div>
@@ -1609,7 +1729,8 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
             <span class="badge badge-module">Peso 2.0 &bull; Português</span>
           </div>
           <div class="study-content">
-            <p>Dominar o valor semântico das conjunções garante pontos tanto na prova objetiva quanto nota máxima de coesão na prova dissertativa:</p>
+            <p>Dominar o valor semântico das conjunções garante pontos tanto na prova objetiva quanto nota máxima de
+              coesão na prova dissertativa:</p>
             <table class="study-table">
               <thead>
                 <tr>
@@ -1647,12 +1768,14 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
               </tbody>
             </table>
             <div class="macete-box">
-              <strong>💡 Dica de Redação IBAM:</strong> Empregue ao menos 3 conjunções variadas no seu texto dissertativo (ex: <em>Diante disso, Contudo, Ademais</em>) para pontuação máxima em articulação!
+              <strong>💡 Dica de Redação IBAM:</strong> Empregue ao menos 3 conjunções variadas no seu texto
+              dissertativo (ex: <em>Diante disso, Contudo, Ademais</em>) para pontuação máxima em articulação!
             </div>
           </div>
           <div class="study-footer">
             <span style="font-size: 0.8rem; color: var(--text-dim);">Articulação e semântica textual</span>
-            <a href="http://www.youtube.com/watch?v=sjxWgnnOawo" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+            <a href="http://www.youtube.com/watch?v=sjxWgnnOawo" target="_blank" rel="noopener noreferrer"
+              class="video-link-btn">
               ▶️ Assistir Videoaula: Conjunções e Conectivos IBAM
             </a>
           </div>
@@ -1708,7 +1831,7 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
               </tbody>
             </table>
             <div class="macete-box">
-              <strong>💡 Formas de Provimento:</strong> 
+              <strong>💡 Formas de Provimento:</strong>
               • <em>Reintegração:</em> retorno do demitido injustamente com ressarcimento total.
               • <em>Reversão:</em> retorno do aposentado por invalidez quando recuperado.
               • <em>Aproveitamento:</em> retorno do servidor que estava em disponibilidade.
@@ -1717,7 +1840,8 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
           </div>
           <div class="study-footer">
             <span style="font-size: 0.8rem; color: var(--text-dim);">Prazos e direitos fundamentais do servidor</span>
-            <a href="http://www.youtube.com/watch?v=os6Ps23T91g" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+            <a href="http://www.youtube.com/watch?v=os6Ps23T91g" target="_blank" rel="noopener noreferrer"
+              class="video-link-btn">
               ▶️ Assistir Videoaula: Estatuto dos Servidores de Santos (Parte 1)
             </a>
           </div>
@@ -1729,20 +1853,29 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
             <span class="badge badge-module">Peso 2.0 &bull; Legislação</span>
           </div>
           <div class="study-content">
-            <p>O Estatuto de Santos estabelece as penalidades aplicáveis às infrações funcionais e seus respectivos prazos de extinção de punibilidade:</p>
+            <p>O Estatuto de Santos estabelece as penalidades aplicáveis às infrações funcionais e seus respectivos
+              prazos de extinção de punibilidade:</p>
             <ul>
-              <li><strong>Penalidades Disciplinares:</strong> Repreensão (escrita), Suspensão (até 90 dias, com perda da remuneração), Multa (conversão de suspensão), Demissão, Demissão a bem do serviço público e Cassação de aposentadoria.</li>
-              <li><strong>Prescrição de 2 Anos:</strong> Aplica-se às faltas disciplinares mais brandas puníveis com repreensão, suspensão ou multa.</li>
-              <li><strong>Prescrição de 5 Anos:</strong> Aplica-se às faltas graves que ensejam demissão, cassação de disponibilidade ou aposentadoria.</li>
-              <li><strong>Artigo 222 (Zelo Patrimonial):</strong> Dever expresso do funcionário de zelar pela economia e conservação de materiais, máquinas e bens públicos sob sua guarda.</li>
+              <li><strong>Penalidades Disciplinares:</strong> Repreensão (escrita), Suspensão (até 90 dias, com perda da
+                remuneração), Multa (conversão de suspensão), Demissão, Demissão a bem do serviço público e Cassação de
+                aposentadoria.</li>
+              <li><strong>Prescrição de 2 Anos:</strong> Aplica-se às faltas disciplinares mais brandas puníveis com
+                repreensão, suspensão ou multa.</li>
+              <li><strong>Prescrição de 5 Anos:</strong> Aplica-se às faltas graves que ensejam demissão, cassação de
+                disponibilidade ou aposentadoria.</li>
+              <li><strong>Artigo 222 (Zelo Patrimonial):</strong> Dever expresso do funcionário de zelar pela economia e
+                conservação de materiais, máquinas e bens públicos sob sua guarda.</li>
             </ul>
             <div class="macete-box">
-              <strong>💡 Lei Orgânica de Santos (Art. 75 - Mandato de Vereador):</strong> Se o servidor for eleito Vereador e houver compatibilidade de horários, acumula legitimamente o cargo e o subsídio. Se for eleito Prefeito, afasta-se obrigatoriamente e opta pela remuneração!
+              <strong>💡 Lei Orgânica de Santos (Art. 75 - Mandato de Vereador):</strong> Se o servidor for eleito
+              Vereador e houver compatibilidade de horários, acumula legitimamente o cargo e o subsídio. Se for eleito
+              Prefeito, afasta-se obrigatoriamente e opta pela remuneração!
             </div>
           </div>
           <div class="study-footer">
             <span style="font-size: 0.8rem; color: var(--text-dim);">Deveres e penalidades disciplinares</span>
-            <a href="http://www.youtube.com/watch?v=Xi8XAoRxAf4" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+            <a href="http://www.youtube.com/watch?v=Xi8XAoRxAf4" target="_blank" rel="noopener noreferrer"
+              class="video-link-btn">
               ▶️ Assistir Videoaula: Regime Disciplinar e Punições Santos
             </a>
           </div>
@@ -1757,19 +1890,25 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
           <div class="study-content">
             <p>Macetes rápidos para resolver questões numéricas recorrentes da banca IBAM:</p>
             <ul>
-              <li><strong>Regra de Três Inversa:</strong> Pergunte: "Se eu aumento a quantidade de trabalhadores, o tempo aumenta ou diminui?". Se diminui, as grandezas são INVERSAS (multiplica-se em linha reta: $A_1 \times T_1 = A_2 \times T_2$).</li>
-              <li><strong>Aumentos Sucessivos:</strong> Dois aumentos sucessivos de 10% NÃO somam 20%. Multiplica-se o fator multiplicativo: $1,10 \times 1,10 = 1,21$ (aumento real de 21%).</li>
-              <li><strong>Desconto Comercial:</strong> $Valor\,Final = Valor\,Original \times (1 - Taxa)$. Ex: desconto de 15% em R$ 200: $200 \times 0,85 = R\$ 170$.</li>
+              <li><strong>Regra de Três Inversa:</strong> Pergunte: "Se eu aumento a quantidade de trabalhadores, o
+                tempo aumenta ou diminui?". Se diminui, as grandezas são INVERSAS (multiplica-se em linha reta: $A_1
+                \times T_1 = A_2 \times T_2$).</li>
+              <li><strong>Aumentos Sucessivos:</strong> Dois aumentos sucessivos de 10% NÃO somam 20%. Multiplica-se o
+                fator multiplicativo: $1,10 \times 1,10 = 1,21$ (aumento real de 21%).</li>
+              <li><strong>Desconto Comercial:</strong> $Valor\,Final = Valor\,Original \times (1 - Taxa)$. Ex: desconto
+                de 15% em R$ 200: $200 \times 0,85 = R\$ 170$.</li>
             </ul>
             <div class="macete-box">
               <strong>💡 Conversão de Volume e Capacidade:</strong>
               • $1\,m^3 = 1.000\,\text{litros}$ &bull; $1\,dm^3 = 1\,\text{litro}$ &bull; $1\,cm^3 = 1\,mL$.
-              • Conversão de Área: $1\,m^2 = 10.000\,cm^2$ (ao mudar de unidade de área, anda-se de 2 em 2 casas decimais!).
+              • Conversão de Área: $1\,m^2 = 10.000\,cm^2$ (ao mudar de unidade de área, anda-se de 2 em 2 casas
+              decimais!).
             </div>
           </div>
           <div class="study-footer">
             <span style="font-size: 0.8rem; color: var(--text-dim);">Cálculos rápidos para o dia da prova</span>
-            <a href="http://www.youtube.com/watch?v=B5_X17jhHBs" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+            <a href="http://www.youtube.com/watch?v=B5_X17jhHBs" target="_blank" rel="noopener noreferrer"
+              class="video-link-btn">
               ▶️ Assistir Videoaula: Regra de Três e Frações IBAM
             </a>
           </div>
@@ -1786,16 +1925,20 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
               <li><strong>Retângulo:</strong> $Área = Base \times Altura$ | $Perímetro = 2 \times (Base + Altura)$.</li>
               <li><strong>Quadrado:</strong> $Área = L^2$ | $Perímetro = 4 \times L$.</li>
               <li><strong>Triângulo:</strong> $Área = \frac{Base \times Altura}{2}$.</li>
-              <li><strong>Círculo:</strong> $Área = \pi \times r^2$ | $Comprimento = 2 \times \pi \times r$ (a IBAM costuma pedir $\pi = 3$ ou $\pi = 3,14$).</li>
-              <li><strong>Problemas de Ladrilhos/Pisos:</strong> $Nº\,de\,Placas = \frac{Área\,Total\,do\,Chão}{Área\,de\,Cada\,Placa}$.</li>
+              <li><strong>Círculo:</strong> $Área = \pi \times r^2$ | $Comprimento = 2 \times \pi \times r$ (a IBAM
+                costuma pedir $\pi = 3$ ou $\pi = 3,14$).</li>
+              <li><strong>Problemas de Ladrilhos/Pisos:</strong> $Nº\,de\,Placas =
+                \frac{Área\,Total\,do\,Chão}{Área\,de\,Cada\,Placa}$.</li>
             </ul>
             <div class="macete-box">
-              <strong>💡 Recuos de Terreno:</strong> Atenção aos enunciados que pedem recuo frontal, de fundo e laterais. Subtraia os recuos ANTES de calcular a área construível!
+              <strong>💡 Recuos de Terreno:</strong> Atenção aos enunciados que pedem recuo frontal, de fundo e
+              laterais. Subtraia os recuos ANTES de calcular a área construível!
             </div>
           </div>
           <div class="study-footer">
             <span style="font-size: 0.8rem; color: var(--text-dim);">Geometria aplicada a rotinas públicas</span>
-            <a href="http://www.youtube.com/watch?v=LpRvDfkVPU4" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+            <a href="http://www.youtube.com/watch?v=LpRvDfkVPU4" target="_blank" rel="noopener noreferrer"
+              class="video-link-btn">
               ▶️ Assistir Videoaula: Geometria e Áreas IBAM
             </a>
           </div>
@@ -1844,12 +1987,14 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
               </tbody>
             </table>
             <div class="macete-box">
-              <strong>💡 Lixeira:</strong> Arquivos excluídos de pen drives ou unidades de rede NÃO vão para a Lixeira local; são excluídos em definitivo!
+              <strong>💡 Lixeira:</strong> Arquivos excluídos de pen drives ou unidades de rede NÃO vão para a Lixeira
+              local; são excluídos em definitivo!
             </div>
           </div>
           <div class="study-footer">
             <span style="font-size: 0.8rem; color: var(--text-dim);">Sistema operacional e operação diária</span>
-            <a href="http://www.youtube.com/watch?v=50JpDjbs4tY" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+            <a href="http://www.youtube.com/watch?v=50JpDjbs4tY" target="_blank" rel="noopener noreferrer"
+              class="video-link-btn">
               ▶️ Assistir Videoaula: Questões de Informática IBAM (Windows)
             </a>
           </div>
@@ -1871,16 +2016,20 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
                 • <code>=MÉDIA(B2:B10)</code>: Média aritmética simples dos valores.
                 • <code>=MÁXIMO(B2:B10)</code> e <code>=MÍNIMO(B2:B10)</code>: Maior e menor valor.
               </li>
-              <li><strong>Formatação Condicional:</strong> Altera a cor de fundo ou da fonte da célula automaticamente quando atende a uma condição (ex: pintar de verde se $\ge 70$).</li>
-              <li><strong>Referência Absoluta ($):</strong> O símbolo de cifrão <code>$A$1</code> fixa a coluna e a linha para que não variem ao arrastar pela alça de preenchimento.</li>
+              <li><strong>Formatação Condicional:</strong> Altera a cor de fundo ou da fonte da célula automaticamente
+                quando atende a uma condição (ex: pintar de verde se $\ge 70$).</li>
+              <li><strong>Referência Absoluta ($):</strong> O símbolo de cifrão <code>$A$1</code> fixa a coluna e a
+                linha para que não variem ao arrastar pela alça de preenchimento.</li>
             </ul>
             <div class="macete-box">
-              <strong>💡 Phishing:</strong> Golpe de engenharia social que utiliza e-mails falsificados de instituições oficiais para capturar senhas e credenciais bancárias.
+              <strong>💡 Phishing:</strong> Golpe de engenharia social que utiliza e-mails falsificados de instituições
+              oficiais para capturar senhas e credenciais bancárias.
             </div>
           </div>
           <div class="study-footer">
             <span style="font-size: 0.8rem; color: var(--text-dim);">Planilhas e segurança da informação</span>
-            <a href="http://www.youtube.com/watch?v=50JpDjbs4tY" target="_blank" rel="noopener noreferrer" class="video-link-btn">
+            <a href="http://www.youtube.com/watch?v=50JpDjbs4tY" target="_blank" rel="noopener noreferrer"
+              class="video-link-btn">
               ▶️ Assistir Videoaula: Excel e Fórmulas em Concursos
             </a>
           </div>
@@ -1902,34 +2051,42 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
           <span class="creator-badge">Dev Freelancer</span>
         </div>
       </div>
-      
+
       <div class="footer-links">
-        <a href="https://wa.me/5513991906461" target="_blank" rel="noopener noreferrer" class="footer-link-pill contact-pill" title="WhatsApp / Contato: (13) 99190-6461">
+        <a href="https://wa.me/5513991906461" target="_blank" rel="noopener noreferrer"
+          class="footer-link-pill contact-pill" title="WhatsApp / Contato: (13) 99190-6461">
           <svg class="footer-icon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.983zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            <path
+              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.983zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
           </svg>
           <span>(13) 99190-6461</span>
         </a>
 
-        <a href="https://marcus7170.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="footer-link-pill portfolio-pill" title="Visitar Portfólio">
-          <svg class="footer-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="https://marcus7170.github.io/portfolio/" target="_blank" rel="noopener noreferrer"
+          class="footer-link-pill portfolio-pill" title="Visitar Portfólio">
+          <svg class="footer-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
           </svg>
           <span>Portfólio</span>
-          <svg class="external-icon" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="external-icon" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
             <polyline points="15 3 21 3 21 9"></polyline>
             <line x1="10" y1="14" x2="21" y2="3"></line>
           </svg>
         </a>
 
-        <a href="https://github.com/marcus7170/" target="_blank" rel="noopener noreferrer" class="footer-link-pill github-pill" title="Ver perfil no GitHub">
+        <a href="https://github.com/marcus7170/" target="_blank" rel="noopener noreferrer"
+          class="footer-link-pill github-pill" title="Ver perfil no GitHub">
           <svg class="footer-icon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
           </svg>
           <span>GitHub</span>
-          <svg class="external-icon" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="external-icon" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
             <polyline points="15 3 21 3 21 9"></polyline>
             <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -1958,7 +2115,8 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
           <p id="modalPctText">80%</p>
         </div>
       </div>
-      <p class="modal-msg" id="modalFeedback">Excelente rendimento! Você atingiu o critério de habilitação (mais de 50% dos pontos). Continue treinando com novas combinações!</p>
+      <p class="modal-msg" id="modalFeedback">Excelente rendimento! Você atingiu o critério de habilitação (mais de 50%
+        dos pontos). Continue treinando com novas combinações!</p>
       <div style="display: flex; justify-content: center; gap: 12px;">
         <button id="modalNewSimBtn" class="btn-action">🎲 Novo Simulado (10Q)</button>
         <button id="modalCloseBtn" class="btn-action secondary">Revisar Respostas</button>
@@ -2713,6 +2871,751 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
     ];
 
     /* ==========================================================================
+       BANCO DE DADOS PARTE 2: 40 NOVAS QUESTÕES (TÓPICOS EXPANDIDOS)
+       ========================================================================== */
+    const QUESTION_BANK_2 = [
+      // ----------------------------------------------------
+      // MÓDULO 1: CONHECIMENTOS ESPECÍFICOS — 10 Q (PESO 4)
+      // ----------------------------------------------------
+      {
+        id: "ESP_11",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Arquivologia — Método de Classificação Numérico",
+        enunciado: "O método de classificação arquivístico que organiza os documentos em ordem crescente de numeração, utilizado preferencialmente para documentos que já possuem número próprio (como processos, contratos e notas fiscais), é denominado:",
+        opcoes: [
+          "Método alfabético nominal.",
+          "Método numérico simples.",
+          "Método geográfico.",
+          "Método ideográfico por assunto."
+        ],
+        correta: 1,
+        explicacao: "O método numérico simples classifica os documentos pela sequência numérica, sendo ideal para processos administrativos, contratos e documentos com numeração própria. O método alfabético usa o nome; o geográfico organiza por localidade; o ideográfico, por assunto.",
+        videoUrl: "https://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Gestão Documental e Arquivologia Aplicada"
+      },
+      {
+        id: "ESP_12",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "5S — Seiketsu (Asseio e Padronização)",
+        enunciado: "No programa 5S, o senso de Seiketsu tem como principal objetivo:",
+        opcoes: [
+          "Eliminar documentos desnecessários e materiais inservíveis do setor.",
+          "Manter o ambiente padronizado por meio de normas visuais contínuas que impeçam o retrocesso às práticas anteriores.",
+          "Distribuir os materiais de forma ordenada para localização ágil em menos de 30 segundos.",
+          "Desenvolver o hábito coletivo de manutenção autônoma das melhorias conquistadas."
+        ],
+        correta: 1,
+        explicacao: "Seiketsu (4º S — Asseio/Padronização) cria padrões visuais e normas que garantem a manutenção contínua dos resultados dos três primeiros S. O Shitsuke (5º S) é quem desenvolve o hábito autônomo (Kaizen). O Seiri elimina; o Seiton organiza; o Seiso limpa.",
+        videoUrl: "https://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Programa 5S Completo para Concursos"
+      },
+      {
+        id: "ESP_13",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Carta de Serviços ao Usuário (Lei 13.460/2017)",
+        enunciado: "A Lei Federal nº 13.460/2017 determina que os órgãos públicos municipais divulguem a Carta de Serviços ao Usuário. Esse documento deve conter, obrigatoriamente:",
+        opcoes: [
+          "Os salários e cargos de confiança de todos os servidores da repartição.",
+          "Informações sobre serviços prestados, documentos exigidos, prazos de entrega, canais de acesso e formas de comunicação com o cidadão.",
+          "A íntegra dos processos licitatórios dos últimos cinco anos.",
+          "O número de servidores aprovados em estágio probatório e suas avaliações funcionais."
+        ],
+        correta: 1,
+        explicacao: "A Carta de Serviços ao Usuário deve informar ao cidadão, de forma clara e objetiva: os serviços prestados, os requisitos e documentos exigidos, os prazos de cada etapa, as formas de acesso e os canais disponíveis para atendimento e reclamações — garantindo transparência e eficiência.",
+        videoUrl: "https://www.youtube.com/watch?v=os6Ps23T91g",
+        videoTitulo: "Videoaula: Lei 13.460/2017 — Direitos do Usuário do Serviço Público"
+      },
+      {
+        id: "ESP_14",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Arquivologia — Microfilmagem",
+        enunciado: "A microfilmagem de documentos públicos, regulamentada pela Lei Federal nº 5.433/1968, produz:",
+        opcoes: [
+          "Cópias sem valor legal que servem apenas como consulta auxiliar informal.",
+          "Reproduções com valor legal equivalente ao original, desde que autenticadas, podendo os originais frágeis ser eliminados após o processo.",
+          "Documentos exclusivamente para uso interno, vedada a utilização em processos judiciais.",
+          "Reproduções que substituem o original apenas para documentos de caráter financeiro e fiscal."
+        ],
+        correta: 1,
+        explicacao: "A Lei nº 5.433/1968 e o Decreto nº 1.799/1996 estabelecem que os microfilmes produzidos por processo autorizado têm pleno valor legal e probatório, equiparado ao documento original. Após a microfilmagem regular, os originais de valor precário podem ser eliminados com autorização formal.",
+        videoUrl: "https://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Arquivologia — Microfilmagem e Gestão Documental"
+      },
+      {
+        id: "ESP_15",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Redação Oficial — Ofício vs. Memorando",
+        enunciado: "Na redação oficial, o expediente administrativo correto para que um setor da secretaria municipal se comunique OFICIALMENTE com uma entidade privada externa (como uma associação de moradores ou empresa fornecedora) é:",
+        opcoes: [
+          "Memorando interno, por ser o expediente mais prático e célere.",
+          "Relatório técnico circunstanciado com parecer jurídico.",
+          "Ofício, por ser o instrumento de comunicação oficial entre órgão público e entidades ou pessoas externas.",
+          "Ata de reunião, por ter maior valor probatório perante terceiros."
+        ],
+        correta: 2,
+        explicacao: "O Ofício é o instrumento de comunicação oficial usado entre servidores de diferentes órgãos ou entre o órgão público e entidades e pessoas externas. O memorando é exclusivo para comunicação interna entre setores/servidores do mesmo órgão. Conforme o Manual de Redação da Presidência da República.",
+        videoUrl: "https://www.youtube.com/watch?v=sjxWgnnOawo",
+        videoTitulo: "Videoaula: Redação Oficial — Ofício, Memorando e Comunicados"
+      },
+      {
+        id: "ESP_16",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Compras Públicas — Lei 14.133/2021 (Modalidades)",
+        enunciado: "A Lei nº 14.133/2021 (Nova Lei de Licitações e Contratos Administrativos) extinguiu antigas modalidades e definiu como modalidades licitatórias vigentes:",
+        opcoes: [
+          "Concorrência, Tomada de Preços, Convite, Leilão e Concurso.",
+          "Pregão, Concorrência, Concurso, Leilão e Diálogo Competitivo.",
+          "Pregão eletrônico, Concorrência restrita, Convite e Tomada de Preços.",
+          "Registro de Preços, Dispensa eletrônica, Inexigibilidade e Adesão à ata."
+        ],
+        correta: 1,
+        explicacao: "A Lei nº 14.133/2021 extinguiu a Tomada de Preços e o Convite (existentes na Lei 8.666/93), mantendo e criando cinco modalidades: Pregão (obrigatório para bens e serviços comuns), Concorrência, Concurso, Leilão e Diálogo Competitivo (modalidade nova e inovadora).",
+        videoUrl: "https://www.youtube.com/watch?v=obf61xFUcAs",
+        videoTitulo: "Videoaula: Modalidades de Licitação da Lei 14.133/2021 — Pregão, Concorrência, Leilão e Diálogo Competitivo"
+      },
+      {
+        id: "ESP_17",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Protocolo Administrativo — Autuação",
+        enunciado: "No serviço de protocolo, a atividade de 'autuação' consiste em:",
+        opcoes: [
+          "Encaminhar os documentos às suas seções por meio de guia de remessa eletrônica.",
+          "Transformar um documento avulso em processo administrativo mediante formação de capa, folha de rosto e numeração sequencial das peças integrantes.",
+          "Classificar e indexar os expedientes conforme o assunto de que tratam no sistema informatizado.",
+          "Registrar no sistema a entrada e saída de correspondências externas com hora e data."
+        ],
+        correta: 1,
+        explicacao: "Autuar significa constituir formalmente um processo administrativo: insere-se capa padronizada, folha de rosto (com despacho inicial), numeram-se as folhas/peças sequencialmente, e o conjunto passa a tramitar como processo com número único de identificação — o que diferencia o processo de um mero documento avulso.",
+        videoUrl: "https://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Rotinas de Protocolo — Autuação e Tramitação"
+      },
+      {
+        id: "ESP_18",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Atendimento ao Público — Empatia vs. Simpatia",
+        enunciado: "No contexto do atendimento ao munícipe, a diferença fundamental entre 'empatia' e 'simpatia' é que:",
+        opcoes: [
+          "A empatia implica concordar com todos os pedidos do munícipe; a simpatia, apenas ouvi-lo educadamente.",
+          "A simpatia é a capacidade cognitiva de se colocar no lugar do outro; a empatia é um sentimento superficial de afeto.",
+          "A empatia envolve compreender a perspectiva e o sentimento do munícipe sem necessariamente concordar; a simpatia é um sentimento positivo pelo outro, sem aprofundamento na sua situação.",
+          "Ambos os conceitos são sinônimos e não apresentam diferença prática no atendimento público municipal."
+        ],
+        correta: 2,
+        explicacao: "Empatia é a habilidade cognitiva/emocional de compreender genuinamente a perspectiva e o sentimento do outro, sem necessariamente compartilhar ou concordar. Simpatia é um sentimento positivo de afinidade, mas sem o aprofundamento real na situação do outro. Na prática, o servidor empático oferece solução mais efetiva.",
+        videoUrl: "https://www.youtube.com/watch?v=os6Ps23T91g",
+        videoTitulo: "Videoaula: Relações Humanas e Atendimento ao Público"
+      },
+      {
+        id: "ESP_19",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Arquivologia — Arquivo Permanente",
+        enunciado: "Sobre os documentos que integram o Arquivo Permanente (3ª idade), é CORRETO afirmar que:",
+        opcoes: [
+          "Podem ser eliminados após decorridos 30 anos, mediante publicação de edital de notificação.",
+          "Possuem valor secundário (histórico, cultural ou comprobatório), são imprescritíveis e jamais podem ser alienados ou destruídos.",
+          "Ficam sob guarda do próprio setor que os produziu, em condições de acesso facilitado.",
+          "Retornam ao arquivo corrente quando necessários para instrução de novos processos."
+        ],
+        correta: 1,
+        explicacao: "O Arquivo Permanente guarda documentos de valor secundário (histórico, cultural e comprobatório). Esses documentos, por seu valor para a memória institucional e social, são juridicamente imprescritíveis e inalienáveis — jamais podem ser destruídos ou alienados, independentemente do tempo decorrido.",
+        videoUrl: "https://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Teoria das 3 Idades e Arquivos Permanentes"
+      },
+      {
+        id: "ESP_20",
+        moduloId: "especificos",
+        moduloNome: "Conhecimentos Específicos",
+        peso: 4.0,
+        topico: "Gestão de Documentos — Eliminação de Documentos Públicos",
+        enunciado: "A eliminação de documentos públicos de arquivo, após esgotado o prazo de guarda previsto na Tabela de Temporalidade, deve ser precedida obrigatoriamente:",
+        opcoes: [
+          "De aprovação verbal da chefia imediata e registro em ata de reunião informal de setor.",
+          "Da elaboração de Listagem de Eliminação e da publicação de Edital de Ciência em imprensa oficial, concedendo prazo aos interessados.",
+          "De microfilmagem integral de todos os documentos a serem eliminados, sem exceção.",
+          "De autorização judicial competente mediante processo específico de desjudicialização."
+        ],
+        correta: 1,
+        explicacao: "Conforme a Resolução nº 40/2014 do CONARQ (Conselho Nacional de Arquivos), a eliminação de documentos públicos exige: elaboração de Listagem de Eliminação, publicação de Edital de Ciência em órgão oficial (prazo mínimo de 30 dias para manifestação) e lavratura de Termo de Eliminação após o processo ser concluído.",
+        videoUrl: "https://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Tabela de Temporalidade e Eliminação de Documentos"
+      },
+
+      // ----------------------------------------------------
+      // MÓDULO 2: LÍNGUA PORTUGUESA — 8 Q (PESO 2)
+      // ----------------------------------------------------
+      {
+        id: "POR_09",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Ortografia — Por que / Porque / Porquê / Por quê",
+        enunciado: "Em qual das alternativas o emprego da forma 'porque' está de acordo com a norma-padrão da língua portuguesa?",
+        opcoes: [
+          "'Por quê você não apresentou o relatório no prazo estabelecido?'",
+          "'O servidor foi afastado, porquê chegou atrasado reiteradamente.'",
+          "'O oficial explicou porque as certidões não foram emitidas no prazo.'\n(Equivalente a: '...explicou que as certidões não foram emitidas no prazo.')",
+          "'Não sei o porque de tantos recursos administrativos negados.'"
+        ],
+        correta: 2,
+        explicacao: "'Porque' (junto, sem acento) é conjunção causal/explicativa, equivalente a 'pois/que'. Em 'explicou porque...' = 'explicou que...'. Por que (separado, sem acento) = pelo qual/em perguntas. Por quê (separado, com acento) = no final de frase. Porquê (junto, com acento) = substantivo ('o motivo').",
+        videoUrl: "https://www.youtube.com/watch?v=sjxWgnnOawo",
+        videoTitulo: "Videoaula: Por que, Porque, Porquê e Por quê — Ortografia IBAM"
+      },
+      {
+        id: "POR_10",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Concordância Nominal",
+        enunciado: "Assinale a frase em que a concordância nominal está plenamente de acordo com a norma culta:",
+        opcoes: [
+          "'Ela estava bastante cansada e exausta após o longo expediente na repartição.'",
+          "'Os documentos foram entregues meia hora antes do prazo estipulado.'",
+          "'Havia muito gente aguardando atendimento na recepção municipal.'",
+          "'Os servidores ficaram satisfeito com a nova escala de trabalho aprovada.'"
+        ],
+        correta: 0,
+        explicacao: "Em (A), 'cansada' e 'exausta' concordam corretamente com 'ela' (feminino singular). Em (C), 'muito' antes de substantivo feminino deve ser 'muita' (concordância nominal). Em (D), 'satisfeito' deve flexionar no plural: 'satisfeitos'. Em (B), a frase é correta também, mas na alternativa C o erro é mais claro — portanto A é a inequivocamente correta.",
+        videoUrl: "https://www.youtube.com/watch?v=TcOgQRAWoP8",
+        videoTitulo: "Videoaula: Concordância Verbal e Nominal para Concursos IBAM"
+      },
+      {
+        id: "POR_11",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Interpretação de Texto",
+        enunciado: "Leia o trecho: 'A eficiência no atendimento ao público não resulta apenas da velocidade, mas sobretudo da qualidade da escuta e da resolução efetiva das demandas apresentadas pelo cidadão.'\n\nCom base nesse texto, o servidor que atende rapidamente, mas sem resolver o problema do munícipe, age de forma:",
+        opcoes: [
+          "Eficiente, pois cumpre a meta de velocidade de atendimento estipulada pelo setor.",
+          "Ineficiente, porque a eficiência, conforme o texto, está associada à qualidade e à resolução efetiva das demandas, não apenas à velocidade.",
+          "Eficaz, pois reduziu o tempo de espera na fila de atendimento presencial.",
+          "Satisfatória, desde que o cidadão não apresente reclamação formal à Ouvidoria."
+        ],
+        correta: 1,
+        explicacao: "O texto afirma explicitamente que a eficiência resulta 'não apenas da velocidade, mas sobretudo da qualidade da escuta e da resolução efetiva'. Logo, velocidade sem resolução é insuficiente para caracterizar eficiência conforme o conceito expresso na passagem — questão de interpretação literal do enunciado.",
+        videoUrl: "https://www.youtube.com/watch?v=sjxWgnnOawo",
+        videoTitulo: "Videoaula: Interpretação Textual para Concursos IBAM"
+      },
+      {
+        id: "POR_12",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Pronome Relativo 'Cujo'",
+        enunciado: "Assinale a alternativa em que o pronome relativo 'cujo' está empregado corretamente segundo a norma-padrão:",
+        opcoes: [
+          "'O processo cujo o prazo venceu deve ser redistribuído imediatamente.'",
+          "'A servidora cujo relatório foi aprovado pela chefia recebeu elogio formal.'",
+          "'O cidadão cujo apresentou requerimento aguarda resposta há dez dias.'",
+          "'Os documentos cujos conteúdo foram digitalizados permanecem no arquivo.'"
+        ],
+        correta: 1,
+        explicacao: "'Cujo/cuja' é pronome relativo possessivo que indica posse e deve concordar com o substantivo que o segue (não com o antecedente). Em (B): 'cujo relatório' = o relatório dela — correto. Em (A): não se usa artigo depois de cujo ('cujo o' — errado). Em (C): cujo não substitui sujeito. Em (D): cujo deve concordar com o substantivo seguinte: 'cujos conteúdos'.",
+        videoUrl: "https://www.youtube.com/watch?v=sjxWgnnOawo",
+        videoTitulo: "Videoaula: Pronomes Relativos em Concursos — Cujo, Que, Onde"
+      },
+      {
+        id: "POR_13",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Voz Verbal — Passiva Analítica",
+        enunciado: "A frase 'O Oficial de Administração protocolou todos os requerimentos' está na voz ativa. Ao transformá-la corretamente para a voz passiva analítica, obtém-se:",
+        opcoes: [
+          "'Todos os requerimentos foram protocolados pelo Oficial de Administração.'",
+          "'Todos os requerimentos protocolaram pelo Oficial de Administração.'",
+          "'Protocolou-se todos os requerimentos pelo Oficial de Administração.'",
+          "'O Oficial de Administração teve todos os requerimentos protocolados.'"
+        ],
+        correta: 0,
+        explicacao: "Na voz passiva analítica: objeto direto → sujeito paciente + verbo SER (no mesmo tempo) + particípio do verbo principal + agente da passiva com preposição 'por'. 'Protocolou (pret. perf.)' → 'foram protocolados pelo Oficial'. A alternativa C usa voz passiva sintética (com 'se'), não analítica.",
+        videoUrl: "https://www.youtube.com/watch?v=TcOgQRAWoP8",
+        videoTitulo: "Videoaula: Voz Ativa e Passiva — Transformação para Concursos"
+      },
+      {
+        id: "POR_14",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Emprego do Hífen (Novo Acordo Ortográfico)",
+        enunciado: "De acordo com o Novo Acordo Ortográfico da Língua Portuguesa, assinale a alternativa em que o emprego do hífen está CORRETO em todas as palavras:",
+        opcoes: [
+          "anti-social / micro-ônibus / autoestima",
+          "antissocial / micro-ônibus / auto-estima",
+          "anti-inflamatório / micro-ônibus / autoestima",
+          "anti-inflamatório / microônibus / auto-estima"
+        ],
+        correta: 2,
+        explicacao: "Pelo Novo Acordo: usa-se hífen quando o 2º elemento começa com a mesma vogal do prefixo (anti-inflamatório ✓, pois 'anti' + 'i'). 'Micro-ônibus' leva hífen pois 'micro' termina em vogal e 'ônibus' começa com vogal diferente e é estrangeirismo. 'Autoestima' — 'auto' + 'e' (vogais diferentes) = sem hífen. 'Antissocial' sem hífen (ss entre vogais).",
+        videoUrl: "https://www.youtube.com/watch?v=TcOgQRAWoP8",
+        videoTitulo: "Videoaula: Novo Acordo Ortográfico — Hífen para Concursos"
+      },
+      {
+        id: "POR_15",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Figuras de Linguagem — Metáfora",
+        enunciado: "No trecho 'O arquivo era um labirinto sem saída — processos se perdiam entre corredores de papéis empoeirados', a figura de linguagem predominante é:",
+        opcoes: [
+          "Hipérbole.",
+          "Personificação (prosopopeia).",
+          "Metáfora.",
+          "Eufemismo."
+        ],
+        correta: 2,
+        explicacao: "Metáfora é a comparação implícita (sem conectivo 'como'). 'O arquivo ERA um labirinto' identifica o arquivo como labirinto diretamente, sem o uso de 'como' (se usasse 'como' seria símile/comparação). Hipérbole = exagero; personificação = atribuir ações humanas a coisas; eufemismo = suavizar ideia negativa.",
+        videoUrl: "https://www.youtube.com/watch?v=sjxWgnnOawo",
+        videoTitulo: "Videoaula: Figuras de Linguagem para Concursos IBAM"
+      },
+      {
+        id: "POR_16",
+        moduloId: "portugues",
+        moduloNome: "Língua Portuguesa",
+        peso: 2.0,
+        topico: "Separação Silábica",
+        enunciado: "Assinale a alternativa em que a divisão silábica de TODAS as palavras está correta:",
+        opcoes: [
+          "trans-por-tar / sub-li-nhar / des-en-vol-ver",
+          "trans-por-tar / su-bli-nhar / de-sen-vol-ver",
+          "tran-por-tar / sub-li-nhar / des-en-vol-ver",
+          "trans-por-tar / su-blin-har / de-sen-vol-ver"
+        ],
+        correta: 1,
+        explicacao: "Regras: (1) Os grupos consonantais bl, br, cl, cr, dr, fl, fr, gl, gr, pl, pr, tr, vr são INSEPARÁVEIS → 'su-bli-nhar' ✓. (2) 'Trans-por-tar': prefixo 'trans' pode ficar junto quando seguido de consoante ✓. (3) 'De-sen-vol-ver': de/sen/vol/ver ✓. Na alternativa A, 'sub-li-nhar' separa o dígrafo 'bl', o que é errado.",
+        videoUrl: "https://www.youtube.com/watch?v=TcOgQRAWoP8",
+        videoTitulo: "Videoaula: Separação Silábica e Ortografia para Concursos"
+      },
+
+      // ----------------------------------------------------
+      // MÓDULO 3: LEGISLAÇÃO MUNICIPAL — 8 Q (PESO 2)
+      // ----------------------------------------------------
+      {
+        id: "LEG_09",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Estatuto de Santos — Estabilidade no Serviço Público",
+        enunciado: "Nos termos do Estatuto dos Funcionários de Santos (Lei nº 4.623/1984) e da Constituição Federal, o servidor nomeado para cargo efetivo adquire estabilidade após:",
+        opcoes: [
+          "1 ano de efetivo exercício contado a partir da posse.",
+          "3 anos de efetivo exercício, mediante aprovação em avaliação especial de desempenho.",
+          "5 anos de estágio probatório com avaliações semestrais.",
+          "Aprovação em concurso interno de remoção para cargo de nível superior."
+        ],
+        correta: 1,
+        explicacao: "Conforme o art. 41 da CF/88, aplicado ao Estatuto de Santos, a estabilidade é adquirida após 3 anos de efetivo exercício no cargo, mediante aprovação em avaliação especial de desempenho promovida por Comissão instituída para essa finalidade. Antes do prazo, o servidor pode ser exonerado sem processo administrativo.",
+        videoUrl: "https://www.youtube.com/watch?v=os6Ps23T91g",
+        videoTitulo: "Videoaula: Estatuto dos Servidores Santos — Estabilidade e Estágio Probatório"
+      },
+      {
+        id: "LEG_10",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Estatuto de Santos — Disponibilidade",
+        enunciado: "O instituto da 'disponibilidade', previsto no Estatuto de Santos, é aplicado ao servidor estável quando:",
+        opcoes: [
+          "O servidor solicita afastamento voluntário por motivo de interesse particular.",
+          "O cargo é extinto ou declarado desnecessário, garantindo ao servidor remuneração proporcional ao tempo de serviço até seu aproveitamento em cargo compatível.",
+          "O servidor é demitido a bem do serviço público e aguarda o julgamento de recurso administrativo.",
+          "O servidor é afastado por doença por período superior a 24 meses consecutivos."
+        ],
+        correta: 1,
+        explicacao: "A disponibilidade protege o servidor estável cujo cargo for extinto ou declarado desnecessário: ele não é demitido, mas posto em disponibilidade com remuneração proporcional ao tempo de serviço (CF art. 41, §3º), aguardando aproveitamento em cargo compatível. É diferente da licença por interesse particular.",
+        videoUrl: "https://www.youtube.com/watch?v=os6Ps23T91g",
+        videoTitulo: "Videoaula: Estatuto dos Servidores Santos — Disponibilidade e Aproveitamento"
+      },
+      {
+        id: "LEG_11",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Lei de Acesso à Informação — Prazos de Resposta",
+        enunciado: "A Lei Federal nº 12.527/2011 (LAI) estabelece que o prazo máximo para atendimento de pedido de acesso à informação, após o registro da solicitação, é de:",
+        opcoes: [
+          "10 dias corridos, prorrogável por mais 5 dias mediante justificativa.",
+          "20 dias corridos, prorrogável por mais 10 dias mediante justificativa expressa, totalizando no máximo 30 dias.",
+          "15 dias úteis, prorrogáveis por mais 15 dias úteis.",
+          "30 dias corridos, improrrogáveis e sem possibilidade de extensão."
+        ],
+        correta: 1,
+        explicacao: "O art. 11 da LAI (Lei nº 12.527/2011) estabelece prazo de 20 dias corridos para resposta ao pedido de acesso à informação, prorrogável por mais 10 dias mediante justificativa expressa do órgão, totalizando até 30 dias. O descumprimento injustificado dos prazos gera responsabilização administrativa do agente.",
+        videoUrl: "https://www.youtube.com/watch?v=os6Ps23T91g",
+        videoTitulo: "Videoaula: LAI — Prazos, Transparência e Responsabilização"
+      },
+      {
+        id: "LEG_12",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "LGPD — Bases Legais para Tratamento pelo Poder Público",
+        enunciado: "De acordo com a LGPD (Lei nº 13.709/2018), o tratamento de dados pessoais por órgão público municipal SEM o consentimento do titular é lícito quando:",
+        opcoes: [
+          "Necessário para uso em campanhas publicitárias da Prefeitura nas redes sociais.",
+          "Necessário para execução de políticas públicas previstas em lei ou para cumprimento de obrigação legal ou regulatória pelo controlador público.",
+          "Solicitado por qualquer outro órgão público sem necessidade de justificativa formal.",
+          "Utilizado para análise comercial de perfis de contribuintes visando ao planejamento tributário."
+        ],
+        correta: 1,
+        explicacao: "O art. 7º, incisos II e III da LGPD autoriza o tratamento de dados pessoais sem consentimento quando: (a) necessário para cumprimento de obrigação legal/regulatória pelo controlador; (b) para execução de políticas públicas previstas em leis ou regulamentos ou respaldadas em contratos/convênios.",
+        videoUrl: "https://www.youtube.com/watch?v=os6Ps23T91g",
+        videoTitulo: "Videoaula: LGPD na Administração Pública — Bases Legais"
+      },
+      {
+        id: "LEG_13",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Estatuto de Santos — Acumulação de Cargos",
+        enunciado: "O Estatuto de Santos e a Constituição Federal permitem a acumulação remunerada de cargos públicos. São ACUMULÁVEIS, desde que haja compatibilidade de horários:",
+        opcoes: [
+          "Quaisquer dois cargos efetivos, desde que o total não ultrapasse 40 horas semanais.",
+          "Dois cargos de professor; um cargo de professor com outro técnico ou científico; dois cargos ou empregos privativos de profissionais de saúde com profissões regulamentadas.",
+          "Um cargo efetivo e até dois cargos em comissão na mesma esfera de governo.",
+          "Um cargo efetivo e qualquer mandato eletivo municipal, independentemente de compatibilidade."
+        ],
+        correta: 1,
+        explicacao: "O art. 37, XVI da CF/88 permite a acumulação remunerada apenas nos casos taxativos: (a) dois cargos de professor; (b) um cargo de professor + outro técnico ou científico; (c) dois cargos ou empregos privativos de profissionais de saúde com profissões regulamentadas. Fora dessas hipóteses, a acumulação é vedada.",
+        videoUrl: "https://www.youtube.com/watch?v=Xi8XAoRxAf4",
+        videoTitulo: "Videoaula: Acumulação de Cargos e Regime Disciplinar"
+      },
+      {
+        id: "LEG_14",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Estatuto de Santos — Processo Administrativo Disciplinar",
+        enunciado: "No Estatuto dos Funcionários de Santos, a penalidade de DEMISSÃO somente pode ser aplicada após:",
+        opcoes: [
+          "Notificação verbal da chefia imediata com registro em livro de ocorrências do setor.",
+          "Instauração, apuração e julgamento em regular Processo Administrativo Disciplinar (PAD), assegurados o contraditório e a ampla defesa ao servidor.",
+          "Decisão da Câmara Municipal de Santos em sessão plenária ordinária.",
+          "Aprovação pela maioria simples dos servidores lotados na mesma unidade de trabalho."
+        ],
+        correta: 1,
+        explicacao: "O princípio constitucional do due process of law (art. 5º, LIV e LV da CF/88) garante ao servidor o direito ao contraditório e à ampla defesa. A penalidade de demissão, por sua gravidade, exige obrigatoriamente a instauração de Processo Administrativo Disciplinar (PAD) formal com comissão processante, instrução e defesa plena.",
+        videoUrl: "https://www.youtube.com/watch?v=Xi8XAoRxAf4",
+        videoTitulo: "Videoaula: PAD — Processo Administrativo Disciplinar de Santos"
+      },
+      {
+        id: "LEG_15",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Lei Orgânica de Santos — Câmara Municipal",
+        enunciado: "Conforme a Lei Orgânica do Município de Santos e a Constituição Federal, o número de vereadores que compõe a Câmara Municipal é fixado por:",
+        opcoes: [
+          "Lei complementar estadual específica para o município de Santos.",
+          "A Constituição Federal, que estabelece faixas máximas de vereadores de acordo com a população do município.",
+          "Resolução interna da própria Câmara Municipal, aprovada pelos vereadores em exercício.",
+          "Decreto do Prefeito Municipal, com aprovação do Secretário Municipal de Administração."
+        ],
+        correta: 1,
+        explicacao: "O art. 29, IV da CF/88 (com redação da EC nº 58/2009) estabelece as faixas de número de vereadores de acordo com a população de cada município, sendo esse limite de competência constitucional federal. Nenhuma lei municipal ou estadual pode alterar esses limites estabelecidos pela Constituição.",
+        videoUrl: "https://www.youtube.com/watch?v=kIHr7ZxGLls",
+        videoTitulo: "Videoaula: Lei Orgânica de Santos — Câmara e Administração Municipal"
+      },
+      {
+        id: "LEG_16",
+        moduloId: "legislacao_municipal",
+        moduloNome: "Legislação Municipal de Santos",
+        peso: 2.0,
+        topico: "Estatuto de Santos — Sexta-Parte e Décimos",
+        enunciado: "A vantagem denominada 'Sexta-Parte', prevista no Estatuto dos Funcionários de Santos e na Lei Orgânica Municipal, é concedida ao servidor que:",
+        opcoes: [
+          "Completar 10 anos de serviço público federal ininterrupto em qualquer esfera.",
+          "Completar 25 anos de efetivo serviço público no Município de Santos, correspondendo a 1/6 do vencimento básico, incorporado definitivamente.",
+          "Exercer função gratificada por pelo menos 5 anos consecutivos no mesmo setor.",
+          "For designado para cargo de chefia de seção por ato do Prefeito Municipal."
+        ],
+        correta: 1,
+        explicacao: "A Sexta-Parte (ou sexta parte dos vencimentos) é uma vantagem pecuniária concedida ao servidor municipal de Santos que completar 25 anos de efetivo exercício no serviço público municipal. Equivale a 1/6 (um sexto) do vencimento básico, incorporado definitivamente ao contracheque. Já os décimos são incorporados por exercício de funções de chefia.",
+        videoUrl: "https://www.youtube.com/watch?v=kIHr7ZxGLls",
+        videoTitulo: "Videoaula: Vantagens Funcionais — Sexta-Parte, Décimos e Gratificações"
+      },
+
+      // ----------------------------------------------------
+      // MÓDULO 4: MATEMÁTICA & RLM — 8 Q (PESO 2)
+      // ----------------------------------------------------
+      {
+        id: "MAT_09",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Juros Simples",
+        enunciado: "Uma servidora tomou emprestado R$ 2.000,00 de um Fundo de Assistência com juros simples à taxa de 3% ao mês. Após 4 meses, o montante total a ser devolvido (capital + juros) será de:",
+        opcoes: [
+          "R$ 2.060,00",
+          "R$ 2.240,00",
+          "R$ 2.160,00",
+          "R$ 2.480,00"
+        ],
+        correta: 1,
+        explicacao: "Juros Simples: J = C × i × t = R$ 2.000 × 0,03 × 4 = R$ 240,00.\nMontante = Capital + Juros = R$ 2.000 + R$ 240 = R$ 2.240,00.\nNão se aplica capitalização composta (juros sobre juros), pois é juro simples.",
+        videoUrl: "https://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: Juros Simples e Compostos para Concursos IBAM"
+      },
+      {
+        id: "MAT_10",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "MMC — Mínimo Múltiplo Comum",
+        enunciado: "Em uma repartição pública, três alarmes soam em intervalos regulares: o primeiro a cada 6 minutos, o segundo a cada 8 minutos e o terceiro a cada 12 minutos. Se os três soaram juntos às 8h00, a que horas voltarão a soar juntos pela PRIMEIRA VEZ?",
+        opcoes: [
+          "8h12",
+          "8h24",
+          "8h36",
+          "8h48"
+        ],
+        correta: 1,
+        explicacao: "Calcula-se o MMC(6, 8, 12):\n6 = 2 × 3\n8 = 2³\n12 = 2² × 3\nMMC = 2³ × 3 = 24 minutos.\nOs três soarão juntos novamente após 24 minutos: 8h00 + 24 min = 8h24.",
+        videoUrl: "https://www.youtube.com/watch?v=B5_X17jhHBs",
+        videoTitulo: "Videoaula: MMC e MDC — Resolução de Problemas IBAM"
+      },
+      {
+        id: "MAT_11",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Proporção Direta — Compras",
+        enunciado: "Uma secretaria destinou R$ 1.200,00 para aquisição de resmas de papel. Sabendo que cada resma custa R$ 24,00, quantas resmas poderão ser adquiridas com esse orçamento?",
+        opcoes: [
+          "40 resmas.",
+          "48 resmas.",
+          "50 resmas.",
+          "60 resmas."
+        ],
+        correta: 2,
+        explicacao: "Quantidade de resmas = Verba total ÷ Preço unitário = R$ 1.200,00 ÷ R$ 24,00 = 50 resmas.\nVerificação: 50 × R$ 24,00 = R$ 1.200,00 ✓",
+        videoUrl: "https://www.youtube.com/watch?v=B5_X17jhHBs",
+        videoTitulo: "Videoaula: Problemas de Proporção Direta e Inversa IBAM"
+      },
+      {
+        id: "MAT_12",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Progressão Aritmética (PA)",
+        enunciado: "Uma Prefeitura atende munícipes em quantidade crescente: na 1ª semana atendeu 200, na 2ª semana 240, na 3ª semana 280, seguindo uma progressão aritmética de razão constante. Quantos cidadãos serão atendidos na 6ª semana?",
+        opcoes: [
+          "380",
+          "400",
+          "420",
+          "440"
+        ],
+        correta: 1,
+        explicacao: "PA com a₁ = 200 e razão r = 240 − 200 = 40.\nFórmula do termo geral: aₙ = a₁ + (n − 1) × r\na₆ = 200 + (6 − 1) × 40 = 200 + 200 = 400 cidadãos.\nVerificação: 200, 240, 280, 320, 360, 400 ✓",
+        videoUrl: "https://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: Progressão Aritmética e Geométrica para Concursos"
+      },
+      {
+        id: "MAT_13",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Média Aritmética com Decimais",
+        enunciado: "Em uma avaliação funcional de 5 servidores, as notas obtidas foram: 7,5; 8,0; 6,5; 9,0 e 9,5. Qual é a média aritmética simples dessas avaliações?",
+        opcoes: [
+          "7,8",
+          "8,0",
+          "8,1",
+          "8,5"
+        ],
+        correta: 2,
+        explicacao: "Soma = 7,5 + 8,0 + 6,5 + 9,0 + 9,5 = 40,5.\nMédia = Soma ÷ Quantidade = 40,5 ÷ 5 = 8,1.\nVerificação: 7,5 + 8,0 = 15,5; +6,5 = 22,0; +9,0 = 31,0; +9,5 = 40,5 ÷ 5 = 8,1 ✓",
+        videoUrl: "https://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: Médias Aritméticas e Ponderadas para Concursos"
+      },
+      {
+        id: "MAT_14",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Geometria Plana — Perímetro",
+        enunciado: "Uma sala de protocolo tem formato retangular com 12 metros de comprimento e 7 metros de largura. Para delimitar toda a área perimetral com fita de sinalização, quantos metros de fita serão necessários?",
+        opcoes: [
+          "84 metros.",
+          "38 metros.",
+          "42 metros.",
+          "19 metros."
+        ],
+        correta: 1,
+        explicacao: "Perímetro do retângulo = 2 × (comprimento + largura) = 2 × (12 + 7) = 2 × 19 = 38 metros.\nObservação: A área da sala seria 12 × 7 = 84 m², mas a questão pede o PERÍMETRO (contorno), não a área!",
+        videoUrl: "https://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: Geometria Plana — Área, Perímetro e Ladrilhamento"
+      },
+      {
+        id: "MAT_15",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Porcentagem — Aumento Seguido de Desconto",
+        enunciado: "Um produto adquirido pela Prefeitura custava R$ 500,00. Sofreu um aumento de 20% em janeiro e, no mês seguinte, obteve um desconto de 20% sobre o novo preço. Qual o valor final do produto após as duas variações?",
+        opcoes: [
+          "R$ 500,00 (voltou exatamente ao preço original).",
+          "R$ 480,00",
+          "R$ 520,00",
+          "R$ 460,00"
+        ],
+        correta: 1,
+        explicacao: "Após aumento de 20%: R$ 500 × 1,20 = R$ 600,00.\nApós desconto de 20%: R$ 600 × 0,80 = R$ 480,00.\nAumento de 20% seguido de desconto de 20% NÃO retorna ao valor original! Resultado: R$ 480,00 (perda de R$ 20,00 = 4% do valor inicial).",
+        videoUrl: "https://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: Acréscimos e Descontos Sucessivos — Porcentagem IBAM"
+      },
+      {
+        id: "MAT_16",
+        moduloId: "matematica",
+        moduloNome: "Matemática & RLM",
+        peso: 2.0,
+        topico: "Progressão Geométrica (PG) — Sequência Lógica",
+        enunciado: "As caixas de um arquivo setorial estão numeradas seguindo uma lógica: 2 / 6 / 18 / 54 / ___ / 486. Qual é o número que completa corretamente a sequência?",
+        opcoes: [
+          "108",
+          "144",
+          "162",
+          "216"
+        ],
+        correta: 2,
+        explicacao: "A sequência é uma PG (Progressão Geométrica) de razão q = 3: 2×3=6; 6×3=18; 18×3=54; 54×3=162; 162×3=486. O termo faltante é 162.\nVerificação: 54 × 3 = 162 ✓ e 162 × 3 = 486 ✓",
+        videoUrl: "https://www.youtube.com/watch?v=LpRvDfkVPU4",
+        videoTitulo: "Videoaula: PG e PA — Sequências Lógicas para Concursos IBAM"
+      },
+
+      // ----------------------------------------------------
+      // MÓDULO 5: NOÇÕES DE INFORMÁTICA — 6 Q (PESO 2)
+      // ----------------------------------------------------
+      {
+        id: "INF_07",
+        moduloId: "informatica",
+        moduloNome: "Noções de Informática",
+        peso: 2.0,
+        topico: "Microsoft Word — Pincel de Formatação",
+        enunciado: "No Microsoft Word, o recurso que permite copiar APENAS a formatação (cor, tamanho, tipo de fonte, negrito etc.) de um trecho de texto e aplicá-la a outro trecho, sem copiar o conteúdo escrito, é chamado de:",
+        opcoes: [
+          "Mala Direta.",
+          "Pincel de Formatação.",
+          "Autoformatação Automática.",
+          "Estilo Rápido."
+        ],
+        correta: 1,
+        explicacao: "O 'Pincel de Formatação' (ícone de pincel na guia Página Inicial) copia exclusivamente a formatação visual de um texto selecionado e a aplica em outro trecho ao clicar/arrastar. Difere do Ctrl+C (copia conteúdo + formatação) e da Mala Direta (mesclagem de banco de dados com documento modelo).",
+        videoUrl: "https://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Word para Concursos — Formatação, Estilos e Recursos"
+      },
+      {
+        id: "INF_08",
+        moduloId: "informatica",
+        moduloNome: "Noções de Informática",
+        peso: 2.0,
+        topico: "Internet — Protocolo HTTPS e Segurança",
+        enunciado: "O conjunto de regras que permite a transferência SEGURA e criptografada de dados entre o navegador do usuário e o servidor de um site, indicado pela sigla HTTPS e pelo ícone de cadeado na barra de endereços, utiliza o protocolo de segurança:",
+        opcoes: [
+          "FTP (File Transfer Protocol).",
+          "SMTP (Simple Mail Transfer Protocol).",
+          "SSL/TLS (Secure Sockets Layer / Transport Layer Security).",
+          "DHCP (Dynamic Host Configuration Protocol)."
+        ],
+        correta: 2,
+        explicacao: "O HTTPS é o HTTP combinado com o protocolo de segurança SSL/TLS, que criptografa os dados transmitidos entre o navegador e o servidor, garantindo confidencialidade e integridade. O cadeado na barra de endereços confirma o certificado SSL válido. FTP = transferência de arquivos; SMTP = envio de e-mail; DHCP = atribuição dinâmica de IPs.",
+        videoUrl: "https://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Segurança da Informação — HTTPS, SSL e Protocolos"
+      },
+      {
+        id: "INF_09",
+        moduloId: "informatica",
+        moduloNome: "Noções de Informática",
+        peso: 2.0,
+        topico: "Microsoft Excel — Função SE",
+        enunciado: "No Microsoft Excel (versão em português), o Oficial de Administração deseja criar uma fórmula que exiba 'APROVADO' se a nota da célula B2 for maior ou igual a 60, e 'REPROVADO' caso contrário. A fórmula CORRETA é:",
+        opcoes: [
+          "=SE(B2>=60;\"APROVADO\";\"REPROVADO\")",
+          "=IF(B2>=60,\"APROVADO\",\"REPROVADO\")",
+          "=CASO(B2>=60;\"APROVADO\";\"REPROVADO\")",
+          "=SE(B2>60;\"APROVADO\";\"REPROVADO\")"
+        ],
+        correta: 0,
+        explicacao: "A função SE em Excel (português) usa a sintaxe: =SE(teste_lógico; valor_se_verdadeiro; valor_se_falso). Para 'maior ou igual a 60' usa-se '>='. A alternativa B usa sintaxe em inglês (IF com vírgula — incorreta no Excel PT-BR). A alternativa D usa '>' estritamente maior, excluindo quem tirou exatamente 60.",
+        videoUrl: "https://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Funções do Excel para Concursos — SE, SOMA, MÉDIA"
+      },
+      {
+        id: "INF_10",
+        moduloId: "informatica",
+        moduloNome: "Noções de Informática",
+        peso: 2.0,
+        topico: "Backup — Tipos (Completo, Incremental, Diferencial)",
+        enunciado: "O tipo de backup que copia APENAS os arquivos modificados ou criados desde o ÚLTIMO BACKUP COMPLETO (independente de backups incrementais intermediários), tornando a restauração mais simples, é denominado:",
+        opcoes: [
+          "Backup completo (full).",
+          "Backup incremental.",
+          "Backup diferencial.",
+          "Backup espelhado (mirror)."
+        ],
+        correta: 2,
+        explicacao: "Backup diferencial: copia tudo que mudou desde o último backup COMPLETO. Para restaurar, precisa apenas do último completo + último diferencial.\nBackup incremental: copia o que mudou desde o ÚLTIMO BACKUP DE QUALQUER TIPO — restauração mais complexa (completo + todos os incrementais em sequência).\nBackup completo: copia todos os arquivos, sem exceção.",
+        videoUrl: "https://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Tipos de Backup para Concursos — Full, Incremental e Diferencial"
+      },
+      {
+        id: "INF_11",
+        moduloId: "informatica",
+        moduloNome: "Noções de Informática",
+        peso: 2.0,
+        topico: "E-mail — Campo CCO (Com Cópia Oculta)",
+        enunciado: "Um servidor público precisa encaminhar a mesma mensagem de e-mail para três colegas, mas sem que cada um deles veja o endereço dos demais destinatários. O campo correto para inserir os destinatários nessa situação é:",
+        opcoes: [
+          "Para (To).",
+          "CC — Com Cópia.",
+          "CCO / BCC — Com Cópia Oculta (Blind Carbon Copy).",
+          "Responder a Todos (Reply All)."
+        ],
+        correta: 2,
+        explicacao: "O campo CCO (Com Cópia Oculta) ou BCC (Blind Carbon Copy) permite enviar o e-mail para múltiplos destinatários sem que cada um veja os endereços dos demais — garantindo privacidade. Os campos 'Para' e 'CC' são visíveis a todos os destinatários. 'Responder a Todos' é uma ação, não um campo de endereçamento.",
+        videoUrl: "https://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: E-mail para Concursos — Para, CC, CCO e Boas Práticas"
+      },
+      {
+        id: "INF_12",
+        moduloId: "informatica",
+        moduloNome: "Noções de Informática",
+        peso: 2.0,
+        topico: "Windows 10 — Pesquisa de Arquivos no Explorer",
+        enunciado: "No Windows 10, quando o servidor precisa localizar rapidamente um arquivo dentro do Explorador de Arquivos pelo nome ou extensão (ex: todos os arquivos .pdf de uma pasta), o recurso nativo indicado é:",
+        opcoes: [
+          "Desfragmentador de Disco.",
+          "Gerenciador de Tarefas (Ctrl+Shift+Esc).",
+          "Barra de Pesquisa do Explorador de Arquivos, localizada no canto superior direito.",
+          "Painel de Controle > Sistema e Segurança."
+        ],
+        correta: 2,
+        explicacao: "A Barra de Pesquisa do Explorador de Arquivos (canto superior direito) permite buscar arquivos e pastas pelo nome, extensão (ex: *.pdf), data de modificação ou conteúdo, dentro da pasta atual e subpastas. O Desfragmentador otimiza o disco; o Gerenciador de Tarefas monitora processos; o Painel de Controle gerencia configurações do sistema.",
+        videoUrl: "https://www.youtube.com/watch?v=50JpDjbs4tY",
+        videoTitulo: "Videoaula: Windows 10 para Concursos — Explorer, Pesquisa e Atalhos"
+      }
+    ];
+
+    /* ==========================================================================
        ESTADO DA APLICAÇÃO E LÓGICA DO SIMULADOR
        ========================================================================== */
     let currentQuestions = [];
@@ -2725,6 +3628,7 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
     const estudoSection = document.getElementById("estudoSection");
     const tabSimulado = document.getElementById("tabSimulado");
     const tabBanco = document.getElementById("tabBanco");
+    const tabBanco2 = document.getElementById("tabBanco2");
     const tabEstudo = document.getElementById("tabEstudo");
     const tabRedacao = document.getElementById("tabRedacao");
     const btnShuffle = document.getElementById("btnShuffle");
@@ -2760,7 +3664,7 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
     function generateSimulado10() {
       currentMode = "simulado";
       userAnswers = {};
-      
+
       const modules = ["especificos", "portugues", "legislacao_municipal", "matematica", "informatica"];
       let selected = [];
 
@@ -2774,7 +3678,7 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
 
       // Embaralha as 10 questões para ficarem misturadas como em prova real
       currentQuestions = selected.sort(() => 0.5 - Math.random());
-      
+
       modeDisplay.innerText = "Simulado (10Q)";
       btnShuffle.style.display = "inline-flex";
       renderQuestions();
@@ -2787,6 +3691,17 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
       userAnswers = {};
       currentQuestions = [...QUESTION_BANK];
       modeDisplay.innerText = "Banco Completo (40Q)";
+      btnShuffle.style.display = "none";
+      renderQuestions();
+      updateDashboard();
+    }
+
+    // Exibição do banco completo com as 40 questões da Parte 2
+    function showFullBank2() {
+      currentMode = "banco2";
+      userAnswers = {};
+      currentQuestions = [...QUESTION_BANK_2];
+      modeDisplay.innerText = "Simulado Parte 2 (40Q)";
       btnShuffle.style.display = "none";
       renderQuestions();
       updateDashboard();
@@ -2933,8 +3848,8 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
         resBox.className = `resolution-box show ${isCorrect ? "correct" : "incorrect"}`;
         const headerEl = resBox.querySelector(".res-header span");
         if (headerEl) {
-          headerEl.innerHTML = isCorrect 
-            ? "🎉 Parabéns! Você acertou esta questão." 
+          headerEl.innerHTML = isCorrect
+            ? "🎉 Parabéns! Você acertou esta questão."
             : `❌ Você errou. O gabarito oficial é a alternativa (${letters[q.correta]}).`;
         }
       }
@@ -2971,7 +3886,7 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
       totalQuestionsDisplay.innerText = total;
       correctPctEl.innerText = `${pct}% de acerto`;
       maxPointsDisplay.innerText = `de ${maxPossiblePoints.toFixed(1)} pts no teste`;
-      
+
       progressBar.style.width = `${progPct}%`;
       progressPercent.innerText = `${progPct}%`;
     }
@@ -3033,6 +3948,7 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
       function hideAllTabs() {
         tabSimulado.classList.remove("active");
         tabBanco.classList.remove("active");
+        tabBanco2.classList.remove("active");
         tabEstudo.classList.remove("active");
         tabRedacao.classList.remove("active");
 
@@ -3056,6 +3972,14 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
         questionsSection.style.display = "flex";
         document.querySelector(".dashboard-panel").style.display = "block";
         showFullBank();
+      });
+
+      tabBanco2.addEventListener("click", () => {
+        hideAllTabs();
+        tabBanco2.classList.add("active");
+        questionsSection.style.display = "flex";
+        document.querySelector(".dashboard-panel").style.display = "block";
+        showFullBank2();
       });
 
       tabEstudo.addEventListener("click", () => {
@@ -3105,4 +4029,5 @@ Reitera-se que o uso racional dos recursos públicos assegura a eficiência admi
     init();
   </script>
 </body>
+
 </html>
